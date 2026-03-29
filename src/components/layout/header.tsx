@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "/", label: "首页" },
@@ -12,9 +13,23 @@ const navLinks = [
 
 export default function Header() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 z-50 w-full bg-linear-to-b from-white to-transparent">
+    <header
+      className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
+        isScrolled ? "bg-white shadow-sm" : "bg-linear-to-b from-white to-transparent"
+      }`}
+    >
       <div className="max-w-360 flex h-15 items-center justify-between px-4 mx-auto">
         {/* Logo - 左边 */}
         <div className="flex items-center">

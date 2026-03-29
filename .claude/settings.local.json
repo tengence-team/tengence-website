@@ -6,7 +6,8 @@
       "mcp__chrome-devtools__take_snapshot",
       "mcp__ide__getDiagnostics",
       "Bash(pnpm build:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npx tsc:*)"
     ]
   }
 }
