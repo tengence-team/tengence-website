@@ -3,7 +3,9 @@
     "allow": [
       "Bash(pnpm dlx shadcn@latest init:*)",
       "mcp__chrome-devtools__new_page",
-      "mcp__chrome-devtools__take_snapshot"
+      "mcp__chrome-devtools__take_snapshot",
+      "mcp__ide__getDiagnostics",
+      "Bash(pnpm build:*)"
     ]
   }
 }

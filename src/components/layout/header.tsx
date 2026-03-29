@@ -14,7 +14,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-linear-to-b from-white to-transparent">
+    <header className="fixed top-0 z-50 w-full bg-linear-to-b from-white to-transparent">
       <div className="max-w-360 flex h-15 items-center justify-between px-4 mx-auto">
         {/* Logo - 左边 */}
         <div className="flex items-center">
