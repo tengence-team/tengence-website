@@ -1,13 +1,14 @@
-import Image from "next/image";
-import { cn } from "@/lib/utils";
-import localFont from "next/font/local";
 import {
   FeatureCard,
   AdvantageCard,
   SectionTitle,
+  TrialStep,
   featureCards,
   advantageCards,
+  trialSteps,
 } from "@/components/home";
+import { cn } from "@/lib/utils";
+import localFont from "next/font/local";
 
 const sourceHanSerif = localFont({
   src: [
@@ -21,6 +22,8 @@ const sourceHanSerif = localFont({
   display: "swap",
   preload: true,
 });
+
+const CONNECTOR_POSITIONS = ["first", "middle-top", "middle-bottom", "last"] as const;
 
 export default function Home() {
   return (
@@ -48,9 +51,9 @@ export default function Home() {
       {/* Features Section */}
       <section>
         <div className="max-w-360 mx-auto grid grid-cols-2 gap-5 p-5 bg-white">
-          {featureCards.map((card, index) => (
+          {featureCards.map((card) => (
             <FeatureCard
-              key={index}
+              key={card.highlight}
               highlight={card.highlight}
               title={card.title}
               description={card.description}
@@ -100,131 +103,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trial Process Section */}
       <section className="bg-(--gradient-white-fade) m-5">
         <div className="max-w-360 mx-auto p-10 bg-[#f9f9fb80] rounded-[40px]">
-          <div
+          <h2
             className={cn(
               "text-[44px] font-semibold text-black text-center",
               sourceHanSerif.className
             )}
           >
             试用流程
-          </div>
+          </h2>
 
           <div className="mt-10 flex items-start">
-            <div className="relative flex flex-col justify-center items-center before:content-[''] before:h-3.75 before:w-[50%] before:absolute before:top-0 before:right-0 before:bg-[#DDE]">
-              <div className="rounded-full border-15 border-solid border-[#DDE] w-26.5 h-26.5 bg-[#7B7C9E] flex items-center justify-center">
-                <Image
-                  src="/icons/book.svg"
-                  width={32}
-                  height={32}
-                  alt="零门槛入门"
+            {trialSteps.map((step, index) => (
+              <div key={step.id} className="contents">
+                <TrialStep
+                  icon={step.icon}
+                  title={step.title}
+                  description={step.description}
+                  titleClassName={sourceHanSerif.className}
+                  connectorPosition={CONNECTOR_POSITIONS[index]}
                 />
-              </div>
-
-              <div
-                className={cn(
-                  "text-[#242430] text-[24px] font-semibold mt-10 mb-2",
-                  sourceHanSerif.className
+                {index < trialSteps.length - 1 && (
+                  <div
+                    className={cn(
+                      "h-3.75 flex-1 bg-[#DDE] bg-[url('/images/circulation.svg')] bg-no-repeat bg-center",
+                      index === 1 && "mt-22.75"
+                    )}
+                  />
                 )}
-              >
-                零门槛入门
               </div>
-
-              <p className="text-[#373850] text-base leading-6">
-                0成本免费开通
-              </p>
-              <p className="text-[#373850] text-base leading-6">
-                0风险极速验证
-              </p>
-            </div>
-
-            <div className="h-3.75 flex-1 bg-[#DDE] bg-[url('/images/circulation.svg')] bg-no-repeat bg-center"></div>
-
-            <div className="relative flex flex-col justify-center items-center before:content-[''] before:h-3.75 before:w-[50%] before:absolute before:top-0 before:left-0 before:bg-[#DDE] after:content-[''] after:h-3.75 after:w-[50%] after:absolute after:top-22.75 after:right-0 after:bg-[#DDE]">
-              <div className="rounded-full border-15 border-solid border-[#DDE] w-26.5 h-26.5 bg-[#7B7C9E] flex items-center justify-center">
-                <Image
-                  src="/icons/file-search.svg"
-                  width={32}
-                  height={32}
-                  alt="定制化诊断"
-                />
-              </div>
-
-              <div
-                className={cn(
-                  "text-[#242430] text-[24px] font-semibold mt-10 mb-2",
-                  sourceHanSerif.className
-                )}
-              >
-                定制化诊断
-              </div>
-
-              <p className="text-[#373850] text-base leading-6">
-                全维度业务诊断
-              </p>
-              <p className="text-[#373850] text-base leading-6">
-                一对一专家把脉
-              </p>
-            </div>
-
-            <div className="h-3.75 flex-1 bg-[#DDE] bg-[url('/images/circulation.svg')] bg-no-repeat bg-center mt-22.75"></div>
-
-            <div className="relative flex flex-col justify-center items-center before:content-[''] before:h-3.75 before:w-[50%] before:absolute before:top-22.75 before:left-0 before:bg-[#DDE] after:content-[''] after:h-3.75 after:w-[50%] after:absolute after:top-0 after:right-0 after:bg-[#DDE]">
-              <div className="rounded-full border-15 border-solid border-[#DDE] w-26.5 h-26.5 bg-[#7B7C9E] flex items-center justify-center">
-                <Image
-                  src="/icons/shield-tick.svg"
-                  width={32}
-                  height={32}
-                  alt="全场景验证"
-                />
-              </div>
-
-              <div
-                className={cn(
-                  "text-[#242430] text-[24px] font-semibold mt-10 mb-2",
-                  sourceHanSerif.className
-                )}
-              >
-                全场景验证
-              </div>
-
-              <p className="text-[#373850] text-base leading-6">
-                全场景 POC 实测
-              </p>
-              <p className="text-[#373850] text-base leading-6">
-                全流程落地陪跑
-              </p>
-            </div>
-
-            <div className="h-3.75 flex-1 bg-[#DDE] bg-[url('/images/circulation.svg')] bg-no-repeat bg-center"></div>
-
-            <div className="relative flex flex-col justify-center items-center before:content-[''] before:h-3.75 before:w-[50%] before:absolute before:top-0 before:left-0 before:bg-[#DDE]">
-              <div className="rounded-full border-15 border-solid border-[#DDE] w-26.5 h-26.5 bg-[#7B7C9E] flex items-center justify-center">
-                <Image
-                  src="/icons/umbrella.svg"
-                  width={32}
-                  height={32}
-                  alt="全周期护航"
-                />
-              </div>
-
-              <div
-                className={cn(
-                  "text-[#242430] text-[24px] font-semibold mt-10 mb-2",
-                  sourceHanSerif.className
-                )}
-              >
-                全周期护航
-              </div>
-
-              <p className="text-[#373850] text-base leading-6">
-                全链路数据闭环
-              </p>
-              <p className="text-[#373850] text-base leading-6">
-                全周期持续增长
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>

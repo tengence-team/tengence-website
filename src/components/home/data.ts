@@ -12,6 +12,13 @@ export interface AdvantageData {
   items: { text: string }[];
 }
 
+export interface TrialStepData {
+  id: string;
+  icon: string;
+  title: string;
+  description: string[];
+}
+
 export const featureCards: FeatureData[] = [
   {
     highlight: "一分钟",
@@ -36,6 +43,33 @@ export const featureCards: FeatureData[] = [
     title: "评估效果",
     description: "提供搜索质量分析仪表盘与A/B测试工具，一周内完成效果验证与调优。",
     image: "/images/evaluation-effect.png",
+  },
+];
+
+export const trialSteps: TrialStepData[] = [
+  {
+    id: "entry",
+    icon: "/icons/book.svg",
+    title: "零门槛入门",
+    description: ["0成本免费开通", "0风险极速验证"],
+  },
+  {
+    id: "diagnosis",
+    icon: "/icons/file-search.svg",
+    title: "定制化诊断",
+    description: ["全维度业务诊断", "一对一专家把脉"],
+  },
+  {
+    id: "verification",
+    icon: "/icons/shield-tick.svg",
+    title: "全场景验证",
+    description: ["全场景 POC 实测", "全流程落地陪跑"],
+  },
+  {
+    id: "escort",
+    icon: "/icons/umbrella.svg",
+    title: "全周期护航",
+    description: ["全链路数据闭环", "全周期持续增长"],
   },
 ];
 
