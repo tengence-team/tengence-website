@@ -1088,6 +1088,7 @@ export default function ProductPage() {
               columns={columns}
               dataSource={data}
               pagination={false}
+              className="shadow-card-border rounded-[20px] overflow-hidden"
               onRow={() => ({
                 className: cn(
                   "text-center text-base text-[#31373D]",

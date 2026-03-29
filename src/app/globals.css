@@ -14,3 +14,28 @@ html,
 body {
   background-color: white;
 }
+
+/* 移除 Ant Design Table 最外层边框 */
+.ant-table-wrapper .ant-table,
+.ant-table-wrapper .ant-table-container,
+.ant-table-wrapper .ant-table-content {
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* 移除 Table 底部边框 */
+.ant-table-wrapper .ant-table table {
+  border-collapse: collapse !important;
+}
+
+.ant-table-wrapper .ant-table-tbody > tr:last-child > td {
+  border-bottom: none !important;
+}
+
+.ant-table-wrapper .ant-table-thead > tr > th:last-child {
+  border-right: none !important;
+}
+
+.ant-table-wrapper .ant-table-tbody > tr > td:last-child {
+  border-right: none !important;
+}
