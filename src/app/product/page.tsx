@@ -137,6 +137,7 @@ const columns: TableProps<DataType>["columns"] = [
         sourceHanSerif.className
       ),
     }),
+    className: "!bg-[#F9FAFB]",
     onCell: (record) => ({
       colSpan: record.type ? 1 : 2,
       rowSpan: record.row ?? 1,
@@ -147,6 +148,7 @@ const columns: TableProps<DataType>["columns"] = [
     title: "",
     colSpan: 0,
     dataIndex: "type",
+    className: "!bg-[#F9FAFB]",
     onCell: (record) => ({
       colSpan: record.type ? 1 : 0,
       rowSpan: 1,
@@ -918,6 +920,19 @@ const data: DataType[] = [
   },
 ];
 
+// 修正每个分类的第一行标记
+const seenCategories = new Set<string>();
+data.forEach((item) => {
+  if (item.categoryId) {
+    if (!seenCategories.has(item.categoryId)) {
+      item.isFirstOfCategory = true;
+      seenCategories.add(item.categoryId);
+    } else {
+      item.isFirstOfCategory = false;
+    }
+  }
+});
+
 // 从 data 中动态生成功能分类导航
 const featureCategories = Array.from(
   new Set(data.filter((d) => d.categoryId).map((d) => d.categoryId as string))
@@ -1089,10 +1104,13 @@ export default function ProductPage() {
               dataSource={data}
               pagination={false}
               className="shadow-card-border rounded-[20px] overflow-hidden"
-              onRow={() => ({
+              onRow={(record, index) => ({
                 className: cn(
                   "text-center text-base text-[#31373D]",
-                  sourceHanSerif.className
+                  sourceHanSerif.className,
+                  index !== 0 &&
+                    record.isFirstOfCategory &&
+                    "[&>td]:border-t-[1.5px] [&>td]:border-t-[#C0C8D5]"
                 ),
               })}
               bordered

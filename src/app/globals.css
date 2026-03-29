@@ -10,6 +10,11 @@
   --gradient-white-fade: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFF 8.93%);
 }
 
+* {
+  --ant-table-header-bg: #F9FAFB !important;
+  --ant-table-border-color: #EAECF0 !important;
+}
+
 html,
 body {
   background-color: white;
@@ -28,14 +33,14 @@ body {
   border-collapse: collapse !important;
 }
 
-.ant-table-wrapper .ant-table-tbody > tr:last-child > td {
+.ant-table-wrapper .ant-table-tbody>tr:last-child>td {
   border-bottom: none !important;
 }
 
-.ant-table-wrapper .ant-table-thead > tr > th:last-child {
+.ant-table-wrapper .ant-table-thead>tr>th:last-child {
   border-right: none !important;
 }
 
-.ant-table-wrapper .ant-table-tbody > tr > td:last-child {
+.ant-table-wrapper .ant-table-tbody>tr>td:last-child {
   border-right: none !important;
 }
