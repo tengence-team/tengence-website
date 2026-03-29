@@ -4,8 +4,10 @@ import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
-  title: "Tengence - 优质产品与服务",
-  description: "Tengence 专注于提供优质的产品和服务",
+  title: "通智云",
+  keywords: ["通智云", "通智云搜索"],
+  description: "通智云专注于提供优质的产品和服务",
+  icons: "/logo.svg",
 };
 
 export default function RootLayout({
