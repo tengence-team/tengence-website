@@ -76,9 +76,15 @@ export default function Footer() {
           </div>
         </div>
         <div className="w-full h-px bg-white opacity-20 mt-10 mb-6"></div>
-        <p className="text-center text-sm">
-          Copyright ©{currentYear - 1} - {currentYear} 深圳市思讯网络有限公司
-        </p>
+        <div className="flex items-center justify-center gap-20">
+          <p className="text-center text-sm">
+            Copyright ©{currentYear - 1} - {currentYear} 深圳市思讯网络有限公司
+          </p>
+          <div className="flex items-center">
+            <Image src="/images/icp.png" alt="粤ICP备2024177480号" width={20} height={20} />
+            <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopener noreferrer" className="pl-1.5">粤ICP备2024177480号</a>
+          </div>
+        </div>
       </div>
     </footer>
   );
