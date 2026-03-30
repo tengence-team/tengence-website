@@ -92,7 +92,6 @@ interface DataType {
   elastic?: boolean;
   row?: number;
   categoryId?: string;
-  isFirstOfCategory?: boolean;
 }
 
 // 功能分类标题映射
@@ -138,10 +137,10 @@ const columns: TableProps<DataType>["columns"] = [
       ),
     }),
     className: "!bg-[#F9FAFB]",
-    onCell: (record) => ({
+    onCell: (record, index) => ({
       colSpan: record.type ? 1 : 2,
       rowSpan: record.row ?? 1,
-      id: record.isFirstOfCategory ? record.categoryId : undefined,
+      id: record.categoryId && (index === 0 || data[index - 1]?.categoryId !== record.categoryId) ? record.categoryId : undefined,
     }),
   },
   {
@@ -170,7 +169,6 @@ const data: DataType[] = [
     algolia: true,
     row: 1,
     categoryId: "standardPageComp",
-    isFirstOfCategory: true,
   },
   {
     key: "2",
@@ -179,7 +177,6 @@ const data: DataType[] = [
     algolia: true,
     row: 1,
     categoryId: "standardPageComp",
-    isFirstOfCategory: false,
   },
   {
     key: "3",
@@ -190,7 +187,6 @@ const data: DataType[] = [
     ali: true,
     row: 2,
     categoryId: "standardPageComp",
-    isFirstOfCategory: true,
   },
   {
     key: "4",
@@ -200,7 +196,6 @@ const data: DataType[] = [
     algolia: true,
     row: 0,
     categoryId: "standardPageComp",
-    isFirstOfCategory: false,
   },
   {
     key: "5",
@@ -210,7 +205,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 1,
     categoryId: "standardPageComp",
-    isFirstOfCategory: true,
   },
   {
     key: "6",
@@ -222,7 +216,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 3,
     categoryId: "searchGuidance",
-    isFirstOfCategory: true,
   },
   {
     key: "7",
@@ -232,7 +225,6 @@ const data: DataType[] = [
     algolia: true,
     row: 0,
     categoryId: "searchGuidance",
-    isFirstOfCategory: false,
   },
   {
     key: "8",
@@ -241,7 +233,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "searchGuidance",
-    isFirstOfCategory: false,
   },
   {
     key: "9",
@@ -251,7 +242,6 @@ const data: DataType[] = [
     ali: true,
     row: 3,
     categoryId: "searchGuidance",
-    isFirstOfCategory: true,
   },
   {
     key: "10",
@@ -260,7 +250,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "searchGuidance",
-    isFirstOfCategory: false,
   },
   {
     key: "11",
@@ -269,7 +258,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "searchGuidance",
-    isFirstOfCategory: false,
   },
   {
     key: "12",
@@ -279,7 +267,6 @@ const data: DataType[] = [
     ali: true,
     row: 3,
     categoryId: "searchGuidance",
-    isFirstOfCategory: true,
   },
   {
     key: "13",
@@ -288,7 +275,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "searchGuidance",
-    isFirstOfCategory: false,
   },
   {
     key: "14",
@@ -297,7 +283,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "searchGuidance",
-    isFirstOfCategory: false,
   },
   {
     key: "15",
@@ -306,7 +291,6 @@ const data: DataType[] = [
     tengence: true,
     row: 1,
     categoryId: "searchGuidance",
-    isFirstOfCategory: true,
   },
   {
     key: "16",
@@ -315,7 +299,6 @@ const data: DataType[] = [
     tengence: true,
     row: 3,
     categoryId: "searchGuidance",
-    isFirstOfCategory: true,
   },
   {
     key: "17",
@@ -324,7 +307,6 @@ const data: DataType[] = [
     ali: true,
     row: 0,
     categoryId: "searchGuidance",
-    isFirstOfCategory: false,
   },
   {
     key: "18",
@@ -333,7 +315,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "searchGuidance",
-    isFirstOfCategory: false,
   },
   {
     key: "19",
@@ -344,7 +325,6 @@ const data: DataType[] = [
     ali: true,
     row: 1,
     categoryId: "intent",
-    isFirstOfCategory: true,
   },
   {
     key: "20",
@@ -354,7 +334,6 @@ const data: DataType[] = [
     ali: true,
     row: 3,
     categoryId: "intent",
-    isFirstOfCategory: true,
   },
   {
     key: "21",
@@ -363,7 +342,6 @@ const data: DataType[] = [
     ali: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "22",
@@ -372,7 +350,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "23",
@@ -384,7 +361,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 1,
     categoryId: "intent",
-    isFirstOfCategory: true,
   },
   {
     key: "24",
@@ -396,7 +372,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 3,
     categoryId: "intent",
-    isFirstOfCategory: true,
   },
   {
     key: "25",
@@ -405,7 +380,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "26",
@@ -414,7 +388,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "27",
@@ -426,7 +399,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 3,
     categoryId: "intent",
-    isFirstOfCategory: true,
   },
   {
     key: "28",
@@ -436,7 +408,6 @@ const data: DataType[] = [
     algolia: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "29",
@@ -445,7 +416,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "30",
@@ -457,7 +427,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 3,
     categoryId: "intent",
-    isFirstOfCategory: true,
   },
   {
     key: "31",
@@ -466,7 +435,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "32",
@@ -475,7 +443,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "33",
@@ -487,7 +454,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 3,
     categoryId: "intent",
-    isFirstOfCategory: true,
   },
   {
     key: "34",
@@ -496,7 +462,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "35",
@@ -505,7 +470,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "36",
@@ -515,7 +479,6 @@ const data: DataType[] = [
     ali: true,
     row: 3,
     categoryId: "intent",
-    isFirstOfCategory: true,
   },
   {
     key: "37",
@@ -524,7 +487,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "38",
@@ -533,7 +495,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "39",
@@ -544,7 +505,6 @@ const data: DataType[] = [
     ali: true,
     row: 3,
     categoryId: "intent",
-    isFirstOfCategory: true,
   },
   {
     key: "40",
@@ -553,7 +513,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "41",
@@ -562,7 +521,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "intent",
-    isFirstOfCategory: false,
   },
   {
     key: "42",
@@ -575,7 +533,6 @@ const data: DataType[] = [
     elastic: true,
     row: 1,
     categoryId: "recall",
-    isFirstOfCategory: true,
   },
   {
     key: "43",
@@ -584,7 +541,6 @@ const data: DataType[] = [
     ali: true,
     row: 1,
     categoryId: "recall",
-    isFirstOfCategory: false,
   },
   {
     key: "44",
@@ -595,7 +551,6 @@ const data: DataType[] = [
     elastic: true,
     row: 1,
     categoryId: "recall",
-    isFirstOfCategory: false,
   },
   {
     key: "45",
@@ -606,7 +561,6 @@ const data: DataType[] = [
     elastic: true,
     row: 1,
     categoryId: "sort",
-    isFirstOfCategory: true,
   },
   {
     key: "46",
@@ -617,7 +571,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 3,
     categoryId: "sort",
-    isFirstOfCategory: false,
   },
   {
     key: "47",
@@ -627,7 +580,6 @@ const data: DataType[] = [
     ali: true,
     row: 0,
     categoryId: "sort",
-    isFirstOfCategory: false,
   },
   {
     key: "48",
@@ -636,7 +588,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "sort",
-    isFirstOfCategory: false,
   },
   {
     key: "49",
@@ -647,7 +598,6 @@ const data: DataType[] = [
     elastic: true,
     row: 1,
     categoryId: "sort",
-    isFirstOfCategory: true,
   },
   {
     key: "50",
@@ -659,7 +609,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 3,
     categoryId: "sort",
-    isFirstOfCategory: false,
   },
   {
     key: "51",
@@ -670,7 +619,6 @@ const data: DataType[] = [
     ali: true,
     row: 0,
     categoryId: "sort",
-    isFirstOfCategory: false,
   },
   {
     key: "52",
@@ -679,7 +627,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "sort",
-    isFirstOfCategory: false,
   },
   {
     key: "53",
@@ -689,7 +636,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 1,
     categoryId: "intervention",
-    isFirstOfCategory: true,
   },
   {
     key: "54",
@@ -698,7 +644,6 @@ const data: DataType[] = [
     algolia: true,
     row: 1,
     categoryId: "intervention",
-    isFirstOfCategory: false,
   },
   {
     key: "55",
@@ -708,7 +653,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 1,
     categoryId: "intervention",
-    isFirstOfCategory: false,
   },
   {
     key: "56",
@@ -717,7 +661,6 @@ const data: DataType[] = [
     algolia: true,
     row: 1,
     categoryId: "intervention",
-    isFirstOfCategory: false,
   },
   {
     key: "57",
@@ -726,7 +669,6 @@ const data: DataType[] = [
     algolia: true,
     row: 1,
     categoryId: "intervention",
-    isFirstOfCategory: false,
   },
   {
     key: "58",
@@ -736,7 +678,6 @@ const data: DataType[] = [
     ali: true,
     row: 1,
     categoryId: "dataCollect",
-    isFirstOfCategory: true,
   },
   {
     key: "59",
@@ -744,7 +685,6 @@ const data: DataType[] = [
     tengence: true,
     row: 1,
     categoryId: "dataCollect",
-    isFirstOfCategory: false,
   },
   {
     key: "60",
@@ -755,7 +695,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 1,
     categoryId: "reportForms",
-    isFirstOfCategory: true,
   },
   {
     key: "61",
@@ -765,7 +704,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 1,
     categoryId: "reportForms",
-    isFirstOfCategory: false,
   },
   {
     key: "62",
@@ -776,7 +714,6 @@ const data: DataType[] = [
     elastic: true,
     row: 1,
     categoryId: "reportForms",
-    isFirstOfCategory: false,
   },
   {
     key: "63",
@@ -784,7 +721,6 @@ const data: DataType[] = [
     tengence: true,
     row: 1,
     categoryId: "reportForms",
-    isFirstOfCategory: false,
   },
   {
     key: "64",
@@ -794,7 +730,6 @@ const data: DataType[] = [
     unbxd: true,
     row: 1,
     categoryId: "reportForms",
-    isFirstOfCategory: false,
   },
   {
     key: "65",
@@ -806,7 +741,6 @@ const data: DataType[] = [
     aws: true,
     row: 3,
     categoryId: "server",
-    isFirstOfCategory: true,
   },
   {
     key: "66",
@@ -815,7 +749,6 @@ const data: DataType[] = [
     tengence: true,
     row: 0,
     categoryId: "server",
-    isFirstOfCategory: false,
   },
   {
     key: "67",
@@ -826,7 +759,6 @@ const data: DataType[] = [
     aws: true,
     row: 0,
     categoryId: "server",
-    isFirstOfCategory: false,
   },
   {
     key: "68",
@@ -837,7 +769,6 @@ const data: DataType[] = [
     aws: true,
     row: 3,
     categoryId: "server",
-    isFirstOfCategory: true,
   },
   {
     key: "69",
@@ -848,7 +779,6 @@ const data: DataType[] = [
     aws: true,
     row: 0,
     categoryId: "server",
-    isFirstOfCategory: false,
   },
   {
     key: "70",
@@ -859,7 +789,6 @@ const data: DataType[] = [
     aws: true,
     row: 0,
     categoryId: "server",
-    isFirstOfCategory: false,
   },
   {
     key: "71",
@@ -870,7 +799,6 @@ const data: DataType[] = [
     aws: true,
     row: 2,
     categoryId: "server",
-    isFirstOfCategory: true,
   },
   {
     key: "72",
@@ -880,7 +808,6 @@ const data: DataType[] = [
     ali: true,
     row: 0,
     categoryId: "server",
-    isFirstOfCategory: false,
   },
   {
     key: "73",
@@ -889,7 +816,6 @@ const data: DataType[] = [
     elastic: true,
     row: 1,
     categoryId: "server",
-    isFirstOfCategory: true,
   },
   {
     key: "74",
@@ -898,7 +824,6 @@ const data: DataType[] = [
     elastic: true,
     row: 1,
     categoryId: "server",
-    isFirstOfCategory: false,
   },
   {
     key: "75",
@@ -906,22 +831,8 @@ const data: DataType[] = [
     tengence: true,
     row: 1,
     categoryId: "server",
-    isFirstOfCategory: false,
   },
 ];
-
-// 修正每个分类的第一行标记
-const seenCategories = new Set<string>();
-data.forEach((item) => {
-  if (item.categoryId) {
-    if (!seenCategories.has(item.categoryId)) {
-      item.isFirstOfCategory = true;
-      seenCategories.add(item.categoryId);
-    } else {
-      item.isFirstOfCategory = false;
-    }
-  }
-});
 
 // 从 data 中动态生成功能分类导航
 const featureCategories = Array.from(
@@ -1098,8 +1009,8 @@ export default function ProductPage() {
                 className: cn(
                   "text-center text-base text-[#31373D]",
                   sourceHanSerif.className,
-                  index !== 0 &&
-                    record.isFirstOfCategory &&
+                  index !== undefined && index !== 0 &&
+                    record.categoryId && data[index - 1]?.categoryId !== record.categoryId &&
                     "[&>td]:border-t-[1.5px] [&>td]:border-t-[#C0C8D5]"
                 ),
               })}
