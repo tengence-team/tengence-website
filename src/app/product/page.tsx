@@ -9,6 +9,7 @@ import {
 } from "./components";
 import { featureCategories, sourceHanSerif } from "./constants";
 import { cn } from "@/lib/utils";
+import { SuccessCases } from "./components/SuccessCases";
 
 export default function ProductPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -52,7 +53,6 @@ export default function ProductPage() {
         }
       }
 
-      // 如果没有找到 currentCategory， 默认选中第一个
       setActiveCategory(currentCategory || featureCategories[0]?.id || null);
     };
 
@@ -70,7 +70,9 @@ export default function ProductPage() {
       <AdvantageSection />
 
       <section className="max-w-360 mx-auto p-10">
-        <p className={cn("text-[40px] font-semibold", sourceHanSerif.className)}>
+        <p
+          className={cn("text-[40px] font-semibold", sourceHanSerif.className)}
+        >
           产品功能对比
         </p>
         <div className="flex gap-6 mt-6">
@@ -81,6 +83,8 @@ export default function ProductPage() {
           <ComparisonTable ref={tableRef} />
         </div>
       </section>
+
+      <SuccessCases />
     </div>
   );
 }
