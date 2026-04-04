@@ -7,7 +7,18 @@
   --color-primary-foreground: #ffffff;
 
   --shadow-card-border: 0 0 0 0.5px #E4E5E9, 0 0 0 1px rgba(228, 229, 233, 0.60), 0 0 0 3.5px #F9F9FB, 0 0 0 4px #F3F4F7;
-  --gradient-white-fade: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFF 8.93%);
+}
+
+@utility bg-gradient-black-fade {
+  background-image: linear-gradient(129deg, #000000 30.91%, #51526D 104.87%);
+}
+
+@utility bg-gradient-white-fade {
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFF 8.93%);
+}
+
+@utility bg-gradient-blue-fade {
+  background-image: linear-gradient(123deg, #FFF 54.05%, #E6EFFF 108.41%);
 }
 
 * {

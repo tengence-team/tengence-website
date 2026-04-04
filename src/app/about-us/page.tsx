@@ -133,6 +133,122 @@ export default function AboutUsPage() {
           </div>
         </div>
       </section>
+
+      <section className="max-w-360 mx-auto p-10">
+        <h2
+          className={cn(
+            "text-[40px] text-black font-semibold",
+            sourceHanSerif.className
+          )}
+        >
+          我们是谁？
+        </h2>
+
+        <div className="flex gap-3 mt-9">
+          <div
+            className={cn(
+              "rounded-[20px] shadow-card-border text-white bg-gradient-black-fade p-10 flex-1 text-[28px] font-semibold",
+              sourceHanSerif.className
+            )}
+          >
+            我们是一群极客， 以创新突破为乐，以固步自封为耻
+          </div>
+          <div className="flex-1 flex flex-col gap-3">
+            <div className="shadow-card-border bg-gradient-blue-fade flex-1 rounded-[20px] p-10">
+              <p
+                className={cn(
+                  "text-[28px] font-semibold text-[#31373D]",
+                  sourceHanSerif.className
+                )}
+              >
+                我们深耕多年
+              </p>
+              <p className="text-[#373850]">勇于打破常规，难题使我们兴奋</p>
+            </div>
+            <div className="shadow-card-border bg-gradient-blue-fade flex-1 rounded-[20px] p-10">
+              <p
+                className={cn(
+                  "text-[28px] font-semibold text-[#31373D]",
+                  sourceHanSerif.className
+                )}
+              >
+                我们心怀使命感
+              </p>
+              <p className="text-[#373850]">简单相信，傻傻坚持</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className={cn(
+          "max-w-360 mx-auto px-10 pb-10",
+          sourceHanSerif.className
+        )}
+      >
+        <h2 className="text-[40px] text-black font-semibold">我们的价值观</h2>
+
+        <div className="grid grid-cols-4 mt-9 gap-4 text-[#31373D] text-[28px] font-semibold">
+          <div className="p-7.5 rounded-lg shadow-card-border">
+            <div className="rounded-lg border border-solid border-[#DDE] inline-block p-3">
+              <Image
+                src="/images/check-heart.svg"
+                width={36}
+                height={36}
+                alt="我们敬畏用户的信任，全力以赴交付价值"
+              ></Image>
+            </div>
+            <p className="pt-6">
+              我们<span className="text-[#DD2590]">敬畏用户的信任</span>
+              ，全力以赴交付价值
+            </p>
+          </div>
+          <div className="p-7.5 rounded-lg shadow-card-border">
+            <div className="rounded-lg border border-solid border-[#DDE] inline-block p-3">
+              <Image
+                src="/images/award.svg"
+                width={36}
+                height={36}
+                alt="我们拥抱变化，在试错中成长"
+              ></Image>
+            </div>
+            <p className="pt-6">
+              我们拥抱变化，在
+              <span className="text-[#DD2590]">试错中成长</span>
+            </p>
+          </div>
+
+          <div className="p-7.5 rounded-lg shadow-card-border">
+            <div className="rounded-lg border border-solid border-[#DDE] inline-block p-3">
+              <Image
+                src="/images/face-smile.svg"
+                width={36}
+                height={36}
+                alt="我们以实干为荣，以空谈为耻"
+              ></Image>
+            </div>
+            <p className="pt-6">
+              我们以
+              <span className="text-[#7839EE]">实干为荣</span>
+              ，以空谈为耻
+            </p>
+          </div>
+          <div className="p-7.5 rounded-lg shadow-card-border">
+            <div className="rounded-lg border border-solid border-[#DDE] inline-block p-3">
+              <Image
+                src="/images/beaker.svg"
+                width={36}
+                height={36}
+                alt="我们把产品当成艺术品来雕琢"
+              ></Image>
+            </div>
+            <p className="pt-6">
+              我们把产品<span className="text-[#E62E05]">当成艺术品</span>
+              来雕琢
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
