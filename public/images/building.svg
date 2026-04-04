@@ -1,0 +1,23 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M33 17.2197C35.2091 17.2197 37 19.0106 37 21.2197V33H37.5C38.3284 33 39 33.6716 39 34.5C39 35.3284 38.3284 36 37.5 36H37V36.2197H4V36H3.5C2.67157 36 2 35.3284 2 34.5C2 33.6716 2.67157 33 3.5 33H4V21.2197C4 19.0106 5.79086 17.2197 8 17.2197H33Z" fill="url(#paint0_linear_1296_25752)"/>
+<foreignObject x="14" y="-1" width="28" height="41"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(2px);clip-path:url(#bgblur_0_1296_25752_clip_path);height:100%;width:100%"></div></foreignObject><g filter="url(#filter0_i_1296_25752)" data-figma-bg-blur-radius="4">
+<path d="M34 3C36.2091 3 38 4.79086 38 7V32C38 34.2091 36.2091 36 34 36H22C19.7909 36 18 34.2091 18 32V7C18 4.79086 19.7909 3 22 3H34ZM24 24C22.8954 24 22 24.8954 22 26C22 27.1046 22.8954 28 24 28H32C33.1046 28 34 27.1046 34 26C34 24.8954 33.1046 24 32 24H24ZM24 17C22.8954 17 22 17.8954 22 19C22 20.1046 22.8954 21 24 21H32C33.1046 21 34 20.1046 34 19C34 17.8954 33.1046 17 32 17H24ZM24 10C22.8954 10 22 10.8954 22 12C22 13.1046 22.8954 14 24 14H32C33.1046 14 34 13.1046 34 12C34 10.8954 33.1046 10 32 10H24Z" fill="#CBD5FF" fill-opacity="0.7"/>
+</g>
+<defs>
+<filter id="filter0_i_1296_25752" x="14" y="-1" width="28" height="41" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="2"/>
+<feGaussianBlur stdDeviation="1"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_1296_25752"/>
+</filter>
+<clipPath id="bgblur_0_1296_25752_clip_path" transform="translate(-14 1)"><path d="M34 3C36.2091 3 38 4.79086 38 7V32C38 34.2091 36.2091 36 34 36H22C19.7909 36 18 34.2091 18 32V7C18 4.79086 19.7909 3 22 3H34ZM24 24C22.8954 24 22 24.8954 22 26C22 27.1046 22.8954 28 24 28H32C33.1046 28 34 27.1046 34 26C34 24.8954 33.1046 24 32 24H24ZM24 17C22.8954 17 22 17.8954 22 19C22 20.1046 22.8954 21 24 21H32C33.1046 21 34 20.1046 34 19C34 17.8954 33.1046 17 32 17H24ZM24 10C22.8954 10 22 10.8954 22 12C22 13.1046 22.8954 14 24 14H32C33.1046 14 34 13.1046 34 12C34 10.8954 33.1046 10 32 10H24Z"/>
+</clipPath><linearGradient id="paint0_linear_1296_25752" x1="33.5" y1="29.2197" x2="2" y2="38.7197" gradientUnits="userSpaceOnUse">
+<stop stop-color="#2970FF"/>
+<stop offset="1" stop-color="#84ADFF"/>
+</linearGradient>
+</defs>
+</svg>
