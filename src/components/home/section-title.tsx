@@ -6,14 +6,22 @@ interface SectionTitleProps {
   className?: string;
 }
 
-export function SectionTitle({ prefix, highlight, className }: SectionTitleProps) {
+export function SectionTitle({
+  prefix,
+  highlight,
+  className,
+}: SectionTitleProps) {
   return (
-    <div className={cn("flex items-center justify-center text-[44px] font-semibold mb-10", className)}>
-      <div className="pr-2">{prefix}</div>
-      <div className="relative">
-        <span className="z-10 relative">{highlight}</span>
-        <div className="absolute left-0 right-0 bottom-1.5 z-0 bg-[#CED8FF] h-3.25" />
-      </div>
-    </div>
+    <h2
+      className={cn(
+        "flex items-center justify-center text-[44px] font-semibold mb-10",
+        className
+      )}
+    >
+      <span className="pr-2">{prefix}</span>
+      <span className="relative z-10 after:content-[''] after:h-3.75 after:w-full after:bg-[#CED8FF] after:absolute after:left-0 after:bottom-1 after:-z-1">
+        {highlight}
+      </span>
+    </h2>
   );
 }
