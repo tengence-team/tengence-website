@@ -13,6 +13,7 @@ export interface WhoWeAreCardData {
   title: string;
   description?: string;
   variant: "dark" | "light";
+  image?: string;
 }
 
 export interface ValueCardData {
@@ -78,11 +79,13 @@ export const whoWeAreCards: WhoWeAreCardData[] = [
     title: "我们深耕多年",
     description: "勇于打破常规，难题使我们兴奋",
     variant: "light",
+    image: "/images/hammer.png"
   },
   {
     title: "我们心怀使命感",
     description: "简单相信，傻傻坚持",
     variant: "light",
+  image: "/images/medal.png"
   },
 ];
 

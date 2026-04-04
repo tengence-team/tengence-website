@@ -31,13 +31,14 @@ export function WhoWeAreSection() {
       </h2>
 
       <div className="flex gap-3 mt-9">
-        <WhoWeAreCard card={darkCard} className={sourceHanSerif.className} />
+        <WhoWeAreCard card={darkCard} className={sourceHanSerif.className} image="/images/pencil.png" />
         <div className="flex-1 flex flex-col gap-3">
           {lightCards.map((card, index) => (
             <WhoWeAreCard
               key={index}
               card={card}
               className={sourceHanSerif.className}
+              image={card.image}
             />
           ))}
         </div>

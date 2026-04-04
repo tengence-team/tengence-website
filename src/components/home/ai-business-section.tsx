@@ -47,7 +47,7 @@ export function AIBusinessSection() {
     <section className="m-5">
       <div
         className={cn(
-          "max-w-360 mx-auto p-10 bg-[#f9f9fb80] rounded-[40px]",
+          "max-w-360 mx-auto p-10 bg-[#f9f9fb80] rounded-[40px] bg-[url('/images/dot-bg.png')] bg-size-[100%]",
           sourceHanSerif.className
         )}
       >
