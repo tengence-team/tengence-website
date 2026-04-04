@@ -19,7 +19,7 @@ const sourceHanSerif = localFont({
 export default function AboutUsPage() {
   return (
     <div>
-      <div className="max-w-360 mx-auto pt-37.5 px-25">
+      <section className="max-w-360 mx-auto pt-37.5 px-25">
         <h1
           className={cn(
             "text-center text-[60px] font-semibold",
@@ -102,7 +102,37 @@ export default function AboutUsPage() {
             />
           </div>
         </div>
-      </div>
+      </section>
+
+      <section
+        className={cn(
+          "max-w-360 mx-auto p-10 mt-22.5",
+          sourceHanSerif.className
+        )}
+      >
+        <h2 className="text-[40px] text-black font-semibold">我们的使命</h2>
+
+        <div className="grid grid-cols-4 mt-9 gap-4 text-[#7B7C9E] text-[28px] font-semibold">
+          <div className="p-10 rounded-xl bg-[#F9F9FB]">
+            我们坚持做难而正确的事情，让
+            <span className="text-[#242430]">AI</span>普惠社会
+          </div>
+          <div className="p-10 rounded-xl bg-[#F9F9FB]">
+            我们坚持用AI提升社会生产力，坚信AI必将
+            <span className="text-[#242430]">造福人类</span>
+          </div>
+          <div className="p-10 rounded-xl bg-[#F9F9FB]">
+            我们将
+            <span className="text-[#242430]">AI业务化</span>
+            ，持续推动各行各业的业务AI化
+          </div>
+          <div className="p-10 rounded-xl bg-[#F9F9FB]">
+            我们为
+            <span className="text-[#242430]">创造价值</span>
+            而生，以推动社会进步为己任
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
