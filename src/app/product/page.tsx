@@ -11,6 +11,7 @@ import { featureCategories, sourceHanSerif } from "./constants";
 import { cn } from "@/lib/utils";
 import { SuccessCases } from "./components/SuccessCases";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProductPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -327,6 +328,135 @@ export default function ProductPage() {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[url('/images/square-bg.png')] bg-size-[100%] p-10 mt-10 bg-[#EBEFFF]">
+        <div className="max-w-360 mx-auto">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2
+                className={cn(
+                  "text-[40px] font-semibold text-[#373850]",
+                  sourceHanSerif
+                )}
+              >
+                <span className="text-primary">预约</span>
+                为您提供贴身解决方案
+              </h2>
+              <p
+                className={cn(
+                  "text-[#373850] text-[16px] font-semibold",
+                  sourceHanSerif
+                )}
+              >
+                我们的顾问将给您回电，提供业务场景解决方案，安排产品演示，做POC测试
+              </p>
+            </div>
+            <Link
+              href="//console.mossego.cn/#/login"
+              className="text-[16px] text-black bg-white font-medium px-6 py-3.5 border border-solid border-[#373850] rounded-xl"
+              target="_blank"
+            >
+              联系我们
+            </Link>
+          </div>
+
+          <div className="flex flex-wrap text-white text-[14px] mt-10 gap-x-2 gap-y-3">
+            <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
+              <Image
+                src="/icons/shopping-bag.svg"
+                width={14}
+                height={14}
+                alt="电商网站商品/订单/店铺/卖家/评论搜索"
+              />
+              <span className="pl-1.5">
+                电商网站商品/订单/店铺/卖家/评论搜索
+              </span>
+            </div>
+
+            <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
+              <Image
+                src="/icons/globe.svg"
+                width={14}
+                height={14}
+                alt="跨境电商多站点/多地区搜索平台"
+              />
+              <span className="pl-1.5">跨境电商多站点/多地区搜索平台</span>
+            </div>
+
+            <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
+              <Image
+                src="/icons/clapperboard.svg"
+                width={14}
+                height={14}
+                alt="信息流/多媒体/短视频/图文社区搜索"
+              />
+              <span className="pl-1.5">信息流/多媒体/短视频/图文社区搜索</span>
+            </div>
+
+            <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
+              <Image
+                src="/icons/message-smile-square.svg"
+                width={14}
+                height={14}
+                alt="知识社区/博客/论坛/内容搜索"
+              />
+              <span className="pl-1.5">知识社区/博客/论坛/内容搜索</span>
+            </div>
+
+            <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
+              <Image
+                src="/icons/building.svg"
+                width={14}
+                height={14}
+                alt="企业多业务线搜索平台"
+              />
+              <span className="pl-1.5">企业多业务线搜索平台</span>
+            </div>
+
+            <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
+              <Image
+                src="/icons/search-refraction.svg"
+                width={14}
+                height={14}
+                alt="企业知识管理平台搜索/企业内部搜索引擎"
+              />
+              <span className="pl-1.5">
+                企业知识管理平台搜索/企业内部搜索引擎
+              </span>
+            </div>
+
+            <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
+              <Image
+                src="/icons/database.svg"
+                width={14}
+                height={14}
+                alt="大数据查询加速/数据分析/时序数据库"
+              />
+              <span className="pl-1.5">大数据查询加速/数据分析/时序数据库</span>
+            </div>
+
+            <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
+              <Image
+                src="/icons/server.svg"
+                width={14}
+                height={14}
+                alt="向量库/RAG/以图搜图/语义向量检索"
+              />
+              <span className="pl-1.5">向量库/RAG/以图搜图/语义向量检索</span>
+            </div>
+
+            <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
+              <Image
+                src="/icons/film.svg"
+                width={14}
+                height={14}
+                alt="广告平台智能搜索"
+              />
+              <span className="pl-1.5">广告平台智能搜索</span>
             </div>
           </div>
         </div>
