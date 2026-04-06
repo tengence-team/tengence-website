@@ -732,7 +732,7 @@ export default function ProductPage() {
               </p>
             </div>
             <Link
-              href="//console.mossego.cn/#/login"
+              href="/contract-us"
               className="text-[16px] text-black bg-white font-medium px-6 py-3.5 border border-solid border-[#373850] rounded-xl"
               target="_blank"
             >

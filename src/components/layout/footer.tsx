@@ -42,9 +42,8 @@ export default function Footer() {
                 关于我们
               </Link>
               <Link
-                href="//console.mossego.cn/#/login"
+                href="/contract-us"
                 className="text-base font-medium"
-                target="_blank"
               >
                 联系我们
               </Link>
@@ -81,8 +80,20 @@ export default function Footer() {
             Copyright ©{currentYear - 1} - {currentYear} 深圳市思讯网络有限公司
           </p>
           <div className="flex items-center">
-            <Image src="/images/icp.png" alt="粤ICP备2024177480号" width={20} height={20} />
-            <a href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank" rel="noopener noreferrer" className="pl-1.5">粤ICP备2024177480号</a>
+            <Image
+              src="/images/icp.png"
+              alt="粤ICP备2024177480号"
+              width={20}
+              height={20}
+            />
+            <a
+              href="https://beian.miit.gov.cn/#/Integrated/index"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pl-1.5"
+            >
+              粤ICP备2024177480号
+            </a>
           </div>
         </div>
       </div>

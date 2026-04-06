@@ -24,6 +24,8 @@
 * {
   --ant-table-header-bg: #F9FAFB !important;
   --ant-table-border-color: #EAECF0 !important;
+  --ant-select-active-border-color: #0055FF !important;
+  --ant-form-item-margin-bottom: 20px !important;
 }
 
 html,
