@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import {
   ProductIntro,
   AdvantageSection,
@@ -13,10 +13,378 @@ import { SuccessCases } from "./components/SuccessCases";
 import Image from "next/image";
 import Link from "next/link";
 
+const versionList = [
+  {
+    id: "SEARCH_FREE",
+    title: "免费版",
+    monthFree: "¥0",
+    yearFree: "¥0",
+    desc: "零成本入门，适合个人开发者、产品试用和网店等标准搜索场景",
+    searchVolume:
+      "月调用量配额 <span style='color:#242430'>10万次免费</span>，达额即止",
+    dataVolume: "存储配额 <span style='color:#242430'>1GB免费</span>，达额即止",
+    qps: "并发限制(QPS) <span style='color:#242430'>10</span>",
+    advantage: [
+      "零成本入门：免费获得智能化效果",
+      "零代码接入：简单配置，快速集成",
+      "全功能搜索：标准化搜索功能，满足常规业务场景需求",
+      "内置行业级算法：针对电商和内容行业的行业级数据积累和算法优化",
+    ],
+    example: [
+      {
+        title: "某个人博客网站",
+        desc: "文章数量343篇，博客日PV在3000左右，日搜索次数不足1000，使用通智搜索基础版的内容行业方案，免费获得智能搜索能力",
+        fee: "免费",
+        specs: ["3万请求/月", "343条记录"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["3万请求/月", "343条记录"],
+            fee: "免费(被限流)",
+          },
+          {
+            title: "阿*云",
+            specs: ["存储容量：1GB", "计算资源：200LCU"],
+            fee: "约¥555/月",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["t2.medium.search", "vCPU：2", "内存：4G"],
+            fee: "约$53/月",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "-",
+          },
+        ],
+      },
+      {
+        title: "某知名C2C电商平台的个人店铺",
+        desc: "上架商品数量459件，店铺做了一定推广，日PV在6000左右，日搜索次数不足2000，使用通智搜索基础版的电商行业方案，免费获得智能搜索的高效流量转化能力",
+        fee: "免费",
+        specs: ["6万请求/月", "459条记录"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["6万请求/月", "459条记录"],
+            fee: "免费(被限流)",
+          },
+          {
+            title: "阿*云",
+            specs: ["存储容量：4GB", "计算资源：200LCU"],
+            fee: "约¥713/月",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["m7i.large.search", "vCPU：2", "内存：8G"],
+            fee: "约$116/月",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "-",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "SEARCH_BASIC",
+    title: "基础版",
+    monthFree: "¥199",
+    monthSourceFree: "¥798",
+    monthDiscount: "2.5折",
+    yearFree: "¥1,999",
+    yearSourceFree: "¥7,998",
+    yearDiscount: "2.5折",
+    desc: "成本友好，功能全面，满足初创团队和成长型业务的弹性需求",
+    searchVolume:
+      "月调用量配额 <span style='color:#242430'>30万次免费</span>，超出 2.0元/千次",
+    dataVolume:
+      "存储配额 <span style='color:#242430'>3GB免费</span>，超出 1.0元/GB",
+    qps: "并发限制(QPS) <span style='color:#242430'>20</span>",
+    advantage: [
+      "按量付费：成本友好，按需使用",
+      "业务定制化：使用标准化API，自定义产品形态",
+      "运营干预：根据业务需要动态干预搜索结果",
+      "基础数据报表：流量转化心中有数，业务效果看得见",
+    ],
+    example: [
+      {
+        title: "Shopify平台某婚纱店铺",
+        desc: "上架商品数量336款，在特定地区投入资源做推广引流，高峰期日UV在10万+，日搜索次数5万+，使用通智搜索专业版的电商行业方案，对于季节性流量波动，按量付费在成本上较为友好，并且具备自动化采集行为数据进行算法自动迭代优化的能力，无需额外投入资源进行针对性的优化",
+        fee: "约¥2700/月",
+        specs: ["150万请求/月", "336条记录"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["150万请求/月", "336条记录"],
+            fee: "约$745/月",
+          },
+          {
+            title: "阿*云",
+            specs: ["存储容量：10GB", "计算资源：1000LCU"],
+            fee: "约¥8812/月",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["m7g.4xlarge.search", "vCPU：16", "内存：64G"],
+            fee: "约$780/月",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "约$800/月",
+          },
+        ],
+      },
+      {
+        title: "某跨境无人机商家",
+        desc: "采用开源方案自建独立站，上架商品数量500款左右，长期坚持投入SEO，高峰期日PV在15万+，日搜索次数3万+，搜索效果存在较多badcase，自家人员无力做搜索优化，但具备一定技术能力，使用通智搜索专业版的电商行业方案，对意图识别能力做了大量定制化配置，仔细调优了精排逻辑，安排业务做了相关性评测，取得了各方都较为满意的效果",
+        fee: "约¥1500/月",
+        specs: ["90万请求/月", "500条记录"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["90万请求/月", "500条记录"],
+            fee: "约$445/月",
+          },
+          {
+            title: "阿*云",
+            specs: ["存储容量：10GB", "计算资源：1000LCU"],
+            fee: "约¥8812/月",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["m7g.2xlarge.search", "vCPU：8", "内存：32G"],
+            fee: "约$390/月",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "约$600/月",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "SEARCH_PRO",
+    title: "专业版",
+    monthFree: "¥499",
+    monthSourceFree: "¥998",
+    monthDiscount: "5折",
+    yearFree: "¥4,999",
+    yearSourceFree: "¥9,998",
+    yearDiscount: "5折",
+    desc: "让算法理解业务，适合业务稳定，体量大，对流量转化效率有较高诉求的成熟业务",
+    searchVolume:
+      "月调用量配额 <span style='color:#242430'>50万次免费</span>，超出 1.5元/千次",
+    dataVolume:
+      "存储配额 <span style='color:#242430'>5GB免费</span>，超出 0.8元/GB",
+    qps: "并发限制(QPS) <span style='color:#242430'>50</span>",
+    advantage: [
+      "全链路数据闭环：自动化采集行为数据，形成优化和反馈的数据闭环",
+      "完整报表功能：多维度数据分析与展示，业务表现一览无遗",
+      "自动算法优化：自动使用行为数据迭代训练，优化算法效果",
+      "专属算法模型：使用业务数据训练专属算法模型",
+    ],
+    example: [
+      {
+        title: "某企业内部知识平台",
+        desc: "10+个业务线的各类业务文档，积累10年以上，数据量800万+，包含大量业务术语，需要解决内部员工快速查找，精准获取知识的问题，通过使用通智搜索企业版，针对不同业务场景建立对应搜索应用，进行针对性的意图识别优化和业务干预，取得了较满意的效果",
+        fee: "-",
+        specs: ["-"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "阿*云",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "-",
+          },
+        ],
+      },
+      {
+        title: "某知名知识社区平台",
+        desc: "存在博客文章、论坛帖子、问答记录等多种内容，数据量4000万+，日PV在800万+，包含大量专业术语，需要解决多种内容融合搜索的问题，并且在合适的时候引入广告内容，提高整体的点击率，通过使用通智搜索企业版，借助搜索报表和AB测试报表分析优化点，对意图识别、排序和运营干预做了深入调优，取得了较满意的效果",
+        fee: "-",
+        specs: ["-"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "阿*云",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "-",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "SEARCH_ENT",
+    title: "企业版",
+    monthFree: "¥999",
+    monthSourceFree: "¥1,998",
+    monthDiscount: "5折",
+    yearFree: "¥9,999",
+    yearSourceFree: "¥19,998",
+    yearDiscount: "5折",
+    desc: "面向复杂业务场景，深度整合多方数据，适合多业务线、多搜索场景的大型企业或集团公司",
+    searchVolume:
+      "月调用量配额 <span style='color:#242430'>100万次免费</span>，超出 1.0元/千次",
+    dataVolume:
+      "存储配额 <span style='color:#242430'>10GB免费</span>，超出 0.5元/GB",
+    qps: "并发限制(QPS) <span style='color:#242430'>100</span>",
+    advantage: [
+      "全功能算法能力：开放所有算法能力，全面智能化效果",
+      "精细化算法调参：融入业务数据，自助式调参，让搜索深入业务场景",
+      "千人千面：理解用户点击序列，根据用户偏好做个性化分发",
+      "企业级服务：问题诊断、效果调优、性能调优，提供深度优化意见",
+    ],
+    example: [
+      {
+        title: "某跨境电商企业",
+        desc: "自建独立站平台，在10+个国家开展业务，同时运营10+个网站，商品数量10万+，日PV在百万级，年营业额在十亿级，投入较大资源进行推广引流，迫切需要提高流量转化效率，通过与通智搜索合作进行定制化优化，建立10+个网站对应的搜索实例，针对不同语言和不同地区的行为特点，结合业务做了深度的算法优化，取得了较好的ROI成果",
+        fee: "-",
+        specs: ["-"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "阿*云",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "-",
+          },
+        ],
+      },
+      {
+        title: "某知名电商平台的信息流种草社区",
+        desc: "在东南亚6个国家开展业务，投入大量资源扶植本地KOL和KOC，与本地MCN合作生产优质内容，其中的短视频、图文等内容数据量在2亿左右，日搜索次数8000万左右，迫切需要提高这些种草内容的成交转化率，通过与通智搜索的合作，建立10+个搜索实例，针对多模态的内容特点，不同国家和不同文化的用户行为特点，进行深入定制优化，取得了不错的流量转化成果",
+        fee: "-",
+        specs: ["-"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "阿*云",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["-"],
+            fee: "-",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "-",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "SEARCH_CUSTOM",
+    title: "定制版",
+    monthFree: "协商定价",
+    yearFree: "协商定价",
+    desc: "专属部署，专有资源，专项定制，适合对合规、安全、性能、效果要求较高的场景",
+    advantage: [
+      "专属部署：无合规和安全顾虑，支持混合云/私有云部署",
+      "专有资源：独享集群，针对性做性能调优",
+      "专家服务：专人投入，优化无所不用其极",
+      "数据充分授权：算法优化无盲区，深度定制化",
+    ],
+    example: [
+      {
+        title: "某企业集团公司",
+        desc: "10+条业务线，3个电商平台场景、近10个博客/论坛/帮助文档/业务知识库等内容场景、9个订单/审计等大数据加速场景、1个企业知识社区的综合型企业搜索引擎场景，完全定制化合作，项目制落地，驻场开发，在企业多个场景的效率提升和业务转化都取得了较好的效果",
+        fee: "洽谈",
+        specs: ["-"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["-"],
+            fee: "不支持",
+          },
+          {
+            title: "阿*云",
+            specs: ["-"],
+            fee: "不支持",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["-"],
+            fee: "不支持",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "不支持",
+          },
+        ],
+      }
+    ],
+  },
+];
+
 export default function ProductPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const tableRef = useRef<HTMLDivElement>(null);
   const isScrollingProgrammatically = useRef(false);
+
+  const [versionId, setVersionId] = useState("SEARCH_FREE");
+  const [payCycle, setPayCycle] = useState("month");
+
+  const selectedVersion = useMemo(() => {
+    return versionList.find((item) => item.id === versionId)!;
+  }, [versionId]);
 
   const scrollToCategory = useCallback((categoryId: string) => {
     const element = document.getElementById(categoryId);
@@ -96,99 +464,168 @@ export default function ProductPage() {
         </h2>
 
         <div className="grid grid-cols-2 gap-5 mt-8">
-          <div>
+          <div className="flex flex-col">
             <div className="flex items-center text-[#31373D] text-[16px] font-medium gap-3">
-              <button className="py-4.25 px-7.25 rounded-xl bg-[#EBEFFF] text-primary cursor-pointer">
-                免费版
-              </button>
-              <button className="py-4.25 px-7.25 rounded-xl bg-[#F3F4F8] cursor-pointer">
-                专业版
-              </button>
+              {versionList.map((version) => (
+                <button
+                  key={version.id}
+                  className={cn(
+                    "py-4.25 px-7.25 rounded-xl cursor-pointer",
+                    versionId === version.id
+                      ? "bg-[#EBEFFF] text-primary"
+                      : "bg-[#F3F4F8]"
+                  )}
+                  onClick={() => setVersionId(version.id)}
+                >
+                  {version.title}
+                </button>
+              ))}
             </div>
 
-            <div className="flex items-center gap-5 mt-9">
-              <div className="shadow-card-border p-10 rounded-[20px]">
+            <div className="flex items-center gap-5 mt-9 flex-1">
+              <div className="shadow-card-border p-10 rounded-[20px] flex-1 h-full">
                 <div className="flex items-baseline justify-between">
                   <div>
                     <p className="text-[#31373D] text-[20px] font-medium">
-                      免费版
+                      {selectedVersion.title}
                     </p>
                     <p className="text-black text-[40px] font-semibold pt-3">
-                      ¥0
+                      {payCycle === "month"
+                        ? selectedVersion.monthFree
+                        : selectedVersion.yearFree}
+                      {payCycle === "month" ? (
+                        selectedVersion.monthSourceFree ? (
+                          <span className="text-[#7B7C9E] text-[24px] font-semibold line-through px-4">
+                            {selectedVersion.monthSourceFree}
+                          </span>
+                        ) : (
+                          <></>
+                        )
+                      ) : selectedVersion.yearSourceFree ? (
+                        <span className="text-[#7B7C9E] text-[24px] font-semibold line-through px-4">
+                          {selectedVersion.yearSourceFree}
+                        </span>
+                      ) : (
+                        <></>
+                      )}
+                      {payCycle === "month" ? (
+                        selectedVersion.monthDiscount ? (
+                          <span className="text-[#FB595C] text-[14px] px-1.5 py-1 rounded-md bg-[#FFF1F1]">
+                            {selectedVersion.monthDiscount}
+                          </span>
+                        ) : (
+                          <></>
+                        )
+                      ) : selectedVersion.yearDiscount ? (
+                        <span className="text-[#FB595C] text-[14px] px-1.5 py-1 rounded-md bg-[#FFF1F1]">
+                          {selectedVersion.yearDiscount}
+                        </span>
+                      ) : (
+                        <></>
+                      )}
                     </p>
                   </div>
 
                   <div className="bg-[#F3F4F8] rounded-[50px] p-1 text-[16px] text-[#7B7C9E] flex items-center">
-                    <button className="cursor-pointer rounded-[40px] py-2 px-3 bg-white text-black">
+                    <button
+                      className={cn(
+                        "cursor-pointer rounded-[40px] py-2 px-3 ",
+                        payCycle === "month" ? "bg-white text-black" : ""
+                      )}
+                      onClick={() => setPayCycle("month")}
+                    >
                       月付
                     </button>
-                    <button className="cursor-pointer rounded-[40px] py-2 px-3">
+                    <button
+                      className={cn(
+                        "cursor-pointer rounded-[40px] py-2 px-3 ",
+                        payCycle === "year" ? "bg-white text-black" : ""
+                      )}
+                      onClick={() => setPayCycle("year")}
+                    >
                       年付
                     </button>
                   </div>
                 </div>
 
                 <p className="text-[#373850] text-[16px] pt-3 pb-6">
-                  零成本体验智能搜索产品，简单配置快速集成，内置行业级算法，适合个人开发者、产品试用和网店等标准搜索场景
+                  {selectedVersion.desc}
                 </p>
 
-                <div className="flex items-center">
-                  <Image
-                    src="/icons/check-circle-success.svg"
-                    width={18}
-                    height={18}
-                    alt="月调用量配额"
-                  />
-                  <p className="pl-2 text-[#373850] text-[16px] font-semibold">
-                    月调用量配额{" "}
-                    <span className="text-[#242430]">10万次免费</span>
-                    ，达额即止
-                  </p>
-                </div>
+                {selectedVersion.searchVolume ? (
+                  <div className="flex items-center">
+                    <Image
+                      src="/icons/check-circle-success.svg"
+                      width={18}
+                      height={18}
+                      alt="月调用量配额"
+                    />
+                    <div
+                      className="pl-2 text-[#373850] text-[16px] font-semibold"
+                      dangerouslySetInnerHTML={{
+                        __html: selectedVersion.searchVolume,
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <></>
+                )}
 
-                <div className="flex items-center">
-                  <Image
-                    src="/icons/check-circle-success.svg"
-                    width={18}
-                    height={18}
-                    alt="存储配额"
-                  />
-                  <p className="pl-2 text-[#373850] text-[16px] font-semibold">
-                    存储配额
-                    <span className="text-[#242430]">1GB免费</span>，达额即止
-                  </p>
-                </div>
+                {selectedVersion.dataVolume ? (
+                  <div className="flex items-center">
+                    <Image
+                      src="/icons/check-circle-success.svg"
+                      width={18}
+                      height={18}
+                      alt="存储配额"
+                    />
+                    <div
+                      className="pl-2 text-[#373850] text-[16px] font-semibold"
+                      dangerouslySetInnerHTML={{
+                        __html: selectedVersion.dataVolume,
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <></>
+                )}
 
-                <div className="flex items-center">
-                  <Image
-                    src="/icons/check-circle-success.svg"
-                    width={18}
-                    height={18}
-                    alt="并发限制(QPS)"
-                  />
-                  <p className="pl-2 text-[#373850] text-[16px] font-semibold">
-                    并发限制(QPS)
-                    <span className="text-[#242430]">10</span>
-                  </p>
-                </div>
+                {selectedVersion.qps ? (
+                  <div className="flex items-center">
+                    <Image
+                      src="/icons/check-circle-success.svg"
+                      width={18}
+                      height={18}
+                      alt="并发限制(QPS)"
+                    />
+                    <div
+                      className="pl-2 text-[#373850] text-[16px] font-semibold"
+                      dangerouslySetInnerHTML={{
+                        __html: selectedVersion.qps,
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <></>
+                )}
 
-                <button className="bg-primary text-white text-[16px] text-center w-full py-2 rounded-lg mt-6">
+                <Link
+                  href="//console.mossego.cn/#/login"
+                  className="bg-primary text-white text-[16px] text-center w-full py-2 rounded-lg mt-6 block"
+                  target="_blank"
+                >
                   立刻试用
-                </button>
+                </Link>
 
                 <div className="border-t border-solid border-[#DDE] mt-8 pt-7 text-[16px] text-[#373850]">
-                  <p className="pl-4 relative before:content-[''] before:absolute before:w-2 before:h-2 before:bg-[#CBCBE2] before:rounded-full before:top-3.25 before:left-0 pt-1">
-                    零成本入门：免费获得智能化效果
-                  </p>
-                  <p className="pl-4 relative before:content-[''] before:absolute before:w-2 before:h-2 before:bg-[#CBCBE2] before:rounded-full before:top-3.25 before:left-0 pt-1">
-                    零代码接入：简单配置，快速集成
-                  </p>
-                  <p className="pl-4 relative before:content-[''] before:absolute before:w-2 before:h-2 before:bg-[#CBCBE2] before:rounded-full before:top-3.25 before:left-0 pt-1">
-                    全功能搜索：标准化搜索功能，满足常规业务场景需求
-                  </p>
-                  <p className="pl-4 relative before:content-[''] before:absolute before:w-2 before:h-2 before:bg-[#CBCBE2] before:rounded-full before:top-3.25 before:left-0 pt-1">
-                    内置行业级算法：针对电商和内容行业的行业级数据积累和算法优化
-                  </p>
+                  {selectedVersion.advantage.map((item) => (
+                    <p
+                      key={item}
+                      className="pl-4 relative before:content-[''] before:absolute before:w-2 before:h-2 before:bg-[#CBCBE2] before:rounded-full before:top-3.25 before:left-0 pt-1"
+                    >
+                      {item}
+                    </p>
+                  ))}
                 </div>
               </div>
 
@@ -202,133 +639,72 @@ export default function ProductPage() {
           </div>
 
           <div className="flex flex-col gap-3">
-            <div className="flex-1 bg-[#F3F4F8] rounded-[20px] p-7.5 flex flex-col">
-              <p className="text-[#31373D] text-[20px] font-medium">
-                个人博客网站
-              </p>
+            {selectedVersion.example?.map((item, index) => (
+              <div
+                key={index}
+                className="flex-1 bg-[#F3F4F8] rounded-[20px] p-7.5 flex flex-col"
+              >
+                <p className="text-[#31373D] text-[20px] font-medium">
+                  {item.title}
+                </p>
 
-              <p className="text-[#555E67] text-[16px] pt-3">
-                文章数量343篇，博客日PV在3000左右，日搜索次数不足1000，使用通智搜索基础版的内容行业方案，免费获得智能搜索能力
-              </p>
+                <p className="text-[#555E67] text-[16px] pt-3">{item.desc}</p>
 
-              <div className="mt-5 flex flex-1 gap-2.5">
-                <div className="h-full flex flex-col bg-white rounded-xl px-4 py-3 w-35">
-                  <p className="text-[#31373D] text-[16px] font-medium">
-                    通智搜索
-                  </p>
-
-                  <div className="mt-4 mb-3 flex-1">
-                    <p className="text-[#555E67] text-xs">3万请求/月</p>
-                    <p className="text-[#555E67] text-xs">343条记录</p>
-                  </div>
-
-                  <div>
-                    <span className="text-primary px-1.5 py-1 bg-[#EBEFFF] rounded-sm font-medium text-[16px] leading-6">
-                      免费
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-3 rounded-xl flex overflow-hidden">
-                  <div className="h-full flex flex-col bg-white px-4 py-3 w-33.5">
+                <div className="mt-5 flex flex-1 gap-2.5 max-h-[180px]">
+                  <div className="h-full flex flex-col bg-white rounded-xl px-4 py-3 w-35">
                     <p className="text-[#31373D] text-[16px] font-medium">
-                      Algolia
+                      通智搜索
                     </p>
 
                     <div className="mt-4 mb-3 flex-1">
-                      <p className="text-[#555E67] text-xs">3万请求/月</p>
-                      <p className="text-[#555E67] text-xs">343条记录</p>
+                      {item.specs.map((spec, index) => (
+                        <p key={index} className="text-[#555E67] text-xs">
+                          {spec}
+                        </p>
+                      ))}
                     </div>
 
                     <div>
-                      <span className="text-[#555E67] px-1.5 bg-[#F3F4F8] py-1 rounded-sm font-medium text-[12px] leading-6">
-                        免费(被限流)
+                      <span className="text-primary px-1.5 py-1 bg-[#EBEFFF] rounded-sm font-medium text-[12px] leading-6">
+                        {item.fee}
                       </span>
                     </div>
                   </div>
-                  <div className="h-full flex flex-col bg-white px-4 py-3 w-33.5 border-l border-solid border-[#F2F4F7]">
-                    <p className="text-[#31373D] text-[16px] font-medium">
-                      阿里云
-                    </p>
 
-                    <div className="mt-4 mb-3 flex-1">
-                      <p className="text-[#555E67] text-xs">存储容量：1GB</p>
-                      <p className="text-[#555E67] text-xs">计算资源：200LCU</p>
-                    </div>
+                  <div className="mt-3 rounded-xl flex overflow-hidden">
+                    {item.colleagues.map((colleague, index) => (
+                      <div
+                        key={index}
+                        className={cn(
+                          "h-full flex flex-col bg-white px-4 py-3 w-40",
+                          index !== 0
+                            ? "border-l border-solid border-[#F2F4F7]"
+                            : ""
+                        )}
+                      >
+                        <p className="text-[#31373D] text-[16px] font-medium">
+                          {colleague.title}
+                        </p>
 
-                    <div>
-                      <span className="text-[#555E67] px-1.5 bg-[#F3F4F8] py-1 rounded-sm font-medium text-[12px] leading-6">
-                        约¥555/月
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+                        <div className="mt-4 mb-3 flex-1">
+                          {colleague.specs.map((spec, index) => (
+                            <p key={index} className="text-[#555E67] text-xs">
+                              {spec}
+                            </p>
+                          ))}
+                        </div>
 
-            <div className="flex-1 bg-[#F3F4F8] rounded-[20px] p-7.5 flex flex-col">
-              <p className="text-[#31373D] text-[20px] font-medium">
-                知名C2C电商平台的个人店铺
-              </p>
-
-              <p className="text-[#555E67] text-[16px] pt-3">
-                上架商品数量459件，店铺做了一定推广，日PV在6000左右，日搜索次数不足2000，使用通智搜索基础版的电商行业方案，免费获得智能搜索的高效流量转化能力
-              </p>
-
-              <div className="mt-3 flex flex-1 gap-2.5">
-                <div className="h-full flex flex-col bg-white rounded-xl px-4 py-3 w-35">
-                  <p className="text-[#31373D] text-[16px] font-medium">
-                    通智搜索
-                  </p>
-
-                  <div className="mt-4 mb-3 flex-1">
-                    <p className="text-[#555E67] text-xs">3万请求/月</p>
-                    <p className="text-[#555E67] text-xs">343条记录</p>
-                  </div>
-
-                  <div>
-                    <span className="text-primary px-1.5 py-1 bg-[#EBEFFF] rounded-sm font-medium text-[16px] leading-6">
-                      免费
-                    </span>
-                  </div>
-                </div>
-
-                <div className="mt-6 rounded-xl flex overflow-hidden">
-                  <div className="h-full flex flex-col bg-white px-4 py-3 w-33.5">
-                    <p className="text-[#31373D] text-[16px] font-medium">
-                      Algolia
-                    </p>
-
-                    <div className="mt-4 mb-3 flex-1">
-                      <p className="text-[#555E67] text-xs">3万请求/月</p>
-                      <p className="text-[#555E67] text-xs">343条记录</p>
-                    </div>
-
-                    <div>
-                      <span className="text-[#555E67] px-1.5 bg-[#F3F4F8] py-1 rounded-sm font-medium text-[12px] leading-6">
-                        免费(被限流)
-                      </span>
-                    </div>
-                  </div>
-                  <div className="h-full flex flex-col bg-white px-4 py-3 w-33.5 border-l border-solid border-[#F2F4F7]">
-                    <p className="text-[#31373D] text-[16px] font-medium">
-                      阿里云
-                    </p>
-
-                    <div className="mt-4 mb-3 flex-1">
-                      <p className="text-[#555E67] text-xs">存储容量：1GB</p>
-                      <p className="text-[#555E67] text-xs">计算资源：200LCU</p>
-                    </div>
-
-                    <div>
-                      <span className="text-[#555E67] px-1.5 bg-[#F3F4F8] py-1 rounded-sm font-medium text-[12px] leading-6">
-                        约¥555/月
-                      </span>
-                    </div>
+                        <div>
+                          <span className="text-[#555E67] px-1.5 bg-[#F3F4F8] py-1 rounded-sm font-medium text-[12px] leading-6">
+                            {colleague.fee}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
