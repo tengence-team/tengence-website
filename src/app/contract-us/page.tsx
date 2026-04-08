@@ -3,10 +3,9 @@
 import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
 import Image from "next/image";
+import * as Api from "@/api";
 
 import { Button, Form, Input, Select, Space } from "antd";
-
-import { useState } from "react";
 
 const { Option } = Select;
 
@@ -26,8 +25,16 @@ const sourceHanSerif = localFont({
 export default function ContractUsPage() {
   const [form] = Form.useForm();
 
-  const onFinish = (values: any) => {
+  const onFinish = async (values: any) => {
     console.log("Received values of form: ", values);
+    Api.submitCustomerContractData({
+      customerName: values.name,
+      phone: `+${values.prefix}-${values.phone}`,
+      email: values.email,
+      companyName: values.email,
+      industry: values.industryType,
+      demandDescription: values.intro,
+    });
   };
 
   const prefixSelector = (

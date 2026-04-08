@@ -11,6 +11,16 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true, // 静态导出禁用内置图片优化
   },
+  async rewrites() {
+    return {
+      fallback: [
+        {
+          source: '/api/:path*',
+          destination: 'https://console.mossego.com/:path*',
+        }
+      ]
+    }
+  }
 };
 
 export default nextConfig;
