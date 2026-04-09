@@ -27,7 +27,7 @@ export default function ContractUsPage() {
 
   const onFinish = async (values: any) => {
     console.log("Received values of form: ", values);
-    Api.submitCustomerContractData(
+    await Api.submitCustomerContractData(
       {
         customerName: values.name,
         phone: `+${values.prefix}-${values.phone}`,
