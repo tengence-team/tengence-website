@@ -1,7 +1,9 @@
 
 import { createHttp } from "./request";
 import type { PluginCallbackParams } from "./request";
-import { message } from 'antd';
+import { message as AntMessage, Spin } from 'antd';
+import { createRoot, Root } from 'react-dom/client';
+import React from 'react';
 
 interface ExtendRequestConfig {
   flat?: boolean;
@@ -34,7 +36,31 @@ const { request, http } = createHttp({
 
 request.use(flatResponsePlugin());
 
-// let instance: any;
+// 全局 Loading 管理
+let loadingCount = 0;
+let loadingRoot: Root | null = null;
+let loadingContainer: HTMLDivElement | null = null;
+
+function showLoading() {
+  if (loadingCount === 0) {
+    loadingContainer = document.createElement('div');
+    loadingContainer.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.45);z-index:9999;';
+    document.body.appendChild(loadingContainer);
+    loadingRoot = createRoot(loadingContainer);
+    loadingRoot.render(React.createElement(Spin, { size: 'large', description: '加载中...' }));
+  }
+  loadingCount++;
+}
+
+function hideLoading() {
+  loadingCount = Math.max(0, loadingCount - 1);
+  if (loadingCount === 0 && loadingRoot && loadingContainer) {
+    loadingRoot.unmount();
+    document.body.removeChild(loadingContainer);
+    loadingRoot = null;
+    loadingContainer = null;
+  }
+}
 
 const plugin = () => {
   return ({
@@ -42,43 +68,44 @@ const plugin = () => {
     onResponse,
     afterRequest,
   }: PluginCallbackParams) => {
-    const { showSuccessMessage, showErrorMessage } = config;
+    const { showSuccessMessage, showErrorMessage, loading } = config;
+
+    if (loading !== false) {
+      showLoading();
+    }
+
     onResponse(
       (response) => {
-        // if (loading && instance) {
-        //   instance.close();
-        // }
-        // // const { resetUserInfo } = useUserStore();
+        if (loading !== false) {
+          hideLoading();
+        }
         const { code, message } = response;
 
         if (code !== "SUCCESS") {
-          showErrorMessage !== false && message.error(message || "操作失败");
+          if (showErrorMessage !== false) AntMessage.error(message || "操作失败");
 
           return Promise.reject(response);
         }
         if (showSuccessMessage === true) {
-          message.success(message || "操作成功")
+          AntMessage.success(message || "操作成功")
         }
         return Promise.resolve(response.data);
       },
       (error) => {
+        if (loading !== false) {
+          hideLoading();
+        }
         if (error.code === "ERR_CANCELED") {
           return Promise.reject(error);
         }
 
-        // if (loading && instance) {
-        //   instance.close();
-        // }
-
-        message.error(error?.response?.data?.message ?? error.code);
+        AntMessage.error(error?.response?.data?.message ?? error.code);
 
         return Promise.reject(error);
       }
     );
     afterRequest(() => {
-      // if (loading) {
-      //   // instance = ElLoading.service({ fullscreen: true });
-      // }
+      // 请求发出后的回调
     });
   };
 };
