@@ -70,9 +70,9 @@ export default function ContractUsPage() {
               src="/icons/check-circle-primary.svg"
               width={18}
               height={18}
-              alt="讨论最符合您业务目标的解决方案"
+              alt="专家把脉，业务问题诊断"
             />
-            <p className="pl-2">讨论最符合您业务目标的解决方案</p>
+            <p className="pl-2">专家把脉，业务问题诊断</p>
           </div>
 
           <div className="text-[#555E67] text-[16px] flex items-center mt-2">
@@ -80,9 +80,9 @@ export default function ContractUsPage() {
               src="/icons/check-circle-primary.svg"
               width={18}
               height={18}
-              alt="获得专属定制报价"
+              alt="免费试用，安排POC测试"
             />
-            <p className="pl-2">获得专属定制报价</p>
+            <p className="pl-2">免费试用，安排POC测试</p>
           </div>
 
           <div className="text-[#555E67] text-[16px] flex items-center mt-2">
@@ -90,9 +90,19 @@ export default function ContractUsPage() {
               src="/icons/check-circle-primary.svg"
               width={18}
               height={18}
-              alt="了解如何优化跨团队协作流程”"
+              alt="定制方案，获得专属报价"
             />
-            <p className="pl-2">了解如何优化跨团队协作流程”</p>
+            <p className="pl-2">定制方案，获得专属报价</p>
+          </div>
+
+          <div className="text-[#555E67] text-[16px] flex items-center mt-2">
+            <Image
+              src="/icons/check-circle-primary.svg"
+              width={18}
+              height={18}
+              alt="业务探讨，开放式交流"
+            />
+            <p className="pl-2">业务探讨，开放式交流</p>
           </div>
         </div>
         <div className="w-full bg-[#ebefff80] rounded-[20px] p-7.5 mt-10">
