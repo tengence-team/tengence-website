@@ -4,8 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "cross-env NEXT_PUBLIC_CDN_PREFIX=https://static.mossego.com next build",
+    "build": "next build",
     "build:test": "next build",
+    "build:mossawake": "cross-env NEXT_PUBLIC_CDN_PREFIX=https://static.mossawake.com next build",
     "build:tengence": "cross-env NEXT_PUBLIC_CDN_PREFIX=https://static.tengence.com next build",
     "start": "next start",
     "lint": "eslint"
@@ -34,6 +35,7 @@
     "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
+    "ssh2": "^1.17.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
