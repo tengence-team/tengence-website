@@ -38,7 +38,7 @@ export default function Footer() {
                 关于我们
               </Link>
               <Link
-                href="/contract-us"
+                href="/contact-us"
                 className="text-base font-medium"
                 target="_blank"
               >

@@ -22,7 +22,8 @@ const versionList = [
     desc: "零成本入门，适合个人开发者、产品试用和网店等标准搜索场景",
     searchVolume:
       "月调用量配额：<span style='color:#242430'> 10万 次免费</span>，达额即止",
-    dataVolume: "存储配额：<span style='color:#242430'> 1GB 免费</span>，达额即止",
+    dataVolume:
+      "存储配额：<span style='color:#242430'> 1GB 免费</span>，达额即止",
     qps: "并发限制(QPS)：<span style='color:#242430'> 10 </span>",
     advantage: [
       "零成本入门：免费获得智能化效果",
@@ -33,7 +34,7 @@ const versionList = [
     example: [
       {
         title: "某个人博客网站",
-        desc: "文章数量 343 篇，博客日PV在 3000 左右，日搜索次数不足 1000，使用通智搜索基础版的内容行业方案，免费获得智能搜索能力",
+        desc: "文章数量 <span style='font-weight: bold;'>343+</span> 篇，博客日PV在 <span style='font-weight: bold;'>3000</span> 左右，日搜索次数不足 <span style='font-weight: bold;'>1000</span>，使用通智搜索基础版的内容行业方案，免费获得智能搜索能力",
         fee: "免费",
         specs: ["3万 请求/月", "343 条记录"],
         colleagues: [
@@ -61,7 +62,7 @@ const versionList = [
       },
       {
         title: "某知名C2C电商平台的个人店铺",
-        desc: "上架商品数量 459 件，店铺做了一定推广，日PV在 6000 左右，日搜索次数不足 2000，使用通智搜索基础版的电商行业方案，免费获得智能搜索的高效流量转化能力",
+        desc: "上架商品数量 <span style='font-weight: bold;'>459</span> 件，店铺做了一定推广，日PV在 <span style='font-weight: bold;'>6000</span>  左右，日搜索次数不足 <span style='font-weight: bold;'>2000</span> ，使用通智搜索基础版的电商行业方案，免费获得智能搜索的高效流量转化能力",
         fee: "免费",
         specs: ["6万 请求/月", "459 条记录"],
         colleagues: [
@@ -113,7 +114,7 @@ const versionList = [
     example: [
       {
         title: "Shopify 平台某婚纱店铺",
-        desc: "上架商品数量 336 款，在特定地区投入资源做推广引流，高峰期日UV在 10万+，日搜索次数 5万+，使用通智搜索专业版的电商行业方案，对于季节性流量波动，按量付费在成本上较为友好，并且具备自动化采集行为数据进行算法自动迭代优化的能力，无需额外投入资源进行针对性的优化",
+        desc: "上架商品数量 <span style='font-weight: bold;'>336</span> 款，在特定地区投入资源做推广引流，高峰期日UV在 <span style='font-weight: bold;'>10万+</span>，日搜索次数 <span style='font-weight: bold;'>5万+</span>，使用通智搜索专业版的电商行业方案，对于季节性流量波动，按量付费在成本上较为友好，并且具备自动化采集行为数据进行算法自动迭代优化的能力，无需额外投入资源进行针对性的优化",
         fee: "约 ¥2700 / 月",
         specs: ["150万 请求 / 月", "336 条记录"],
         colleagues: [
@@ -141,7 +142,7 @@ const versionList = [
       },
       {
         title: "某跨境无人机商家",
-        desc: "采用开源方案自建独立站，上架商品数量 500款 左右，长期坚持投入SEO，高峰期日PV在 15万+，日搜索次数 3万+，搜索效果存在较多badcase，自家人员无力做搜索优化，但具备一定技术能力，使用通智搜索专业版的电商行业方案，对意图识别能力做了大量定制化配置，仔细调优了精排逻辑，安排业务做了相关性评测，取得了各方都较为满意的效果",
+        desc: "采用开源方案自建独立站，上架商品数量 <span style='font-weight: bold;'>500款</span> 左右，长期坚持投入SEO，高峰期日PV在 <span style='font-weight: bold;'>15万+</span>，日搜索次数 <span style='font-weight: bold;'>3万+</span>，搜索效果存在较多badcase，自家人员无力做搜索优化，但具备一定技术能力，使用通智搜索专业版的电商行业方案，对意图识别能力做了大量定制化配置，仔细调优了精排逻辑，安排业务做了相关性评测，取得了各方都较为满意的效果",
         fee: "约 ¥1500 / 月",
         specs: ["90万 请求/月", "500 条记录"],
         colleagues: [
@@ -193,7 +194,7 @@ const versionList = [
     example: [
       {
         title: "某企业内部知识平台",
-        desc: "10+ 个业务线的各类业务文档，积累 10年 以上，数据量 800万+，包含大量业务术语，需要解决内部员工快速查找，精准获取知识的问题，通过使用通智搜索企业版，针对不同业务场景建立对应搜索应用，进行针对性的意图识别优化和业务干预，取得了较满意的效果",
+        desc: "<span style='font-weight: bold;'>10+</span> 个业务线的各类业务文档，积累 <span style='font-weight: bold;'>10年</span> 以上，数据量 <span style='font-weight: bold;'>800万+</span>，包含大量业务术语，需要解决内部员工快速查找，精准获取知识的问题，通过使用通智搜索企业版，针对不同业务场景建立对应搜索应用，进行针对性的意图识别优化和业务干预，取得了较满意的效果",
         fee: "-",
         specs: ["-"],
         colleagues: [
@@ -221,7 +222,7 @@ const versionList = [
       },
       {
         title: "某知名知识社区平台",
-        desc: "存在博客文章、论坛帖子、问答记录等多种内容，数据量 4000万+，日PV在 800万+，包含大量专业术语，需要解决多种内容融合搜索的问题，并且在合适的时候引入广告内容，提高整体的点击率，通过使用通智搜索企业版，借助搜索报表和AB测试报表分析优化点，对意图识别、排序和运营干预做了深入调优，取得了较满意的效果",
+        desc: "存在博客文章、论坛帖子、问答记录等多种内容，数据量 <span style='font-weight: bold;'>4000万+</span>，日PV在 <span style='font-weight: bold;'>800万+</span>，包含大量专业术语，需要解决多种内容融合搜索的问题，并且在合适的时候引入广告内容，提高整体的点击率，通过使用通智搜索企业版，借助搜索报表和AB测试报表分析优化点，对意图识别、排序和运营干预做了深入调优，取得了较满意的效果",
         fee: "-",
         specs: ["-"],
         colleagues: [
@@ -273,7 +274,7 @@ const versionList = [
     example: [
       {
         title: "某跨境电商企业",
-        desc: "自建独立站平台，在 10+ 个国家开展业务，同时运营 10+ 个网站，商品数量 10万+，日PV在 百万级，年营业额在 十亿级，投入较大资源进行推广引流，迫切需要提高流量转化效率，通过与通智搜索合作进行定制化优化，建立 10+ 个网站对应的搜索实例，针对不同语言和不同地区的行为特点，结合业务做了深度的算法优化，取得了较好的ROI成果",
+        desc: "自建独立站平台，在 <span style='font-weight: bold;'>10+</span> 个国家开展业务，同时运营 <span style='font-weight: bold;'>10+</span> 个网站，商品数量 <span style='font-weight: bold;'>10万+</span>，日PV在 百万级，年营业额在 <span style='font-weight: bold;'>十亿级</span>，投入较大资源进行推广引流，迫切需要提高流量转化效率，通过与通智搜索合作进行定制化优化，建立 <span style='font-weight: bold;'>10+</span> 个网站对应的搜索实例，针对不同语言和不同地区的行为特点，结合业务做了深度的算法优化，取得了较好的ROI成果",
         fee: "-",
         specs: ["-"],
         colleagues: [
@@ -301,7 +302,7 @@ const versionList = [
       },
       {
         title: "某知名电商平台的信息流种草社区",
-        desc: "在东南亚 6 个国家开展业务，投入大量资源扶植本地KOL和KOC，与本地MCN合作生产优质内容，其中的短视频、图文等内容数据量在 2亿 左右，日搜索次数 8000万 左右，迫切需要提高这些种草内容的成交转化率，通过与通智搜索的合作，建立 10+ 个搜索实例，针对多模态的内容特点，不同国家和不同文化的用户行为特点，进行深入定制优化，取得了不错的流量转化成果",
+        desc: "在东南亚 <span style='font-weight: bold;'>6</span> 个国家开展业务，投入大量资源扶植本地KOL和KOC，与本地MCN合作生产优质内容，其中的短视频、图文等内容数据量在 <span style='font-weight: bold;'>2亿</span> 左右，日搜索次数 <span style='font-weight: bold;'>8000万</span> 左右，迫切需要提高这些种草内容的成交转化率，通过与通智搜索的合作，建立 <span style='font-weight: bold;'>10+</span> 个搜索实例，针对多模态的内容特点，不同国家和不同文化的用户行为特点，进行深入定制优化，取得了不错的流量转化成果",
         fee: "-",
         specs: ["-"],
         colleagues: [
@@ -344,7 +345,7 @@ const versionList = [
     example: [
       {
         title: "某企业集团公司",
-        desc: "10+ 条业务线，3 个电商平台场景、近 10 个博客/论坛/帮助文档/业务知识库等内容场景、9 个订单/审计等大数据加速场景、1 个企业知识社区的综合型企业搜索引擎场景，完全定制化合作，项目制落地，驻场开发，在企业多个场景的效率提升和业务转化都取得了较好的效果",
+        desc: "<span style='font-weight: bold;'>10+</span> 条业务线，<span style='font-weight: bold;'>3</span> 个电商平台场景、近 <span style='font-weight: bold;'>10</span> 个博客/论坛/帮助文档/业务知识库等内容场景、<span style='font-weight: bold;'>9</span> 个订单/审计等大数据加速场景、<span style='font-weight: bold;'>1</span> 个企业知识社区的综合型企业搜索引擎场景，完全定制化合作，项目制落地，驻场开发，在企业多个场景的效率提升和业务转化都取得了较好的效果",
         fee: "洽谈",
         specs: ["-"],
         colleagues: [
@@ -369,7 +370,7 @@ const versionList = [
             fee: "不支持",
           },
         ],
-      }
+      },
     ],
   },
 ];
@@ -648,9 +649,14 @@ export default function ProductPage() {
                   {item.title}
                 </p>
 
-                <p className="text-[#555E67] text-[16px] pt-3">{item.desc}</p>
+                <p
+                  className="text-[#555E67] text-[16px] pt-3"
+                  dangerouslySetInnerHTML={{
+                    __html: item.desc,
+                  }}
+                ></p>
 
-                <div className="mt-5 flex flex-1 gap-2.5 max-h-[180px]">
+                <div className="mt-5 flex flex-1 gap-2.5 max-h-45">
                   <div className="h-full flex flex-col bg-white rounded-xl px-4 py-3 w-35">
                     <p className="text-[#31373D] text-[16px] font-medium">
                       通智搜索
@@ -665,13 +671,13 @@ export default function ProductPage() {
                     </div>
 
                     <div>
-                      <span className="text-primary px-1.5 py-1 bg-[#EBEFFF] rounded-sm font-medium text-[12px] leading-6">
+                      <span className="text-primary px-1.5 py-1 bg-[#EBEFFF] rounded-sm font-medium text-[12px] leading-6 whitespace-nowrap">
                         {item.fee}
                       </span>
                     </div>
                   </div>
 
-                  <div className="mt-3 rounded-xl flex overflow-hidden">
+                  <div className="mt-3 rounded-xl flex overflow-x-auto">
                     {item.colleagues.map((colleague, index) => (
                       <div
                         key={index}
@@ -695,7 +701,7 @@ export default function ProductPage() {
                         </div>
 
                         <div>
-                          <span className="text-[#555E67] px-1.5 bg-[#F3F4F8] py-1 rounded-sm font-medium text-[12px] leading-6">
+                          <span className="text-[#555E67] px-1.5 bg-[#F3F4F8] py-1 rounded-sm font-medium text-[12px] leading-6 whitespace-nowrap">
                             {colleague.fee}
                           </span>
                         </div>
@@ -732,7 +738,7 @@ export default function ProductPage() {
               </p>
             </div>
             <Link
-              href="/contract-us"
+              href="/contact-us"
               className="text-[16px] text-black bg-white font-medium px-6 py-3.5 border border-solid border-[#373850] rounded-xl"
               target="_blank"
             >
@@ -800,9 +806,7 @@ export default function ProductPage() {
                 height={14}
                 alt="企业知识管理平台搜索/企业内部搜索引擎"
               />
-              <span className="pl-1.5">
-                企业知识管理平台/企业内部搜索引擎
-              </span>
+              <span className="pl-1.5">企业知识管理平台/企业内部搜索引擎</span>
             </div>
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">

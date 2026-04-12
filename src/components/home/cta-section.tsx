@@ -40,7 +40,7 @@ export function CTASection() {
               免费试用
             </Link>
             <Link
-              href="/contract-us"
+              href="/contact-us"
               className="text-base font-medium px-6 py-3.5 border border-solid border-white text-white rounded-xl"
             >
               联系我们
