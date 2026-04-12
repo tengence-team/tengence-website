@@ -23,25 +23,25 @@ export const featureCards: FeatureData[] = [
   {
     highlight: "一分钟",
     title: "创建应用",
-    description: "从模板一键生成云搜索服务实例，免去繁琐的环境搭建与配置。",
+    description: "从模板一键创建应用，免去繁琐的环境搭建与配置。",
     image: "/images/create-app.png",
   },
   {
     highlight: "一小时",
     title: "接入数据",
-    description: "支持多源数据同步，可视化配置，无需写代码。",
+    description: "支持多种数据源接入，可视化配置，无需写代码。",
     image: "/images/create-dataset.png",
   },
   {
     highlight: "一天",
     title: "接入产品",
-    description: "通过快速集成搜索能力，当天即可在业务系统中上线试用。",
+    description: "快速集成产品能力，当天即可在业务系统上线试用。",
     image: "/images/use-component.png",
   },
   {
     highlight: "一周",
     title: "评估效果",
-    description: "提供搜索质量分析仪表盘与A/B测试工具，一周内完成效果验证与调优。",
+    description: "提供详尽报表和 A/B 测试工具，一周内评估业务效果。",
     image: "/images/evaluation-effect.png",
   },
 ];
@@ -51,7 +51,7 @@ export const trialSteps: TrialStepData[] = [
     id: "entry",
     icon: "/icons/book.svg",
     title: "零门槛入门",
-    description: ["0成本免费开通", "0风险极速验证"],
+    description: ["0 成本免费开通", "0 风险极速验证"],
   },
   {
     id: "diagnosis",
@@ -78,7 +78,7 @@ export const advantageCards: AdvantageData[] = [
     highlight: "「快」",
     title: "唯快不破",
     items: [
-      { text: "0代码低门槛，1天极速上线" },
+      { text: "0 代码低门槛，1 天极速上线" },
       { text: "弹性扩缩容，峰值流量平稳承接" },
       { text: "灰度发布验证，业务优化无扰动" },
     ],

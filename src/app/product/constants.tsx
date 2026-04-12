@@ -30,7 +30,7 @@ export const advantageCards: AdvantageCard[] = [
   },
   {
     title: "超高性能",
-    items: ["亿级日PV的超高流量挑战", "P95响应时间80ms", "全链路实时数据更新"],
+    items: ["亿级日 PV 的超高流量挑战", "P95 响应时间 80ms", "全链路实时数据更新"],
   },
   {
     title: "白盒化调优",
@@ -41,7 +41,7 @@ export const advantageCards: AdvantageCard[] = [
     items: [
       "内置多种意图识别能力",
       "行业算法调优最佳实践",
-      "深度模型AutoML，自动寻找最优解",
+      "深度模型 AutoML，自动寻找最优解",
     ],
   },
   {
@@ -52,7 +52,7 @@ export const advantageCards: AdvantageCard[] = [
     title: "充分可运营",
     items: [
       "业务想法快速付诸实现",
-      "全链路ABTest能力",
+      "全链路 ABTest 能力",
       "充分的业务运营干预能力",
     ],
   },
@@ -131,8 +131,8 @@ export const createColumns = (): TableProps<DataType>["columns"] => [
   },
   createBooleanColumn("通智搜索", "tengence"),
   createBooleanColumn("Algol*a", "algolia"),
-  createBooleanColumn("阿*云", "ali"),
+  createBooleanColumn("阿*云开放搜索", "ali"),
   createBooleanColumn("Unb*d", "unbxd"),
   createBooleanColumn("Op*nSearch", "aws"),
-  createBooleanColumn("Elast*c Search", "elastic"),
+  createBooleanColumn("Elast*cSearch", "elastic"),
 ];
