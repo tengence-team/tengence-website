@@ -1,16 +1,35 @@
 #!/usr/bin/env node
 
 import { execSync } from "node:child_process";
-import { existsSync, mkdirSync, rmSync, createReadStream, statSync } from "node:fs";
+import {
+  existsSync,
+  mkdirSync,
+  rmSync,
+  createReadStream,
+  statSync,
+} from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { createInterface } from "node:readline";
 import ssh2 from "ssh2";
+import "dotenv/config";
+
+// 加载 .deploy.env
+import { config } from "dotenv";
+const envPath = resolve(
+  import.meta.dirname,
+  "..",
+  `.deploy.${process.env.SITE}.env`
+);
+if (existsSync(envPath)) {
+  config({ path: envPath });
+}
 
 // ============ 配置 ============
 const SERVER_USER = process.env.DEPLOY_USER || "root";
 const SERVER_HOST = process.env.DEPLOY_HOST || "";
 const SERVER_PASS = process.env.DEPLOY_PASS || "";
+
 
 const OUT_DIR = resolve(import.meta.dirname, "..", "out");
 const TMP_DIR = join(tmpdir(), `${process.env.SITE}-deploy`);
@@ -26,7 +45,12 @@ function run(cmd) {
 
 async function prompt(question) {
   const rl = createInterface({ input: process.stdin, output: process.stdout });
-  return new Promise((resolve) => rl.question(question, (ans) => { rl.close(); resolve(ans); }));
+  return new Promise((resolve) =>
+    rl.question(question, (ans) => {
+      rl.close();
+      resolve(ans);
+    })
+  );
 }
 
 /** 连接 SSH */
@@ -50,9 +74,16 @@ function execRemote(conn, cmd) {
     conn.exec(cmd, (err, stream) => {
       if (err) return reject(err);
       let output = "";
-      stream.on("data", (data) => { output += data; process.stdout.write(data); });
-      stream.stderr.on("data", (data) => { process.stderr.write(data); });
-      stream.on("close", (code) => code === 0 ? resolve(output) : reject(new Error(`exit code: ${code}`)));
+      stream.on("data", (data) => {
+        output += data;
+        process.stdout.write(data);
+      });
+      stream.stderr.on("data", (data) => {
+        process.stderr.write(data);
+      });
+      stream.on("close", (code) =>
+        code === 0 ? resolve(output) : reject(new Error(`exit code: ${code}`))
+      );
     });
   });
 }
@@ -64,7 +95,10 @@ function uploadFile(conn, localPath, remotePath) {
       if (err) return reject(err);
       const readStream = createReadStream(localPath);
       const writeStream = sftp.createWriteStream(remotePath);
-      writeStream.on("close", () => { sftp.end(); resolve(); });
+      writeStream.on("close", () => {
+        sftp.end();
+        resolve();
+      });
       writeStream.on("error", reject);
       readStream.on("error", reject);
       readStream.pipe(writeStream);
@@ -76,7 +110,10 @@ async function main() {
   // 检查环境变量
   if (!SERVER_HOST) {
     const host = await prompt("请输入服务器地址: ");
-    if (!host) { console.error("未提供服务器地址"); process.exit(1); }
+    if (!host) {
+      console.error("未提供服务器地址");
+      process.exit(1);
+    }
     process.env.DEPLOY_HOST = host;
   }
   const host = process.env.DEPLOY_HOST;
@@ -111,7 +148,9 @@ async function main() {
 
   const staticSize = (statSync(staticZip).size / 1024 / 1024).toFixed(2);
   const siteSize = (statSync(siteZip).size / 1024 / 1024).toFixed(2);
-  console.log(`\n📊 _next 静态资源: ${staticSize} MB | 站点文件: ${siteSize} MB`);
+  console.log(
+    `\n📊 _next 静态资源: ${staticSize} MB | 站点文件: ${siteSize} MB`
+  );
 
   // 连接服务器
   console.log(`\n🔗 连接服务器 ${SERVER_USER}@${host}...`);
@@ -124,14 +163,20 @@ async function main() {
     console.log("  上传中...");
     await uploadFile(conn, staticZip, "/tmp/_next-static.tar.gz");
     console.log("  解压中...");
-    await execRemote(conn, `rm -rf ${STATIC_REMOTE}/_next && mkdir -p ${STATIC_REMOTE} && cd ${STATIC_REMOTE} && tar -xzf /tmp/_next-static.tar.gz && rm -f /tmp/_next-static.tar.gz`);
+    await execRemote(
+      conn,
+      `rm -rf ${STATIC_REMOTE}/_next && mkdir -p ${STATIC_REMOTE} && cd ${STATIC_REMOTE} && tar -xzf /tmp/_next-static.tar.gz && rm -f /tmp/_next-static.tar.gz`
+    );
 
     // 部署站点文件
     console.log(`\n🚀 部署站点文件到 ${SITE_REMOTE}...`);
     console.log("  上传中...");
     await uploadFile(conn, siteZip, "/tmp/site.tar.gz");
     console.log("  解压中...");
-    await execRemote(conn, `rm -rf ${SITE_REMOTE}/* && mkdir -p ${SITE_REMOTE} && cd ${SITE_REMOTE} && tar -xzf /tmp/site.tar.gz && rm -f /tmp/site.tar.gz`);
+    await execRemote(
+      conn,
+      `rm -rf ${SITE_REMOTE}/* && mkdir -p ${SITE_REMOTE} && cd ${SITE_REMOTE} && tar -xzf /tmp/site.tar.gz && rm -f /tmp/site.tar.gz`
+    );
   } finally {
     conn.end();
   }
