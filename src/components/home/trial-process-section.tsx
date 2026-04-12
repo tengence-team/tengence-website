@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { TrialStep, trialSteps } from ".";
 import localFont from "next/font/local";
+import circulationImg from "@/assets/images/circulation.svg";
 
 const sourceHanSerif = localFont({
   src: [
@@ -48,9 +49,10 @@ export function TrialProcessSection() {
               {index < trialSteps.length - 1 && (
                 <div
                   className={cn(
-                    "h-3.75 flex-1 bg-[#DDE] bg-[url('/images/circulation.svg')] bg-no-repeat bg-center",
+                    "h-3.75 flex-1 bg-[#DDE] bg-no-repeat bg-center",
                     index === 1 && "mt-22.75"
                   )}
+                  style={{ backgroundImage: `url('${circulationImg.src}')` }}
                 />
               )}
             </div>

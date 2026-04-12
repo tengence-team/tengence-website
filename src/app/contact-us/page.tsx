@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
 import Image from "next/image";
 import * as Api from "@/api";
+import checkCirclePrimaryIcon from "@/assets/icons/check-circle-primary.svg";
+import phoneCallIcon from "@/assets/icons/phone-call.svg";
 
 import { Button, Form, Input, Select, Space } from "antd";
 
@@ -67,7 +69,7 @@ export default function ContractUsPage() {
 
           <div className="text-[#555E67] text-[16px] flex items-center mt-8">
             <Image
-              src="/icons/check-circle-primary.svg"
+              src={checkCirclePrimaryIcon}
               width={18}
               height={18}
               alt="专家把脉，业务问题诊断"
@@ -77,7 +79,7 @@ export default function ContractUsPage() {
 
           <div className="text-[#555E67] text-[16px] flex items-center mt-2">
             <Image
-              src="/icons/check-circle-primary.svg"
+              src={checkCirclePrimaryIcon}
               width={18}
               height={18}
               alt="免费试用，安排POC测试"
@@ -87,7 +89,7 @@ export default function ContractUsPage() {
 
           <div className="text-[#555E67] text-[16px] flex items-center mt-2">
             <Image
-              src="/icons/check-circle-primary.svg"
+              src={checkCirclePrimaryIcon}
               width={18}
               height={18}
               alt="定制方案，获得专属报价"
@@ -97,7 +99,7 @@ export default function ContractUsPage() {
 
           <div className="text-[#555E67] text-[16px] flex items-center mt-2">
             <Image
-              src="/icons/check-circle-primary.svg"
+              src={checkCirclePrimaryIcon}
               width={18}
               height={18}
               alt="业务探讨，开放式交流"
@@ -117,7 +119,7 @@ export default function ContractUsPage() {
 
           <div className="flex items-center text-[#373850] text-[16px] font-medium mt-7">
             <Image
-              src="/icons/phone-call.svg"
+              src={phoneCallIcon}
               width={20}
               height={20}
               alt="合作电话"
@@ -130,7 +132,7 @@ export default function ContractUsPage() {
           </div>
           <div className="flex items-center text-[#373850] text-[16px] font-medium mt-4">
             <Image
-              src="/icons/phone-call.svg"
+              src={phoneCallIcon}
               width={20}
               height={20}
               alt="合作邮箱"
@@ -140,7 +142,7 @@ export default function ContractUsPage() {
           </div>
           <div className="flex items-center text-[#373850] text-[16px] font-medium mt-4">
             <Image
-              src="/icons/phone-call.svg"
+              src={phoneCallIcon}
               width={20}
               height={20}
               alt="监督我们"

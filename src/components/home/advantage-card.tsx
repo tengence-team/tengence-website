@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
+import checkCircleIcon from "@/assets/icons/check-circle.svg";
 
 interface AdvantageItem {
   text: string;
@@ -9,7 +11,7 @@ interface AdvantageCardProps {
   highlight: string;
   title: string;
   items: AdvantageItem[];
-  image?: string;
+  image?: StaticImageData;
   className?: string;
   titleClassName?: string;
 }
@@ -29,7 +31,7 @@ export function AdvantageCard({
         image && "bg-contain bg-no-repeat bg-right",
         className
       )}
-      style={image ? { backgroundImage: `url('${image}')` } : undefined}
+      style={image ? { backgroundImage: `url('${image.src}')` } : undefined}
     >
       <h2 className={cn("text-[32px] font-semibold text-[#242430]", titleClassName)}>
         <span className="text-primary">{highlight}</span>
@@ -39,7 +41,7 @@ export function AdvantageCard({
         {items.map((item, index) => (
           <div key={index} className={cn("flex items-center", index < items.length - 1 && "mb-2")}>
             <Image
-              src="/icons/check-circle.svg"
+              src={checkCircleIcon}
               alt="check"
               width={18}
               height={18}

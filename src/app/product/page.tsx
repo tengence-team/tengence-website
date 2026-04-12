@@ -12,6 +12,18 @@ import { cn } from "@/lib/utils";
 import { SuccessCases } from "./components/SuccessCases";
 import Image from "next/image";
 import Link from "next/link";
+import checkCircleSuccessIcon from "@/assets/icons/check-circle-success.svg";
+import directionImg from "@/assets/images/direction.svg";
+import squareBgImg from "@/assets/images/square-bg.png";
+import shoppingBagIcon from "@/assets/icons/shopping-bag.svg";
+import globeIcon from "@/assets/icons/globe.svg";
+import clapperboardIcon from "@/assets/icons/clapperboard.svg";
+import messageSmileSquareIcon from "@/assets/icons/message-smile-square.svg";
+import buildingIcon from "@/assets/icons/building.svg";
+import searchRefractionIcon from "@/assets/icons/search-refraction.svg";
+import databaseIcon from "@/assets/icons/database.svg";
+import serverIcon from "@/assets/icons/server.svg";
+import filmIcon from "@/assets/icons/film.svg";
 
 const versionList = [
   {
@@ -556,7 +568,7 @@ export default function ProductPage() {
                 {selectedVersion.searchVolume ? (
                   <div className="flex items-center">
                     <Image
-                      src="/icons/check-circle-success.svg"
+                      src={checkCircleSuccessIcon}
                       width={18}
                       height={18}
                       alt="月调用量配额"
@@ -575,7 +587,7 @@ export default function ProductPage() {
                 {selectedVersion.dataVolume ? (
                   <div className="flex items-center">
                     <Image
-                      src="/icons/check-circle-success.svg"
+                      src={checkCircleSuccessIcon}
                       width={18}
                       height={18}
                       alt="存储配额"
@@ -594,7 +606,7 @@ export default function ProductPage() {
                 {selectedVersion.qps ? (
                   <div className="flex items-center">
                     <Image
-                      src="/icons/check-circle-success.svg"
+                      src={checkCircleSuccessIcon}
                       width={18}
                       height={18}
                       alt="并发限制(QPS)"
@@ -631,7 +643,7 @@ export default function ProductPage() {
               </div>
 
               <Image
-                src="/images/direction.svg"
+                src={directionImg}
                 width={44}
                 height={29}
                 alt="案例适配"
@@ -715,7 +727,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <section className="bg-[url('/images/square-bg.png')] bg-size-[100%] p-10 mt-10 bg-[#EBEFFF]">
+      <section className="bg-size-[100%] p-10 mt-10 bg-[#EBEFFF]" style={{ backgroundImage: `url('${squareBgImg.src}')` }}>
         <div className="max-w-360 mx-auto">
           <div className="flex items-center justify-between">
             <div>
@@ -749,7 +761,7 @@ export default function ProductPage() {
           <div className="flex flex-wrap text-white text-[14px] mt-10 gap-x-2 gap-y-3">
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
               <Image
-                src="/icons/shopping-bag.svg"
+                src={shoppingBagIcon}
                 width={14}
                 height={14}
                 alt="电商网站商品/订单/店铺/卖家/评论搜索"
@@ -761,7 +773,7 @@ export default function ProductPage() {
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
               <Image
-                src="/icons/globe.svg"
+                src={globeIcon}
                 width={14}
                 height={14}
                 alt="跨境电商多站点/多地区搜索平台"
@@ -771,7 +783,7 @@ export default function ProductPage() {
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
               <Image
-                src="/icons/clapperboard.svg"
+                src={clapperboardIcon}
                 width={14}
                 height={14}
                 alt="信息流/多媒体/短视频/图文社区搜索"
@@ -781,7 +793,7 @@ export default function ProductPage() {
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
               <Image
-                src="/icons/message-smile-square.svg"
+                src={messageSmileSquareIcon}
                 width={14}
                 height={14}
                 alt="知识社区/博客/论坛/内容搜索"
@@ -791,7 +803,7 @@ export default function ProductPage() {
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
               <Image
-                src="/icons/building.svg"
+                src={buildingIcon}
                 width={14}
                 height={14}
                 alt="企业多业务线搜索平台"
@@ -801,7 +813,7 @@ export default function ProductPage() {
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
               <Image
-                src="/icons/search-refraction.svg"
+                src={searchRefractionIcon}
                 width={14}
                 height={14}
                 alt="企业知识管理平台搜索/企业内部搜索引擎"
@@ -811,7 +823,7 @@ export default function ProductPage() {
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
               <Image
-                src="/icons/database.svg"
+                src={databaseIcon}
                 width={14}
                 height={14}
                 alt="大数据查询加速/数据分析/时序数据库"
@@ -821,7 +833,7 @@ export default function ProductPage() {
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
               <Image
-                src="/icons/server.svg"
+                src={serverIcon}
                 width={14}
                 height={14}
                 alt="向量库/RAG/以图搜图/语义向量检索"
@@ -831,7 +843,7 @@ export default function ProductPage() {
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
               <Image
-                src="/icons/film.svg"
+                src={filmIcon}
                 width={14}
                 height={14}
                 alt="广告平台智能搜索"

@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { type StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 
 interface TrialStepProps {
-  icon: string;
+  icon: StaticImageData;
   title: string;
   description: string[];
   titleClassName?: string;

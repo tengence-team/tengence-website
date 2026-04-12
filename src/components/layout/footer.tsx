@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
+import wechatIcon from "@/assets/icons/wechat.svg";
+import icpImg from "@/assets/images/icp.png";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -63,7 +65,7 @@ export default function Footer() {
           <div className="flex">
             <div className="bg-white rounded-lg p-2">
               <Image
-                src="/icons/wechat.svg"
+                src={wechatIcon}
                 alt="wechat"
                 width={24}
                 height={24}
@@ -78,7 +80,7 @@ export default function Footer() {
           </p>
           <div className="flex items-center">
             <Image
-              src="/images/icp.png"
+              src={icpImg}
               alt="粤ICP备2024177480号"
               width={20}
               height={20}

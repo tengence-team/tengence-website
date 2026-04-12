@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import localFont from "next/font/local";
+import squareBgImg from "@/assets/images/square-bg.png";
 
 const sourceHanSerif = localFont({
   src: [
@@ -16,7 +17,7 @@ const sourceHanSerif = localFont({
 
 export function HeroSection() {
   return (
-    <section className="bg-[url('/images/square-bg.png')] bg-size-[100%]">
+    <section className="bg-size-[100%]" style={{ backgroundImage: `url('${squareBgImg.src}')` }}>
       <div className="max-w-237.5 mx-auto">
         <div className="pt-40 flex flex-col justify-center pb-20">
           <h1

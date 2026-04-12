@@ -2,6 +2,18 @@ import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
 import { CTASection } from "@/components/home";
 import Image from "next/image";
+import starsImg from "@/assets/images/stars.svg";
+import lightbulbImg from "@/assets/images/lightbulb.svg";
+import dataflowImg from "@/assets/images/dataflow.svg";
+import eyeImg from "@/assets/images/eye.svg";
+import pencilImg from "@/assets/images/pencil.png";
+import hammerImg from "@/assets/images/hammer.png";
+import medalImg from "@/assets/images/medal.png";
+import checkHeartImg from "@/assets/images/check-heart.svg";
+import awardImg from "@/assets/images/award.svg";
+import faceSmileImg from "@/assets/images/face-smile.svg";
+import beakerImg from "@/assets/images/beaker.svg";
+import cooperateImg from "@/assets/images/cooperate.png";
 
 const sourceHanSerif = localFont({
   src: [
@@ -53,7 +65,7 @@ export default function AboutUsPage() {
               四大核心方向
             </p>
             <Image
-              src="/images/stars.svg"
+              src={starsImg}
               width={40}
               height={40}
               alt="聚焦流量转化、智能营销、商业分析、智能体服务四大核心方向"
@@ -68,7 +80,7 @@ export default function AboutUsPage() {
               解决方案
             </p>
             <Image
-              src="/images/lightbulb.svg"
+              src={lightbulbImg}
               width={40}
               height={40}
               alt="提供可落地、可观测、可调优的全栈智能化解决方案"
@@ -81,7 +93,7 @@ export default function AboutUsPage() {
               ，实现业务快速上线、价值快速验证
             </p>
             <Image
-              src="/images/dataflow.svg"
+              src={dataflowImg}
               width={40}
               height={40}
               alt="以低门槛极速接入能力，实现业务快速上线、价值快速验证"
@@ -95,7 +107,7 @@ export default function AboutUsPage() {
               ，精准提效、驱动业务增长
             </p>
             <Image
-              src="/images/eye.svg"
+              src={eyeImg}
               width={40}
               height={40}
               alt="以行业级成熟算法与深度数据洞察，精准提效、驱动业务增长"
@@ -151,7 +163,7 @@ export default function AboutUsPage() {
               sourceHanSerif.className
             )}
           >
-            <div className="w-full h-full bg-[url('/images/pencil.png')] bg-no-repeat bg-contain bg-right p-10">
+            <div className="w-full h-full bg-no-repeat bg-contain bg-right p-10" style={{ backgroundImage: `url('${pencilImg.src}')` }}>
               <div className="w-69">
                 我们是一群极客， 以创新突破为乐，以固步自封为耻
               </div>
@@ -159,7 +171,7 @@ export default function AboutUsPage() {
           </div>
           <div className="flex-1 flex flex-col gap-3">
             <div className="shadow-card-border bg-gradient-blue-fade flex-1 rounded-[20px]">
-              <div className="w-full h-full p-10 bg-[url('/images/hammer.png')] bg-no-repeat bg-contain bg-position-[right_20px_bottom_-20px]">
+              <div className="w-full h-full p-10 bg-no-repeat bg-contain bg-position-[right_20px_bottom_-20px]" style={{ backgroundImage: `url('${hammerImg.src}')` }}>
                 <p
                   className={cn(
                     "text-[28px] font-semibold text-[#31373D]",
@@ -172,7 +184,7 @@ export default function AboutUsPage() {
               </div>
             </div>
             <div className="shadow-card-border bg-gradient-blue-fade flex-1 rounded-[20px]">
-              <div className="w-full h-full p-10 bg-[url('/images/medal.png')] bg-no-repeat bg-contain bg-position-[right_100px_top_0px]">
+              <div className="w-full h-full p-10 bg-no-repeat bg-contain bg-position-[right_100px_top_0px]" style={{ backgroundImage: `url('${medalImg.src}')` }}>
                 <p
                   className={cn(
                     "text-[28px] font-semibold text-[#31373D]",
@@ -200,7 +212,7 @@ export default function AboutUsPage() {
           <div className="p-7.5 rounded-lg shadow-card-border">
             <div className="rounded-lg border border-solid border-[#DDE] inline-block p-3">
               <Image
-                src="/images/check-heart.svg"
+                src={checkHeartImg}
                 width={36}
                 height={36}
                 alt="我们敬畏用户的信任，全力以赴交付价值"
@@ -214,7 +226,7 @@ export default function AboutUsPage() {
           <div className="p-7.5 rounded-lg shadow-card-border">
             <div className="rounded-lg border border-solid border-[#DDE] inline-block p-3">
               <Image
-                src="/images/award.svg"
+                src={awardImg}
                 width={36}
                 height={36}
                 alt="我们拥抱变化，在试错中成长"
@@ -229,7 +241,7 @@ export default function AboutUsPage() {
           <div className="p-7.5 rounded-lg shadow-card-border">
             <div className="rounded-lg border border-solid border-[#DDE] inline-block p-3">
               <Image
-                src="/images/face-smile.svg"
+                src={faceSmileImg}
                 width={36}
                 height={36}
                 alt="我们以实干为荣，以空谈为耻"
@@ -244,7 +256,7 @@ export default function AboutUsPage() {
           <div className="p-7.5 rounded-lg shadow-card-border">
             <div className="rounded-lg border border-solid border-[#DDE] inline-block p-3">
               <Image
-                src="/images/beaker.svg"
+                src={beakerImg}
                 width={36}
                 height={36}
                 alt="我们把产品当成艺术品来雕琢"
@@ -268,7 +280,7 @@ export default function AboutUsPage() {
           我们欢迎志同道合的你
         </h2>
 
-        <div className="text-center text-white h-87.5 bg-[url('/images/cooperate.png')] bg-no-repeat bg-cover flex flex-col items-center justify-center gap-6 mt-9 rounded-[20px]">
+        <div className="text-center text-white h-87.5 bg-no-repeat bg-cover flex flex-col items-center justify-center gap-6 mt-9 rounded-[20px]" style={{ backgroundImage: `url('${cooperateImg.src}')` }}>
           <p className="text-[32px]">
             通智云在等待同频实干的人才，共造有价值有温度的 AI 产品。
           </p>

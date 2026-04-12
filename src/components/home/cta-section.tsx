@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import localFont from "next/font/local";
+import trialImg from "@/assets/images/trial.png";
 
 const sourceHanSerif = localFont({
   src: [
@@ -17,7 +18,7 @@ const sourceHanSerif = localFont({
 
 export function CTASection() {
   return (
-    <section className="bg-primary bg-[url('/images/trial.png')] bg-no-repeat bg-contain bg-bottom-right py-15 px-25">
+    <section className="bg-primary bg-no-repeat bg-contain bg-bottom-right py-15 px-25" style={{ backgroundImage: `url('${trialImg.src}')` }}>
       <div className="max-w-360 mx-auto">
         <div
           className={cn(

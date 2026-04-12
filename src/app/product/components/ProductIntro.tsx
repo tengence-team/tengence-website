@@ -1,13 +1,15 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { sourceHanSerif } from "../constants";
+import tengenceSearchTitleImg from "@/assets/images/tengence-search-title.png";
+import searchImg from "@/assets/images/search.png";
 
 export function ProductIntro() {
   return (
     <section className="max-w-360 mx-auto flex items-center justify-between gap-22.5 px-40 pb-22.5">
       <div>
         <Image
-          src="/images/tengence-search-title.png"
+          src={tengenceSearchTitleImg}
           alt="通智搜索"
           width={236}
           height={31}
@@ -30,7 +32,7 @@ export function ProductIntro() {
           AI 时代企业提升流量转化、驱动业务持续增长的核心利器。
         </p>
       </div>
-      <Image src="/images/search.png" alt="搜索" width={384} height={413} />
+      <Image src={searchImg} alt="搜索" width={384} height={413} />
     </section>
   );
 }

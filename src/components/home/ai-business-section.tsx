@@ -1,6 +1,11 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import localFont from "next/font/local";
+import buildingImg from "@/assets/images/building.svg";
+import expertImg from "@/assets/images/expert.svg";
+import practiceImg from "@/assets/images/practice.svg";
+import increaseImg from "@/assets/images/increase.svg";
+import dotBgImg from "@/assets/images/dot-bg.png";
 
 const sourceHanSerif = localFont({
   src: [
@@ -17,25 +22,25 @@ const sourceHanSerif = localFont({
 
 const aiBusinessItems = [
   {
-    icon: "/images/building.svg",
+    icon: buildingImg,
     alt: "深耕行业的成熟数据底座",
     prefix: "深耕行业的",
     highlight: "成熟数据底座",
   },
   {
-    icon: "/images/expert.svg",
+    icon: expertImg,
     alt: "全程陪跑的专家经验交付",
     prefix: "全程陪跑的",
     highlight: "专家经验交付",
   },
   {
-    icon: "/images/practice.svg",
+    icon: practiceImg,
     alt: "久经验证的最佳调优实践",
     prefix: "久经验证的",
     highlight: "最佳调优实践",
   },
   {
-    icon: "/images/increase.svg",
+    icon: increaseImg,
     alt: "数据驱动的持续业务增长",
     prefix: "数据驱动的",
     highlight: "持续业务增长",
@@ -47,9 +52,10 @@ export function AIBusinessSection() {
     <section className="m-5">
       <div
         className={cn(
-          "max-w-360 mx-auto p-10 bg-[#f9f9fb80] rounded-[40px] bg-[url('/images/dot-bg.png')] bg-size-[100%]",
+          "max-w-360 mx-auto p-10 bg-[#f9f9fb80] rounded-[40px] bg-size-[100%]",
           sourceHanSerif.className
         )}
+        style={{ backgroundImage: `url('${dotBgImg.src}')` }}
       >
         <h2 className={cn("text-[44px] font-semibold text-black text-center")}>
           我们把{" "}

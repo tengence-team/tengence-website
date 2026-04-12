@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { sourceHanSerif, advantageCards } from "../constants";
+import checkCircleSuccessIcon from "@/assets/icons/check-circle-success.svg";
 
 export function AdvantageSection() {
   return (
@@ -26,7 +27,7 @@ export function AdvantageSection() {
             {card.items.map((item) => (
               <div key={item} className="flex items-center mt-1 first:mt-3">
                 <Image
-                  src="/icons/check-circle-success.svg"
+                  src={checkCircleSuccessIcon}
                   alt="check"
                   width={18}
                   height={18}
