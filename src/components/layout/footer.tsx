@@ -76,7 +76,7 @@ export default function Footer() {
         <div className="w-full h-px bg-white opacity-20 mt-10 mb-6"></div>
         <div className="flex items-center justify-center gap-20">
           <p className="text-center text-sm">
-            Copyright ©{currentYear - 1} - {currentYear} 深圳市思讯网络有限公司
+            Copyright ©{currentYear - 13} - {currentYear} 深圳市思讯网络有限公司
           </p>
           <div className="flex items-center">
             <Image
