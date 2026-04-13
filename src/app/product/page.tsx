@@ -721,14 +721,9 @@ export default function ProductPage() {
                   {item.title}
                 </p>
 
-                <p
-                  className="text-[#555E67] text-[16px] pt-3"
-                  dangerouslySetInnerHTML={{
-                    __html: item.desc,
-                  }}
-                ></p>
+                <p className="text-[#555E67] text-[16px] pt-3 leading-relaxed">{item.desc}</p>
 
-                <div className="mt-5 flex flex-1 gap-2.5 max-h-45">
+                <div className="mt-5 flex flex-1 gap-2.5 max-h-[180px]">
                   <div className="h-full flex flex-col bg-white rounded-xl px-4 py-3 w-35">
                     <p className="text-[#31373D] text-[16px] font-medium">
                       通智搜索
@@ -736,7 +731,7 @@ export default function ProductPage() {
 
                     <div className="mt-4 mb-3 flex-1">
                       {item.specs.map((spec, index) => (
-                        <p key={index} className="text-[#555E67] text-xs">
+                        <p key={index} className="text-[#555E67] text-xs leading-loose">
                           {spec}
                         </p>
                       ))}
@@ -749,7 +744,7 @@ export default function ProductPage() {
                     </div>
                   </div>
 
-                  <div className="mt-3 rounded-xl flex overflow-x-auto">
+                  <div className="mt-3 rounded-xl flex overflow-hidden">
                     {item.colleagues.map((colleague, index) => (
                       <div
                         key={index}
@@ -766,7 +761,7 @@ export default function ProductPage() {
 
                         <div className="mt-4 mb-3 flex-1">
                           {colleague.specs.map((spec, index) => (
-                            <p key={index} className="text-[#555E67] text-xs">
+                            <p key={index} className="text-[#555E67] text-xs leading-loose">
                               {spec}
                             </p>
                           ))}
