@@ -721,7 +721,7 @@ export default function ProductPage() {
                   {item.title}
                 </p>
 
-                <p className="text-[#555E67] text-[16px] pt-3 leading-relaxed">{item.desc}</p>
+                <p className="text-[#555E67] text-[16px] pt-3 leading-loose">{item.desc}</p>
 
                 <div className="mt-5 flex flex-1 gap-2.5 max-h-[180px]">
                   <div className="h-full flex flex-col bg-white rounded-xl px-4 py-3 w-35">
@@ -805,7 +805,7 @@ export default function ProductPage() {
               </p>
             </div>
             <Link
-              href="/contact-us"
+              href="/contract-us"
               className="text-[16px] text-black bg-white font-medium px-6 py-3.5 border border-solid border-[#373850] rounded-xl"
               target="_blank"
             >
