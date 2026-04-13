@@ -54,21 +54,21 @@ const versionList = [
           </>
         ),
         fee: "免费",
-        specs: ["免费版", "3万 请求/月", "0.5 GB"],
+        specs: ["免费版", "3万请求/月", "0.5GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["Build版", "3万 请求/月", "343 条记录"],
-            fee: "免费(被限流)",
+            specs: ["Build版", "3万请求/月", "343条记录"],
+            fee: "免费(超1万限流)",
           },
           {
             title: "阿*云",
-            specs: ["共享通用型", "存储：1GB", "计算：200LCU"],
+            specs: ["共享通用型", "存储 1GB", "计算 200LCU"],
             fee: "约 ¥555 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["t2.medium.search", "vCPU：2", "内存：4G"],
+            specs: ["t2.medium.search", "vCPU 2", "内存 4G"],
             fee: "约 $53 / 月",
           },
           {
@@ -89,21 +89,21 @@ const versionList = [
           </>
         ),
         fee: "免费",
-        specs: ["免费版", "6万 请求/月", "0.5 GB"],
+        specs: ["免费版", "6万请求/月", "0.5GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["Build版", "6万 请求/月", "459 条记录"],
-            fee: "免费(被限流)",
+            specs: ["Build版", "6万请求/月", "459条记录"],
+            fee: "免费(超1万限流)",
           },
           {
             title: "阿*云",
-            specs: ["共享通用型", "存储：4GB", "计算：200LCU"],
+            specs: ["共享通用型", "存储 4GB", "计算 200LCU"],
             fee: "约 ¥713 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["m7i.large.search", "vCPU：2", "内存：8G"],
+            specs: ["m7i.large.search", "vCPU 2", "内存 8G"],
             fee: "约 $116 / 月",
           },
           {
@@ -148,21 +148,21 @@ const versionList = [
           </>
         ),
         fee: "约 ¥798 / 月",
-        specs: ["基础版", "24万 请求 / 月", "0.5 GB"],
+        specs: ["基础版", "24万请求 / 月", "0.5GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["Grow版", "24万 请求/月", "336 条记录"],
+            specs: ["Grow版", "24万请求/月", "336条记录"],
             fee: "约 $745 / 月",
           },
           {
             title: "阿*云",
-            specs: ["共享计算型", "存储：10GB", "计算：1000LCU"],
+            specs: ["共享计算型", "存储 10GB", "计算 1000LCU"],
             fee: "约 ¥8812 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["m7g.4xlarge.search", "vCPU：16", "内存：64G"],
+            specs: ["m7g.4xlarge.search", "vCPU 16", "内存 64G"],
             fee: "约 $780 / 月",
           },
           {
@@ -183,21 +183,21 @@ const versionList = [
           </>
         ),
         fee: "约 ¥798 / 月",
-        specs: ["基础版", "18万 请求/月", "0.5 GB"],
+        specs: ["基础版", "18万请求/月", "0.5GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["Grow版", "18万 请求/月", "500 条记录"],
+            specs: ["Grow版", "18万请求/月", "500条记录"],
             fee: "约 $445 / 月",
           },
           {
             title: "阿*云",
-            specs: ["共享计算型", "存储：10GB", "计算：1000LCU"],
+            specs: ["共享计算型", "存储 10GB", "计算 1000LCU"],
             fee: "约 ¥8812 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["m7g.2xlarge.search", "vCPU：8", "内存：32G"],
+            specs: ["m7g.2xlarge.search", "vCPU 8", "内存 32G"],
             fee: "约 $390 / 月",
           },
           {
@@ -237,25 +237,25 @@ const versionList = [
           <>
             <span className="text-primary">10+</span> 个业务线的各类业务文档，积累{" "}
             <span className="text-primary">10年</span> 以上，数据量{" "}
-            <span className="text-primary">800万+</span>，包含大量业务术语，需要解决内部员工快速查找，精准获取知识的问题，通过使用通智搜索企业版，针对不同业务场景建立对应搜索应用，进行针对性的意图识别优化和业务干预，取得了较满意的效果
+            <span className="text-primary">800万+</span>，包含大量业务术语，需要解决内部员工快速查找，精准获取知识的问题，通过使用通智搜索，针对不同业务场景建立对应搜索应用，进行针对性的意图识别优化和业务干预，取得了较满意的效果
           </>
         ),
         fee: "约 ¥1639 / 月",
-        specs: ["专业版", "40万 请求/月", "40 GB"],
+        specs: ["专业版", "40万请求/月", "40GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["Premium版", "40万 请求/月", "800万 条记录"],
+            specs: ["Premium版", "40万请求/月", "800万条记录"],
             fee: "约$2390 / 月",
           },
           {
             title: "阿*云",
-            specs: ["独享通用型", "存储：100GB", "计算：1000LCU"],
+            specs: ["独享通用型", "存储 100GB", "计算 1000LCU"],
             fee: "约¥19437 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["m7g.12xlarge.search", "vCPU：48", "内存：192G"],
+            specs: ["m7g.12xlarge.search", "vCPU 48", "内存 192G"],
             fee: "约$2340 / 月",
           },
           {
@@ -266,30 +266,31 @@ const versionList = [
         ],
       },
       {
-        title: "某知名知识社区平台",
+        title: "某业务运营后台的订单列表页",
         desc: (
           <>
-            存在博客文章、论坛帖子、问答记录等多种内容，数据量{" "}
-            <span className="text-primary">1000万+</span>，日PV在{" "}
-            <span className="text-primary">200万+</span>，包含大量专业术语，需要解决多种内容融合搜索的问题，并且在合适的时候引入广告内容，提高整体的点击率，通过使用通智搜索企业版，借助搜索报表和AB测试报表分析优化点，对意图识别、排序和运营干预做了深入调优，取得了较满意的效果
+          其中的订单过滤功能，需要支持按多个过滤条件组合起来的复杂查询请求，订单字段多达 <span className="text-primary">38</span> 个，
+          需支持过滤的字段近 <span className="text-primary">20</span> 个，其中包含商品名称、订单备注等需要全文索引的字段，
+          3年订单数据量达到 <span className="text-primary">200万+</span>，使用数据库查询总是出现多达5秒以上的慢查询，
+          急需针对该场景进行查询加速，使用通智搜索专业版建立索引后，已有功能全部查询耗时在 <span className="text-primary">100ms</span> 内，用户体验得到了大幅提升
           </>
         ),
-        fee: "约 ¥998 / 月",
-        specs: ["专业版", "4000万 请求/月", "60 GB"],
+        fee: "约 ¥1358 / 月",
+        specs: ["专业版", "30万请求/月", "20GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["Premium版", "50万 请求/月", "5万 条记录"],
-            fee: "洽谈",
+            specs: ["Premium版", "30万请求/月", "200万条记录"],
+            fee: "约$905 / 月",
           },
           {
             title: "阿*云",
-            specs: ["独享通用型", "存储：100GB", "计算：1000LCU"],
+            specs: ["独享通用型", "存储 100GB", "计算 1000LCU"],
             fee: "约¥19437 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["m7g.12xlarge.search", "vCPU：48", "内存：192G"],
+            specs: ["m7g.12xlarge.search", "vCPU 48", "内存 192G"],
             fee: "约$2340 / 月",
           },
           {
@@ -335,22 +336,22 @@ const versionList = [
             <span className="text-primary">10+</span> 个网站对应的搜索实例，针对不同语言和不同地区的行为特点，结合业务做了深度的算法优化，取得了较好的ROI成果
           </>
         ),
-        fee: "-",
-        specs: ["-"],
+        fee: "协商定价",
+        specs: ["企业版"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["Premium版", "100万 请求/月", "50万 条记录"],
-            fee: "洽谈",
+            specs: ["Elevate版", "2千万请求/月", "100万条记录"],
+            fee: "协商定价",
           },
           {
             title: "阿*云",
-            specs: ["独享计算型", "存储：500GB", "计算：1000LCU"],
+            specs: ["独享计算型", "存储 500GB", "计算 1000LCU"],
             fee: "约¥15759 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["m7g.16xlarge.search", "vCPU：64", "内存：256G"],
+            specs: ["m7g.16xlarge.search", "vCPU 64", "内存 256G"],
             fee: "约$3121 / 月",
           },
           {
@@ -361,32 +362,31 @@ const versionList = [
         ],
       },
       {
-        title: "某知名电商平台的信息流种草社区",
+        title: "某知名知识社区平台",
         desc: (
           <>
-            在东南亚 <span className="text-primary">6</span> 个国家开展业务，投入大量资源扶植本地KOL和KOC，与本地MCN合作生产优质内容，其中的短视频、图文等内容数据量在{" "}
-            <span className="text-primary">2 亿</span> 左右，日搜索次数{" "}
-            <span className="text-primary">8000万</span> 左右，迫切需要提高这些种草内容的成交转化率，通过与通智搜索的合作，建立{" "}
-            <span className="text-primary">10+</span> 个搜索实例，针对多模态的内容特点，不同国家和不同文化的用户行为特点，进行深入定制优化，取得了不错的流量转化成果
+            存在博客文章、论坛帖子、问答记录等多种内容，数据量{" "}
+            <span className="text-primary">1000万+</span>，日PV在{" "}
+            <span className="text-primary">100万+</span>，包含大量专业术语，需要解决多种内容融合搜索的问题，并且在合适的时候引入广告内容，提高整体的点击率，通过使用通智搜索企业版，借助搜索报表和AB测试报表分析优化点，对意图识别、排序和运营干预做了深入调优，取得了较满意的效果
           </>
         ),
-        fee: "-",
-        specs: ["-"],
+        fee: "约 ¥9248 / 月",
+        specs: ["企业版", "600万请求/月", "60GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["Premium版", "100万 请求/月", "50万 条记录"],
-            fee: "洽谈",
+            specs: ["Premium版", "600万请求/月", "1千万条记录"],
+            fee: "约$6955 / 月",
           },
           {
-            title: "阿*云独享",
-            specs: ["独享计算型", "存储：500GB", "计算：1000LCU"],
-            fee: "约¥15759 / 月",
+            title: "阿*云",
+            specs: ["独享通用型", "存储 100GB", "计算 1000LCU"],
+            fee: "约¥19437 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["m7g.16xlarge.search", "vCPU：64", "内存：256G"],
-            fee: "约$3121 / 月",
+            specs: ["m7g.12xlarge.search", "vCPU 48", "内存 192G"],
+            fee: "约$2340 / 月",
           },
           {
             title: "Unb*d",
@@ -418,12 +418,47 @@ const versionList = [
             <span className="text-primary">10</span> 个博客/论坛/帮助文档/业务知识库等内容场景、<span className="text-primary">9</span> 个订单/审计等大数据加速场景、<span className="text-primary">1</span> 个企业知识社区的综合型企业搜索引擎场景，完全定制化合作，项目制落地，驻场开发，在企业多个场景的效率提升和业务转化都取得了较好的效果
           </>
         ),
-        fee: "洽谈",
-        specs: ["-"],
+        fee: "协商定价",
+        specs: ["定制版"],
         colleagues: [
           {
             title: "Algol*a",
             specs: ["Elevate版"],
+            fee: "协商定价",
+          },
+          {
+            title: "阿*云",
+            specs: ["-"],
+            fee: "不支持",
+          },
+          {
+            title: "Op*nSearch",
+            specs: ["-"],
+            fee: "不支持",
+          },
+          {
+            title: "Unb*d",
+            specs: ["-"],
+            fee: "不支持",
+          },
+        ],
+      },
+      {
+        title: "某知名电商平台的信息流种草社区",
+        desc: (
+          <>
+            在东南亚 <span className="text-primary">6</span> 个国家开展业务，投入大量资源扶植本地KOL和KOC，与本地MCN合作生产优质内容，其中的短视频、图文等内容数据量在{" "}
+            <span className="text-primary">2 亿</span> 左右，日搜索次数{" "}
+            <span className="text-primary">8000万</span> 左右，迫切需要提高这些种草内容的成交转化率，通过与通智搜索的合作，建立{" "}
+            <span className="text-primary">10+</span> 个搜索实例，针对多模态的内容特点，不同国家和不同文化的用户行为特点，进行深入定制优化，取得了不错的流量转化成果
+          </>
+        ),
+        fee: "协商定价",
+        specs: ["定制版"],
+        colleagues: [
+          {
+            title: "Algol*a",
+            specs: ["Elevate版", "2亿请求/月", "2亿条记录"],
             fee: "洽谈",
           },
           {
@@ -442,7 +477,7 @@ const versionList = [
             fee: "不支持",
           },
         ],
-      }
+      },
     ],
   },
 ];
@@ -805,7 +840,7 @@ export default function ProductPage() {
               </p>
             </div>
             <Link
-              href="/contract-us"
+              href="/contact-us"
               className="text-[16px] text-black bg-white font-medium px-6 py-3.5 border border-solid border-[#373850] rounded-xl"
               target="_blank"
             >

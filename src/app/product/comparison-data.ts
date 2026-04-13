@@ -537,7 +537,7 @@ export const comparisonData: DataType[] = [
   },
   {
     key: "61",
-    title: "无少结果列表",
+    title: "无少结果报表",
     tengence: true,
     algolia: true,
     unbxd: true,
@@ -546,7 +546,7 @@ export const comparisonData: DataType[] = [
   },
   {
     key: "62",
-    title: "慢查询列表",
+    title: "慢查询报表",
     tengence: true,
     ali: true,
     aws: true,
