@@ -124,7 +124,7 @@ export default function AboutUsPage() {
       >
         <h2 className="text-[40px] text-black font-semibold">我们的使命</h2>
 
-        <div className="grid grid-cols-4 mt-9 gap-4 text-[#7B7C9E] text-[28px] font-semibold">
+        <div className="grid grid-cols-4 mt-9 gap-4 text-[#7B7C9E] text-2xl font-semibold">
           <div className="p-10 rounded-xl bg-[#F9F9FB]">
             我们坚持做难而正确的事情，让
             <span className="text-[#242430]">AI</span>普惠社会
