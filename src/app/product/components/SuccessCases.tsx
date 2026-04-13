@@ -69,7 +69,7 @@ export function SuccessCases() {
             >
               {item.title}
             </p>
-            <p className="pt-3 text-base break-all text-[#555E67]">
+            <p className="pt-3 text-base break-all text-[#555E67] leading-loose">
               {item.content}
             </p>
           </div>

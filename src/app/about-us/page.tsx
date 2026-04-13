@@ -41,10 +41,10 @@ export default function AboutUsPage() {
           我们的业务
         </h1>
 
-        <p className="text-[#5E5F83] text-[16px] text-center mt-9">
+        <p className="text-[#5E5F83] text-[20px] text-center mt-15 leading-loose">
           通智云，全称 <span className="text-[#242430]">通用智能云平台</span>{" "}
           ，是 AI 时代专为企业打造的
-          <span className="text-[#242430]"> 一站式业务智能化平台</span>
+          <span className="text-[#242430]"> 一站式流量增长平台</span>
           。我们深耕企业智能化云基础设施领域，致力于让 AI
           真正落地到业务场景，成为企业智能化升级的可靠合作伙伴，助力企业在 AI
           时代抢占先机、降本增效、长效增长。
@@ -52,7 +52,7 @@ export default function AboutUsPage() {
 
         <div
           className={cn(
-            "grid grid-cols-2 gap-4 text-2xl font-semibold mt-9 text-[#51526D]",
+            "grid grid-cols-2 gap-4 text-2xl font-semibold mt-15 text-[#51526D]",
             sourceHanSerif.className
           )}
         >

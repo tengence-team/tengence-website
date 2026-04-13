@@ -46,7 +46,7 @@ export function AdvantageCard({
               width={18}
               height={18}
             />
-            <p className="text-[#51526D] opacity-80 text-base ml-2">{item.text}</p>
+            <p className="text-[#51526D] opacity-80 text-lg ml-4 leading-8">{item.text}</p>
           </div>
         ))}
       </div>

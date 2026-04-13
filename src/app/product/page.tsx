@@ -574,7 +574,7 @@ export default function ProductPage() {
                       alt="月调用量配额"
                     />
                     <div
-                      className="pl-2 text-[#373850] text-[16px] font-semibold"
+                      className="pl-2 text-[#373850] text-[16px] font-semibold leading-loose"
                       dangerouslySetInnerHTML={{
                         __html: selectedVersion.searchVolume,
                       }}
@@ -593,7 +593,7 @@ export default function ProductPage() {
                       alt="存储配额"
                     />
                     <div
-                      className="pl-2 text-[#373850] text-[16px] font-semibold"
+                      className="pl-2 text-[#373850] text-[16px] font-semibold leading-loose"
                       dangerouslySetInnerHTML={{
                         __html: selectedVersion.dataVolume,
                       }}
@@ -612,7 +612,7 @@ export default function ProductPage() {
                       alt="并发限制(QPS)"
                     />
                     <div
-                      className="pl-2 text-[#373850] text-[16px] font-semibold"
+                      className="pl-2 text-[#373850] text-[16px] font-semibold leading-loose"
                       dangerouslySetInnerHTML={{
                         __html: selectedVersion.qps,
                       }}
@@ -634,7 +634,7 @@ export default function ProductPage() {
                   {selectedVersion.advantage.map((item) => (
                     <p
                       key={item}
-                      className="pl-4 relative before:content-[''] before:absolute before:w-2 before:h-2 before:bg-[#CBCBE2] before:rounded-full before:top-3.25 before:left-0 pt-1"
+                      className="pl-4 relative before:content-[''] before:absolute before:w-2 before:h-2 before:bg-[#CBCBE2] before:rounded-full before:top-3.25 before:left-0 pt-1 leading-loose"
                     >
                       {item}
                     </p>

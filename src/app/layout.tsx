@@ -5,7 +5,7 @@ import Footer from "@/components/layout/footer";
 
 // 首页TDK
 export const metadata: Metadata = {
-  title: "通智云 - AI驱动的企业流量增长平台 | 企业引流获客与流量转化解决方案",
+  title: "通智云 - AI驱动的一站式流量增长平台 | 企业引流获客与流量转化解决方案",
   keywords: [
     "通智云",
     "Tengence",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     "企业增长",
     "私域运营",
   ],
-  description: "通智云是AI时代专为企业打造的一站式流量增长平台，提供智能搜索、推荐系统、SEO优化、数据分析等全栈产品，助力企业实现全域流量获取与私域流量转化，驱动业务持续增长。",
+  description: "通智云是AI时代专为企业打造的一站式流量增长平台，提供智能搜索、智能推荐、SEO优化、数据分析等全栈产品，助力企业实现全域流量获取与私域流量转化，驱动业务持续增长。",
   icons: "/logo.svg",
 };
 

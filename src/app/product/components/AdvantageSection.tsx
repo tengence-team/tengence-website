@@ -18,14 +18,14 @@ export function AdvantageSection() {
           >
             <h2
               className={cn(
-                "text-[24px] font-semibold",
+                "text-[24px] font-semibold mb-4",
                 sourceHanSerif.className
               )}
             >
               {card.title}
             </h2>
             {card.items.map((item) => (
-              <div key={item} className="flex items-center mt-1 first:mt-3">
+              <div key={item} className="flex items-center mt-3 first:mt-3">
                 <Image
                   src={checkCircleSuccessIcon}
                   alt="check"
