@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     "私域运营",
   ],
   description: "通智云是AI时代专为企业打造的一站式流量增长平台，提供智能搜索、智能推荐、SEO优化、数据分析等全栈产品，助力企业实现全域流量获取与私域流量转化，驱动业务持续增长。",
-  icons: "/logo.svg",
+  icons: "/favicon.ico",
   authors: [{ name: "深圳市思讯网络有限公司", url: "https://www.tengence.com" }],
   creator: "通智云",
   publisher: "深圳市思讯网络有限公司",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://www.tengence.com/og-image.png",
+        url: "https://www.tengence.com/company-name.svg",
         width: 1200,
         height: 630,
         alt: "通智云",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "通智云 - AI驱动的一站式流量增长平台",
     description: "提供智能搜索、智能推荐、SEO优化、数据分析等全栈产品",
-    images: ["https://www.tengence.com/og-image.png"],
+    images: ["https://www.tengence.com/company-name.svg"],
   },
   verification: {
     // 预留：百度、Google 等站长验证码

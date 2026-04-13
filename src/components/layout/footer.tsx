@@ -29,27 +29,20 @@ export default function Footer() {
             </div>
 
             <nav className="flex gap-6">
-              <Link href="/" className="text-base font-medium" target="_blank">
+              <Link href="/" className="text-base font-medium">
                 通智搜索
               </Link>
-              <Link
-                href="/about-us"
-                className="text-base font-medium"
-                target="_blank"
-              >
+              <Link href="/about-us" className="text-base font-medium">
                 关于我们
               </Link>
-              <Link
-                href="/contact-us"
-                className="text-base font-medium"
-                target="_blank"
-              >
+              <Link href="/contact-us" className="text-base font-medium">
                 联系我们
               </Link>
               <Link
                 href="//console.mossego.com/#/manual?name=server"
                 className="text-base font-medium"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 用户协议
               </Link>
@@ -57,6 +50,7 @@ export default function Footer() {
                 href="//console.mossego.com/#/manual?name=privacy"
                 className="text-base font-medium"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 隐私条款
               </Link>

@@ -61,10 +61,11 @@ export default function ContactUsContent() {
               sourceHanSerif.className
             )}
           >
-            与我们的团队沟通，
-            <p>
+            <span>与我们的团队沟通，</span>
+            <br />
+            <span>
               了解 <span className="text-primary">通智云</span> 如何满足你的需求
-            </p>
+            </span>
           </h1>
 
           <div className="text-[#555E67] text-lg flex items-center mt-8">
@@ -118,12 +119,7 @@ export default function ContactUsContent() {
           </h2>
 
           <div className="flex items-center text-[#373850] text-[16px] font-medium mt-7">
-            <Image
-              src={phoneCallIcon}
-              width={20}
-              height={20}
-              alt="合作电话"
-            />
+            <Image src={phoneCallIcon} width={20} height={20} alt="合作电话" />
             <p className="pl-4 pr-6">合作电话</p>
             <p className="relative after:absolute after:top-1.75 after:-right-3 after:content-[''] after:h-3 after:w-px after:bg-white">
               +86-13924590513
@@ -131,22 +127,12 @@ export default function ContactUsContent() {
             <p className="pl-6">+852-53009078</p>
           </div>
           <div className="flex items-center text-[#373850] text-[16px] font-medium mt-4">
-            <Image
-              src={phoneCallIcon}
-              width={20}
-              height={20}
-              alt="合作邮箱"
-            />
+            <Image src={phoneCallIcon} width={20} height={20} alt="合作邮箱" />
             <p className="pl-4 pr-6">合作邮箱</p>
             <p>bd@tengence.com</p>
           </div>
           <div className="flex items-center text-[#373850] text-[16px] font-medium mt-4">
-            <Image
-              src={phoneCallIcon}
-              width={20}
-              height={20}
-              alt="监督我们"
-            />
+            <Image src={phoneCallIcon} width={20} height={20} alt="监督我们" />
             <p className="pl-4 pr-6">监督我们</p>
             <p>ceo@tengence.com</p>
           </div>

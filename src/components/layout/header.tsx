@@ -67,13 +67,13 @@ export default function Header() {
         {/* Auth Buttons - 右边 */}
         <div className="flex items-center space-x-6">
           <Link
-            href="http://console.mossego.cn/#/login"
+            href="//console.mossego.cn/#/login"
             className="text-base text-[#242430] hover:text-primary transition-colors"
           >
             登录
           </Link>
           <Link
-            href="http://console.mossego.cn/#/register"
+            href="//console.mossego.cn/#/register"
             className="text-sm font-medium px-5 py-2 bg-primary text-white hover:bg-primary/90 transition-colors rounded-lg"
           >
             免费开始

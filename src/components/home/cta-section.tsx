@@ -20,22 +20,23 @@ export function CTASection() {
   return (
     <section className="bg-primary bg-no-repeat bg-contain bg-bottom-right py-15 px-25" style={{ backgroundImage: `url('${trialImg.src}')` }}>
       <div className="max-w-360 mx-auto">
-        <div
+        <h2
           className={cn(
             "text-[44px] font-semibold text-[#A0C2FF] leading-normal",
             sourceHanSerif.className
           )}
         >
-          <p>
+          <span>
             <span className="text-white">「立即免费试用」</span>
             与我们
-          </p>
-          <p>一起开启智能化增长之旅！ </p>
-        </div>
+          </span>
+          <br />
+          <span>一起开启智能化增长之旅！ </span>
+        </h2>
         <div className="mt-10">
           <div className="flex items-center space-x-3">
             <Link
-              href="http://console.mossego.cn/#/register"
+              href="//console.mossego.cn/#/register"
               className="text-base font-medium px-6 py-3.5 bg-white text-primary rounded-xl"
             >
               免费试用

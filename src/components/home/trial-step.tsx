@@ -36,14 +36,14 @@ export function TrialStep({
       <div className="rounded-full border-15 border-solid border-[#DDE] w-26.5 h-26.5 bg-[#7B7C9E] flex items-center justify-center">
         <Image src={icon} width={32} height={32} alt={title} />
       </div>
-      <div
+      <h3
         className={cn(
           "text-[#242430] text-[24px] font-semibold mt-10 mb-2",
           titleClassName
         )}
       >
         {title}
-      </div>
+      </h3>
       {description.map((text, index) => (
         <p key={index} className="text-[#373850] text-base leading-6">
           {text}
