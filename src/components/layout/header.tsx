@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 
 const navLinks = [
   { href: "/", label: "首页" },
-  { href: "/product", label: "通智搜索" },
+  { href: "/tengence-search", label: "通智搜索" },
   { href: "/about-us", label: "关于我们" },
 ];
 
