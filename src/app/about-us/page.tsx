@@ -1,4 +1,20 @@
+import { Metadata } from "next";
 import localFont from "next/font/local";
+
+export const metadata: Metadata = {
+  title: "关于我们 - 通智云 | AI驱动的一站式流量增长平台",
+  description: "通智云深耕企业智能化云基础设施领域，聚焦流量转化、智能营销、商业分析、智能体服务四大核心方向，提供可落地、可观测、可调优的全栈智能化解决方案。",
+  keywords: ["通智云", "关于通智云", "公司介绍", "智能营销", "流量转化", "商业分析", "智能体服务"],
+  alternates: {
+    canonical: "https://www.tengence.com/about-us",
+  },
+  openGraph: {
+    title: "关于我们 - 通智云",
+    description: "一群极客，以创新突破为乐，以固步自封为耻。简单相信，傻傻坚持。",
+    url: "https://www.tengence.com/about-us",
+    siteName: "通智云",
+  },
+};
 import { cn } from "@/lib/utils";
 import { CTASection } from "@/components/home";
 import Image from "next/image";
