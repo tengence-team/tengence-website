@@ -59,7 +59,7 @@ const versionList = [
           {
             title: "Algol*a",
             specs: ["Build版", "3万请求/月", "343条记录"],
-            fee: "免费(超1万限流)",
+            fee: "免费(限流1万)",
           },
           {
             title: "阿*云",
@@ -94,7 +94,7 @@ const versionList = [
           {
             title: "Algol*a",
             specs: ["Build版", "6万请求/月", "459条记录"],
-            fee: "免费(超1万限流)",
+            fee: "免费(限流1万)",
           },
           {
             title: "阿*云",
@@ -246,17 +246,17 @@ const versionList = [
           {
             title: "Algol*a",
             specs: ["Premium版", "40万请求/月", "800万条记录"],
-            fee: "约$2390 / 月",
+            fee: "约 $2390 / 月",
           },
           {
             title: "阿*云",
             specs: ["独享通用型", "存储 100GB", "计算 1000LCU"],
-            fee: "约¥19437 / 月",
+            fee: "约 ¥19437 / 月",
           },
           {
             title: "Op*nSearch",
             specs: ["m7g.12xlarge.search", "vCPU 48", "内存 192G"],
-            fee: "约$2340 / 月",
+            fee: "约 $2340 / 月",
           },
           {
             title: "Unb*d",
@@ -281,17 +281,17 @@ const versionList = [
           {
             title: "Algol*a",
             specs: ["Premium版", "30万请求/月", "200万条记录"],
-            fee: "约$905 / 月",
+            fee: "约 $905 / 月",
           },
           {
             title: "阿*云",
             specs: ["独享通用型", "存储 100GB", "计算 1000LCU"],
-            fee: "约¥19437 / 月",
+            fee: "约 ¥19437 / 月",
           },
           {
             title: "Op*nSearch",
             specs: ["m7g.12xlarge.search", "vCPU 48", "内存 192G"],
-            fee: "约$2340 / 月",
+            fee: "约 $2340 / 月",
           },
           {
             title: "Unb*d",
@@ -347,12 +347,12 @@ const versionList = [
           {
             title: "阿*云",
             specs: ["独享计算型", "存储 500GB", "计算 1000LCU"],
-            fee: "约¥15759 / 月",
+            fee: "约 ¥15759 / 月",
           },
           {
             title: "Op*nSearch",
             specs: ["m7g.16xlarge.search", "vCPU 64", "内存 256G"],
-            fee: "约$3121 / 月",
+            fee: "约 $3121 / 月",
           },
           {
             title: "Unb*d",
@@ -376,17 +376,17 @@ const versionList = [
           {
             title: "Algol*a",
             specs: ["Premium版", "600万请求/月", "1千万条记录"],
-            fee: "约$6955 / 月",
+            fee: "约 $6955 / 月",
           },
           {
             title: "阿*云",
             specs: ["独享通用型", "存储 100GB", "计算 1000LCU"],
-            fee: "约¥19437 / 月",
+            fee: "约 ¥19437 / 月",
           },
           {
             title: "Op*nSearch",
             specs: ["m7g.12xlarge.search", "vCPU 48", "内存 192G"],
-            fee: "约$2340 / 月",
+            fee: "约 $2340 / 月",
           },
           {
             title: "Unb*d",
@@ -459,7 +459,7 @@ const versionList = [
           {
             title: "Algol*a",
             specs: ["Elevate版", "2亿请求/月", "2亿条记录"],
-            fee: "洽谈",
+            fee: "协商定价",
           },
           {
             title: "阿*云",
