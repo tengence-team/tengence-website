@@ -34,8 +34,7 @@ const versionList = [
     desc: "零成本入门，适合个人开发者、产品试用和网店等标准搜索场景",
     searchVolume:
       "月调用量配额：<span style='color:#242430'> 10万 次免费</span>，达额即止",
-    dataVolume:
-      "存储配额：<span style='color:#242430'> 1GB 免费</span>，达额即止",
+    dataVolume: "存储配额：<span style='color:#242430'> 1GB 免费</span>，达额即止",
     qps: "并发限制(QPS)：<span style='color:#242430'> 10 </span>",
     advantage: [
       "零成本入门：免费获得智能化效果",
@@ -46,18 +45,25 @@ const versionList = [
     example: [
       {
         title: "某个人博客网站",
-        desc: "文章数量 <span style='font-weight: bold;'>343+</span> 篇，博客日PV在 <span style='font-weight: bold;'>3000</span> 左右，日搜索次数不足 <span style='font-weight: bold;'>1000</span>，使用通智搜索基础版的内容行业方案，免费获得智能搜索能力",
+        desc: (
+          <>
+            文章数量 <span className="text-primary">343</span> 篇，博客日PV在{" "}
+            <span className="text-primary">3000</span> 左右，日搜索次数不足{" "}
+            <span className="text-primary">1000</span>
+            ，使用通智搜索基础版的内容行业方案，免费获得智能搜索能力
+          </>
+        ),
         fee: "免费",
-        specs: ["3万 请求/月", "343 条记录"],
+        specs: ["免费版", "3万 请求/月", "0.5 GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["3万 请求/月", "343 条记录"],
+            specs: ["Build版", "3万 请求/月", "343 条记录"],
             fee: "免费(被限流)",
           },
           {
             title: "阿*云",
-            specs: ["存储：1GB", "计算：200LCU"],
+            specs: ["共享通用型", "存储：1GB", "计算：200LCU"],
             fee: "约 ¥555 / 月",
           },
           {
@@ -74,18 +80,25 @@ const versionList = [
       },
       {
         title: "某知名C2C电商平台的个人店铺",
-        desc: "上架商品数量 <span style='font-weight: bold;'>459</span> 件，店铺做了一定推广，日PV在 <span style='font-weight: bold;'>6000</span>  左右，日搜索次数不足 <span style='font-weight: bold;'>2000</span> ，使用通智搜索基础版的电商行业方案，免费获得智能搜索的高效流量转化能力",
+        desc: (
+          <>
+            上架商品数量 <span className="text-primary">459</span> 件，店铺做了一定推广，日PV在{" "}
+            <span className="text-primary">6000</span> 左右，日搜索次数不足{" "}
+            <span className="text-primary">2000</span>
+            ，使用通智搜索基础版的电商行业方案，免费获得智能搜索的高效流量转化能力
+          </>
+        ),
         fee: "免费",
-        specs: ["6万 请求/月", "459 条记录"],
+        specs: ["免费版", "6万 请求/月", "0.5 GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["6万 请求/月", "459 条记录"],
+            specs: ["Build版", "6万 请求/月", "459 条记录"],
             fee: "免费(被限流)",
           },
           {
             title: "阿*云",
-            specs: ["存储：4GB", "计算：200LCU"],
+            specs: ["共享通用型", "存储：4GB", "计算：200LCU"],
             fee: "约 ¥713 / 月",
           },
           {
@@ -115,7 +128,7 @@ const versionList = [
     searchVolume:
       "月调用量配额：<span style='color:#242430'>30万 次免费</span>，超出 2.0元 / 千次",
     dataVolume:
-      "存储配额：<span style='color:#242430'>3GB 免费</span>，超出 1.0元 / GB",
+      "存储配额：<span style='color:#242430'>3GB 免费</span>，超出 1.0元 / GB / 日",
     qps: "并发限制(QPS)：<span style='color:#242430'>20</span>",
     advantage: [
       "按量付费：成本友好，按需使用",
@@ -126,18 +139,25 @@ const versionList = [
     example: [
       {
         title: "Shopify 平台某婚纱店铺",
-        desc: "上架商品数量 <span style='font-weight: bold;'>336</span> 款，在特定地区投入资源做推广引流，高峰期日UV在 <span style='font-weight: bold;'>10万+</span>，日搜索次数 <span style='font-weight: bold;'>5万+</span>，使用通智搜索专业版的电商行业方案，对于季节性流量波动，按量付费在成本上较为友好，并且具备自动化采集行为数据进行算法自动迭代优化的能力，无需额外投入资源进行针对性的优化",
-        fee: "约 ¥2700 / 月",
-        specs: ["150万 请求 / 月", "336 条记录"],
+        desc: (
+          <>
+            上架商品数量 <span className="text-primary">336</span> 款，在特定地区投入资源做推广引流，高峰期日UV在{" "}
+            <span className="text-primary">10万+</span>，日搜索次数{" "}
+            <span className="text-primary">5万+</span>
+            ，使用通智搜索专业版的电商行业方案，对于季节性流量波动，按量付费在成本上较为友好，并且具备自动化采集行为数据进行算法自动迭代优化的能力，无需额外投入资源进行针对性的优化
+          </>
+        ),
+        fee: "约 ¥798 / 月",
+        specs: ["基础版", "24万 请求 / 月", "0.5 GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["150万 请求/月", "336 条记录"],
+            specs: ["Grow版", "24万 请求/月", "336 条记录"],
             fee: "约 $745 / 月",
           },
           {
             title: "阿*云",
-            specs: ["存储：10GB", "计算：1000LCU"],
+            specs: ["共享计算型", "存储：10GB", "计算：1000LCU"],
             fee: "约 ¥8812 / 月",
           },
           {
@@ -154,18 +174,25 @@ const versionList = [
       },
       {
         title: "某跨境无人机商家",
-        desc: "采用开源方案自建独立站，上架商品数量 <span style='font-weight: bold;'>500款</span> 左右，长期坚持投入SEO，高峰期日PV在 <span style='font-weight: bold;'>15万+</span>，日搜索次数 <span style='font-weight: bold;'>3万+</span>，搜索效果存在较多badcase，自家人员无力做搜索优化，但具备一定技术能力，使用通智搜索专业版的电商行业方案，对意图识别能力做了大量定制化配置，仔细调优了精排逻辑，安排业务做了相关性评测，取得了各方都较为满意的效果",
-        fee: "约 ¥1500 / 月",
-        specs: ["90万 请求/月", "500 条记录"],
+        desc: (
+          <>
+            采用开源方案自建独立站，上架商品数量 <span className="text-primary">500</span> 左右，长期坚持投入SEO，高峰期日PV在{" "}
+            <span className="text-primary">15万+</span>，日搜索次数{" "}
+            <span className="text-primary">3万+</span>
+            ，搜索效果存在较多badcase，自家人员无力做搜索优化，但具备一定技术能力，使用通智搜索专业版的电商行业方案，对意图识别能力做了大量定制化配置，仔细调优了精排逻辑，安排业务做了相关性评测，取得了各方都较为满意的效果
+          </>
+        ),
+        fee: "约 ¥798 / 月",
+        specs: ["基础版", "18万 请求/月", "0.5 GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["90万 请求/月", "500 条记录"],
+            specs: ["Grow版", "18万 请求/月", "500 条记录"],
             fee: "约 $445 / 月",
           },
           {
             title: "阿*云",
-            specs: ["存储：10GB", "计算：1000LCU"],
+            specs: ["共享计算型", "存储：10GB", "计算：1000LCU"],
             fee: "约 ¥8812 / 月",
           },
           {
@@ -195,7 +222,7 @@ const versionList = [
     searchVolume:
       "月调用量配额：<span style='color:#242430'>50万 次免费</span>，超出 1.5元 / 千次",
     dataVolume:
-      "存储配额：<span style='color:#242430'>5GB 免费</span>，超出 0.8元 / GB",
+      "存储配额：<span style='color:#242430'>5GB 免费</span>，超出 0.8元 / GB / 日",
     qps: "并发限制(QPS)：<span style='color:#242430'>50</span>",
     advantage: [
       "全链路数据闭环：自动化采集行为数据，形成优化和反馈的数据闭环",
@@ -206,24 +233,30 @@ const versionList = [
     example: [
       {
         title: "某企业内部知识平台",
-        desc: "<span style='font-weight: bold;'>10+</span> 个业务线的各类业务文档，积累 <span style='font-weight: bold;'>10年</span> 以上，数据量 <span style='font-weight: bold;'>800万+</span>，包含大量业务术语，需要解决内部员工快速查找，精准获取知识的问题，通过使用通智搜索企业版，针对不同业务场景建立对应搜索应用，进行针对性的意图识别优化和业务干预，取得了较满意的效果",
-        fee: "-",
-        specs: ["-"],
+        desc: (
+          <>
+            <span className="text-primary">10+</span> 个业务线的各类业务文档，积累{" "}
+            <span className="text-primary">10年</span> 以上，数据量{" "}
+            <span className="text-primary">800万+</span>，包含大量业务术语，需要解决内部员工快速查找，精准获取知识的问题，通过使用通智搜索企业版，针对不同业务场景建立对应搜索应用，进行针对性的意图识别优化和业务干预，取得了较满意的效果
+          </>
+        ),
+        fee: "约 ¥1639 / 月",
+        specs: ["专业版", "40万 请求/月", "40 GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["-"],
-            fee: "-",
+            specs: ["Premium版", "40万 请求/月", "800万 条记录"],
+            fee: "约$2390 / 月",
           },
           {
             title: "阿*云",
-            specs: ["-"],
-            fee: "-",
+            specs: ["独享通用型", "存储：100GB", "计算：1000LCU"],
+            fee: "约¥19437 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["-"],
-            fee: "-",
+            specs: ["m7g.12xlarge.search", "vCPU：48", "内存：192G"],
+            fee: "约$2340 / 月",
           },
           {
             title: "Unb*d",
@@ -234,24 +267,30 @@ const versionList = [
       },
       {
         title: "某知名知识社区平台",
-        desc: "存在博客文章、论坛帖子、问答记录等多种内容，数据量 <span style='font-weight: bold;'>4000万+</span>，日PV在 <span style='font-weight: bold;'>800万+</span>，包含大量专业术语，需要解决多种内容融合搜索的问题，并且在合适的时候引入广告内容，提高整体的点击率，通过使用通智搜索企业版，借助搜索报表和AB测试报表分析优化点，对意图识别、排序和运营干预做了深入调优，取得了较满意的效果",
-        fee: "-",
-        specs: ["-"],
+        desc: (
+          <>
+            存在博客文章、论坛帖子、问答记录等多种内容，数据量{" "}
+            <span className="text-primary">1000万+</span>，日PV在{" "}
+            <span className="text-primary">200万+</span>，包含大量专业术语，需要解决多种内容融合搜索的问题，并且在合适的时候引入广告内容，提高整体的点击率，通过使用通智搜索企业版，借助搜索报表和AB测试报表分析优化点，对意图识别、排序和运营干预做了深入调优，取得了较满意的效果
+          </>
+        ),
+        fee: "约 ¥998 / 月",
+        specs: ["专业版", "4000万 请求/月", "60 GB"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["-"],
-            fee: "-",
+            specs: ["Premium版", "50万 请求/月", "5万 条记录"],
+            fee: "洽谈",
           },
           {
             title: "阿*云",
-            specs: ["-"],
-            fee: "-",
+            specs: ["独享通用型", "存储：100GB", "计算：1000LCU"],
+            fee: "约¥19437 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["-"],
-            fee: "-",
+            specs: ["m7g.12xlarge.search", "vCPU：48", "内存：192G"],
+            fee: "约$2340 / 月",
           },
           {
             title: "Unb*d",
@@ -275,7 +314,7 @@ const versionList = [
     searchVolume:
       "月调用量配额：<span style='color:#242430'>100万 次免费</span>，超出 1.0元 / 千次",
     dataVolume:
-      "存储配额：<span style='color:#242430'>10GB 免费</span>，超出 0.5元 / GB",
+      "存储配额：<span style='color:#242430'>10GB 免费</span>，超出 0.5元 / GB / 日",
     qps: "并发限制(QPS)：<span style='color:#242430'>100</span>",
     advantage: [
       "全功能算法能力：开放所有算法能力，全面智能化效果",
@@ -286,24 +325,33 @@ const versionList = [
     example: [
       {
         title: "某跨境电商企业",
-        desc: "自建独立站平台，在 <span style='font-weight: bold;'>10+</span> 个国家开展业务，同时运营 <span style='font-weight: bold;'>10+</span> 个网站，商品数量 <span style='font-weight: bold;'>10万+</span>，日PV在 百万级，年营业额在 <span style='font-weight: bold;'>十亿级</span>，投入较大资源进行推广引流，迫切需要提高流量转化效率，通过与通智搜索合作进行定制化优化，建立 <span style='font-weight: bold;'>10+</span> 个网站对应的搜索实例，针对不同语言和不同地区的行为特点，结合业务做了深度的算法优化，取得了较好的ROI成果",
+        desc: (
+          <>
+            自建独立站平台，在 <span className="text-primary">10+</span> 个国家开展业务，同时运营{" "}
+            <span className="text-primary">10+</span> 个网站，商品数量{" "}
+            <span className="text-primary">10万+</span>，日PV在{" "}
+            <span className="text-primary">百万级</span>，年营业额在{" "}
+            <span className="text-primary">十亿级</span>，投入较大资源进行推广引流，迫切需要提高流量转化效率，通过与通智搜索合作进行定制化优化，建立{" "}
+            <span className="text-primary">10+</span> 个网站对应的搜索实例，针对不同语言和不同地区的行为特点，结合业务做了深度的算法优化，取得了较好的ROI成果
+          </>
+        ),
         fee: "-",
         specs: ["-"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["-"],
-            fee: "-",
+            specs: ["Premium版", "100万 请求/月", "50万 条记录"],
+            fee: "洽谈",
           },
           {
             title: "阿*云",
-            specs: ["-"],
-            fee: "-",
+            specs: ["独享计算型", "存储：500GB", "计算：1000LCU"],
+            fee: "约¥15759 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["-"],
-            fee: "-",
+            specs: ["m7g.16xlarge.search", "vCPU：64", "内存：256G"],
+            fee: "约$3121 / 月",
           },
           {
             title: "Unb*d",
@@ -314,24 +362,31 @@ const versionList = [
       },
       {
         title: "某知名电商平台的信息流种草社区",
-        desc: "在东南亚 <span style='font-weight: bold;'>6</span> 个国家开展业务，投入大量资源扶植本地KOL和KOC，与本地MCN合作生产优质内容，其中的短视频、图文等内容数据量在 <span style='font-weight: bold;'>2亿</span> 左右，日搜索次数 <span style='font-weight: bold;'>8000万</span> 左右，迫切需要提高这些种草内容的成交转化率，通过与通智搜索的合作，建立 <span style='font-weight: bold;'>10+</span> 个搜索实例，针对多模态的内容特点，不同国家和不同文化的用户行为特点，进行深入定制优化，取得了不错的流量转化成果",
+        desc: (
+          <>
+            在东南亚 <span className="text-primary">6</span> 个国家开展业务，投入大量资源扶植本地KOL和KOC，与本地MCN合作生产优质内容，其中的短视频、图文等内容数据量在{" "}
+            <span className="text-primary">2 亿</span> 左右，日搜索次数{" "}
+            <span className="text-primary">8000万</span> 左右，迫切需要提高这些种草内容的成交转化率，通过与通智搜索的合作，建立{" "}
+            <span className="text-primary">10+</span> 个搜索实例，针对多模态的内容特点，不同国家和不同文化的用户行为特点，进行深入定制优化，取得了不错的流量转化成果
+          </>
+        ),
         fee: "-",
         specs: ["-"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["-"],
-            fee: "-",
+            specs: ["Premium版", "100万 请求/月", "50万 条记录"],
+            fee: "洽谈",
           },
           {
-            title: "阿*云",
-            specs: ["-"],
-            fee: "-",
+            title: "阿*云独享",
+            specs: ["独享计算型", "存储：500GB", "计算：1000LCU"],
+            fee: "约¥15759 / 月",
           },
           {
             title: "Op*nSearch",
-            specs: ["-"],
-            fee: "-",
+            specs: ["m7g.16xlarge.search", "vCPU：64", "内存：256G"],
+            fee: "约$3121 / 月",
           },
           {
             title: "Unb*d",
@@ -357,14 +412,19 @@ const versionList = [
     example: [
       {
         title: "某企业集团公司",
-        desc: "<span style='font-weight: bold;'>10+</span> 条业务线，<span style='font-weight: bold;'>3</span> 个电商平台场景、近 <span style='font-weight: bold;'>10</span> 个博客/论坛/帮助文档/业务知识库等内容场景、<span style='font-weight: bold;'>9</span> 个订单/审计等大数据加速场景、<span style='font-weight: bold;'>1</span> 个企业知识社区的综合型企业搜索引擎场景，完全定制化合作，项目制落地，驻场开发，在企业多个场景的效率提升和业务转化都取得了较好的效果",
+        desc: (
+          <>
+            <span className="text-primary">10+</span> 条业务线，<span className="text-primary">3</span> 个电商平台场景、近{" "}
+            <span className="text-primary">10</span> 个博客/论坛/帮助文档/业务知识库等内容场景、<span className="text-primary">9</span> 个订单/审计等大数据加速场景、<span className="text-primary">1</span> 个企业知识社区的综合型企业搜索引擎场景，完全定制化合作，项目制落地，驻场开发，在企业多个场景的效率提升和业务转化都取得了较好的效果
+          </>
+        ),
         fee: "洽谈",
         specs: ["-"],
         colleagues: [
           {
             title: "Algol*a",
-            specs: ["-"],
-            fee: "不支持",
+            specs: ["Elevate版"],
+            fee: "洽谈",
           },
           {
             title: "阿*云",
@@ -382,7 +442,7 @@ const versionList = [
             fee: "不支持",
           },
         ],
-      },
+      }
     ],
   },
 ];
