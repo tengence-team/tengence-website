@@ -15,7 +15,7 @@ export default function Footer() {
               <Link href="/" className="flex items-center space-x-1.5">
                 <Image
                   src="/logo-white.svg"
-                  alt="logo"
+                  alt="通智云"
                   width={36}
                   height={36}
                 />
@@ -66,7 +66,7 @@ export default function Footer() {
             <div className="bg-white rounded-lg p-2">
               <Image
                 src={wechatIcon}
-                alt="wechat"
+                alt="微信公众号图标"
                 width={24}
                 height={24}
               />

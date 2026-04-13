@@ -34,7 +34,7 @@ export default function Header() {
         {/* Logo - 左边 */}
         <div className="flex items-center">
           <Link href="/" className="flex items-center space-x-1.5">
-            <Image src="/logo.svg" alt="logo" width={22} height={22} />
+            <Image src="/logo.svg" alt="通智云" width={22} height={22} />
             <Image
               src="/company-name.svg"
               alt="通智云"
