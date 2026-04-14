@@ -16,7 +16,7 @@ const cases = [
     title: "某知名技术交流社区",
     content: (
       <>
-        日PV在 <span className="text-primary">千万量级</span>{" "}
+        日PV在 <span className="text-primary">百万量级</span>{" "}
         ，存在博客文章、论坛帖子、问答社区、知识付费商品等多种类型内容需要提升搜索效果，并且需要对多种内容合理融合成一个综合的搜索结果，以CTR(点击率)为优化目标，使用通智搜索后，通过意图识别阶段对分词、同义词、纠错、实体识别、词权重等问题的优化，通过对多路召回和各路召回源融合策略的优化，通过综合排序的优化，最终CTR从 3.6%
         <span className="text-primary"> 提升到 5.3%</span>
       </>

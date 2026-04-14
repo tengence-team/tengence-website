@@ -49,7 +49,7 @@ const versionList = [
           <>
             文章数量 <span className="text-primary">343</span> 篇，博客日PV在{" "}
             <span className="text-primary">3000</span> 左右，日搜索次数不足{" "}
-            <span className="text-primary">1000</span> ，使用通智搜索基础版的内容行业方案，免费获得智能搜索能力
+            <span className="text-primary">1000</span> ，使用通智搜索的内容行业方案，免费获得智能搜索能力
           </>
         ),
         fee: "免费",
@@ -83,7 +83,7 @@ const versionList = [
           <>
             上架商品数量 <span className="text-primary">459</span> 件，店铺做了一定推广，日PV在{" "}
             <span className="text-primary">6000</span> 左右，日搜索次数不足{" "}
-            <span className="text-primary">2000</span> ，使用通智搜索基础版的电商行业方案，免费获得智能搜索的高效流量转化能力
+            <span className="text-primary">2000</span> ，使用通智搜索的电商行业方案，免费获得智能搜索的高效流量转化能力
           </>
         ),
         fee: "免费",
@@ -142,7 +142,7 @@ const versionList = [
             上架商品数量 <span className="text-primary">336</span> 款，在特定地区投入资源做推广引流，高峰期日UV在{" "}
             <span className="text-primary">10万+</span>，日搜索次数{" "}
             <span className="text-primary">5万+</span>
-            ，使用通智搜索专业版的电商行业方案，对于季节性流量波动，按量付费在成本上较为友好，并且具备自动化采集行为数据进行算法自动迭代优化的能力，无需额外投入资源进行针对性的优化
+            ，使用通智搜索的电商行业方案，对于季节性流量波动，按量付费在成本上较为友好。内置的行业算法模板，在无需额外投入资源的情况下，获得了不错的冷启动效果，与原业务指标对比，带来了不错的业务转化成果
           </>
         ),
         fee: "约 ¥798 / 月",
@@ -177,7 +177,7 @@ const versionList = [
             采用开源方案自建独立站，上架商品数量 <span className="text-primary">500</span> 左右，长期坚持投入SEO，高峰期日PV在{" "}
             <span className="text-primary">15万+</span>，日搜索次数{" "}
             <span className="text-primary">3万+</span>
-            ，搜索效果存在较多badcase，自家人员无力做搜索优化，但具备一定技术能力，使用通智搜索专业版的电商行业方案，对意图识别能力做了大量定制化配置，仔细调优了精排逻辑，安排业务做了相关性评测，取得了各方都较为满意的效果
+            ，搜索效果存在较多badcase，自家人员无力做搜索优化，但具备一定技术能力，使用通智搜索的电商行业方案，对意图识别能力做了大量人工运营干预，仔细调优了精排逻辑，安排业务做了相关性测评，取得了各方都较为满意的效果
           </>
         ),
         fee: "约 ¥798 / 月",
@@ -270,7 +270,7 @@ const versionList = [
           其中的订单过滤功能，需要支持按多个过滤条件组合起来的复杂查询请求，订单字段多达 <span className="text-primary">38</span> 个，
           需支持过滤的字段近 <span className="text-primary">20</span> 个，其中包含商品名称、订单备注等需要全文索引的字段，
           3年订单数据量达到 <span className="text-primary">200万+</span>，使用数据库查询总是出现多达5秒以上的慢查询，
-          急需针对该场景进行查询加速，使用通智搜索专业版建立索引后，已有功能全部查询耗时在 <span className="text-primary">100ms</span> 内，用户体验得到了大幅提升
+          急需针对该场景进行查询加速，使用通智搜索建立索引后，已有功能全部查询耗时在 <span className="text-primary">100ms</span> 内，用户体验得到了大幅提升
           </>
         ),
         fee: "约 ¥1358 / 月",
@@ -330,7 +330,7 @@ const versionList = [
             <span className="text-primary">10+</span> 个网站，商品数量{" "}
             <span className="text-primary">10万+</span>，日PV在{" "}
             <span className="text-primary">百万级</span>，年营业额在{" "}
-            <span className="text-primary">十亿级</span>，投入较大资源进行推广引流，迫切需要提高流量转化效率，通过与通智搜索合作进行定制化优化，建立{" "}
+            <span className="text-primary">十亿级</span>，投入较大资源进行推广引流，迫切需要提高流量转化效率，通过使用通智搜索企业版并进行针对性优化，建立{" "}
             <span className="text-primary">10+</span> 个网站对应的搜索实例，针对不同语言和不同地区的行为特点，结合业务做了深度的算法优化，取得了较好的ROI成果
           </>
         ),
@@ -566,7 +566,7 @@ export default function TengenceSearchContent() {
         <h2
           className={cn("text-[40px] font-semibold", sourceHanSerif.className)}
         >
-          案例适配
+          产品套餐和案例适配
         </h2>
 
         <div className="grid grid-cols-2 gap-5 mt-8">
@@ -739,7 +739,7 @@ export default function TengenceSearchContent() {
                 src={directionImg}
                 width={44}
                 height={29}
-                alt="案例适配"
+                alt="产品套餐和案例适配"
               />
             </div>
           </div>

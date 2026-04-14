@@ -41,7 +41,7 @@ export const advantageCards: AdvantageCard[] = [
     items: [
       "内置多种意图识别能力",
       "行业算法调优最佳实践",
-      "深度模型 AutoML，自动寻找最优解",
+      "根据数据表现自动迭代",
     ],
   },
   {
