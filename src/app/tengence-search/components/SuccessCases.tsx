@@ -46,14 +46,14 @@ const cases = [
 export function SuccessCases() {
   return (
     <section className="max-w-360 mx-auto p-10">
-      <p
+      <h2
         className={cn(
           "text-[40px] text-black font-semibold",
           sourceHanSerif.className
         )}
       >
         成功案例
-      </p>
+      </h2>
 
       <div className="grid grid-cols-2 gap-3 mt-9">
         {cases.map((item) => (
@@ -61,14 +61,14 @@ export function SuccessCases() {
             key={item.title}
             className="shadow-card-border bg-white rounded-[20px] py-7.5 px-10"
           >
-            <p
+            <h3
               className={cn(
                 "text-[24px] text-[#31373D] font-semibold",
                 sourceHanSerif.className
               )}
             >
               {item.title}
-            </p>
+            </h3>
             <p className="pt-3 text-base break-all text-[#555E67] leading-loose">
               {item.content}
             </p>

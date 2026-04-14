@@ -75,7 +75,7 @@ export default function ContactUsContent() {
               height={18}
               alt="专家把脉，业务问题诊断"
             />
-            <p className="pl-4 leading-loose">专家把脉，业务问题诊断</p>
+            <h2 className="pl-4 leading-loose">专家把脉，业务问题诊断</h2>
           </div>
 
           <div className="text-[#555E67] text-lg flex items-center mt-2">
@@ -85,7 +85,7 @@ export default function ContactUsContent() {
               height={18}
               alt="免费试用，安排POC测试"
             />
-            <p className="pl-4 leading-loose">免费试用，安排POC测试</p>
+            <h2 className="pl-4 leading-loose">免费试用，安排POC测试</h2>
           </div>
 
           <div className="text-[#555E67] text-lg flex items-center mt-2">
@@ -95,7 +95,7 @@ export default function ContactUsContent() {
               height={18}
               alt="定制方案，获得专属报价"
             />
-            <p className="pl-4 leading-loose">定制方案，获得专属报价</p>
+            <h2 className="pl-4 leading-loose">定制方案，获得专属报价</h2>
           </div>
 
           <div className="text-[#555E67] text-lg flex items-center mt-2">
@@ -105,7 +105,7 @@ export default function ContactUsContent() {
               height={18}
               alt="业务探讨，开放式交流"
             />
-            <p className="pl-4 leading-loose">业务探讨，开放式交流</p>
+            <h2 className="pl-4 leading-loose">业务探讨，开放式交流</h2>
           </div>
         </div>
         <div className="w-full bg-[#ebefff80] rounded-[20px] p-7.5 mt-10">
@@ -120,7 +120,7 @@ export default function ContactUsContent() {
 
           <div className="flex items-center text-[#373850] text-[16px] font-medium mt-7">
             <Image src={phoneCallIcon} width={20} height={20} alt="合作电话" />
-            <p className="pl-4 pr-6">合作电话</p>
+            <h3 className="pl-4 pr-6">合作电话</h3>
             <p className="relative after:absolute after:top-1.75 after:-right-3 after:content-[''] after:h-3 after:w-px after:bg-white">
               +86-13924590513
             </p>
@@ -128,12 +128,12 @@ export default function ContactUsContent() {
           </div>
           <div className="flex items-center text-[#373850] text-[16px] font-medium mt-4">
             <Image src={phoneCallIcon} width={20} height={20} alt="合作邮箱" />
-            <p className="pl-4 pr-6">合作邮箱</p>
+            <h3 className="pl-4 pr-6">合作邮箱</h3>
             <p>bd@tengence.com</p>
           </div>
           <div className="flex items-center text-[#373850] text-[16px] font-medium mt-4">
             <Image src={phoneCallIcon} width={20} height={20} alt="监督我们" />
-            <p className="pl-4 pr-6">监督我们</p>
+            <h3 className="pl-4 pr-6">监督我们</h3>
             <p>ceo@tengence.com</p>
           </div>
         </div>

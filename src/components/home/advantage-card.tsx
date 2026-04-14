@@ -33,10 +33,10 @@ export function AdvantageCard({
       )}
       style={image ? { backgroundImage: `url('${image.src}')` } : undefined}
     >
-      <h2 className={cn("text-[32px] font-semibold text-[#242430]", titleClassName)}>
+      <h3 className={cn("text-[32px] font-semibold text-[#242430]", titleClassName)}>
         <span className="text-primary">{highlight}</span>
         <span>{title}</span>
-      </h2>
+      </h3>
       <div>
         {items.map((item, index) => (
           <div key={index} className={cn("flex items-center", index < items.length - 1 && "mb-2")}>

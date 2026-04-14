@@ -6,9 +6,9 @@ import checkCircleSuccessIcon from "@/assets/icons/check-circle-success.svg";
 export function AdvantageSection() {
   return (
     <section className="max-w-360 mx-auto p-10">
-      <p className={cn("text-[40px] font-semibold", sourceHanSerif.className)}>
+      <h2 className={cn("text-[40px] font-semibold", sourceHanSerif.className)}>
         产品优势
-      </p>
+      </h2>
 
       <div className="grid grid-cols-3 gap-3 mt-9">
         {advantageCards.map((card) => (
@@ -16,14 +16,14 @@ export function AdvantageSection() {
             key={card.title}
             className="shadow-card-border bg-white rounded-[20px] py-7.5 px-10"
           >
-            <h2
+            <h3
               className={cn(
                 "text-[24px] font-semibold mb-4",
                 sourceHanSerif.className
               )}
             >
               {card.title}
-            </h2>
+            </h3>
             {card.items.map((item) => (
               <div key={item} className="flex items-center mt-3 first:mt-3">
                 <Image

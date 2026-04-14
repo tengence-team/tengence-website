@@ -854,9 +854,9 @@ export default function TengenceSearchContent() {
                 height={14}
                 alt="电商网站商品/订单/店铺/卖家/评论搜索"
               />
-              <span className="pl-1.5">
+              <h3 className="pl-1.5">
                 电商网站商品/订单/店铺/卖家/评论搜索
-              </span>
+              </h3>
             </div>
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
@@ -866,7 +866,7 @@ export default function TengenceSearchContent() {
                 height={14}
                 alt="跨境电商多站点/多地区搜索平台"
               />
-              <span className="pl-1.5">跨境电商多站点/多地区搜索平台</span>
+              <h3 className="pl-1.5">跨境电商多站点/多地区搜索平台</h3>
             </div>
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
@@ -876,7 +876,7 @@ export default function TengenceSearchContent() {
                 height={14}
                 alt="信息流/多媒体/短视频/图文社区搜索"
               />
-              <span className="pl-1.5">信息流/多媒体/短视频/图文社区搜索</span>
+              <h3 className="pl-1.5">信息流/多媒体/短视频/图文社区搜索</h3>
             </div>
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
@@ -886,7 +886,7 @@ export default function TengenceSearchContent() {
                 height={14}
                 alt="知识社区/博客/论坛/内容搜索"
               />
-              <span className="pl-1.5">知识社区/博客/论坛/内容搜索</span>
+              <h3 className="pl-1.5">知识社区/博客/论坛/内容搜索</h3>
             </div>
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
@@ -896,7 +896,7 @@ export default function TengenceSearchContent() {
                 height={14}
                 alt="企业多业务线搜索平台"
               />
-              <span className="pl-1.5">企业多业务线搜索平台</span>
+              <h3 className="pl-1.5">企业多业务线搜索平台</h3>
             </div>
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
@@ -906,7 +906,7 @@ export default function TengenceSearchContent() {
                 height={14}
                 alt="企业知识管理平台搜索/企业内部搜索引擎"
               />
-              <span className="pl-1.5">企业知识管理平台/企业内部搜索引擎</span>
+              <h3 className="pl-1.5">企业知识管理平台/企业内部搜索引擎</h3>
             </div>
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
@@ -916,7 +916,7 @@ export default function TengenceSearchContent() {
                 height={14}
                 alt="大数据查询加速/数据分析/时序数据库"
               />
-              <span className="pl-1.5">大数据查询加速/数据分析/时序数据库</span>
+              <h3 className="pl-1.5">大数据查询加速/数据分析/时序数据库</h3>
             </div>
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
@@ -926,7 +926,7 @@ export default function TengenceSearchContent() {
                 height={14}
                 alt="向量库/RAG/以图搜图/语义向量检索"
               />
-              <span className="pl-1.5">向量库/RAG/以图搜图/语义向量检索</span>
+              <h3 className="pl-1.5">向量库/RAG/以图搜图/语义向量检索</h3>
             </div>
 
             <div className="bg-[#4C70FF] rounded-lg flex items-center px-4 py-2">
@@ -936,7 +936,7 @@ export default function TengenceSearchContent() {
                 height={14}
                 alt="广告平台智能搜索"
               />
-              <span className="pl-1.5">广告平台智能搜索</span>
+              <h3 className="pl-1.5">广告平台智能搜索</h3>
             </div>
           </div>
         </div>
