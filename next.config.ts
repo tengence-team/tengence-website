@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       fallback: [
         {
           source: '/api/:path*',
-          destination: 'https://console.mossego.com/:path*',
+          destination: 'https://console.tengence.com/:path*',
         }
       ]
     }

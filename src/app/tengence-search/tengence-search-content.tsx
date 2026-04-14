@@ -716,7 +716,7 @@ export default function TengenceSearchContent() {
                 )}
 
                 <Link
-                  href="//console.mossego.cn/#/login"
+                  href="//console.tengence.com/#/login"
                   className="bg-primary text-white text-[16px] text-center w-full py-2 rounded-lg mt-6 block"
                   target="_blank"
                 >

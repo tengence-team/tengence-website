@@ -6,11 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "build:test": "next build",
-    "build:mossawake": "cross-env NEXT_PUBLIC_CDN_PREFIX=https://static.mossawake.com next build",
     "build:tengence": "cross-env NEXT_PUBLIC_CDN_PREFIX=https://static.tengence.com next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy:mossawake": "cross-env SITE=mossawake node scripts/deploy.mjs",
     "deploy:tengence": "cross-env SITE=tengence node scripts/deploy.mjs"
   },
   "dependencies": {
