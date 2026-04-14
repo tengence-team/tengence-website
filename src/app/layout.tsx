@@ -3,6 +3,8 @@ import "./globals.css";
 import Header from "@/components/layout/header";
 import Footer from "@/components/layout/footer";
 
+import "github-markdown-css/github-markdown-light.css";
+
 // 首页TDK
 export const metadata: Metadata = {
   title: "通智云 - AI驱动的一站式流量增长平台 | 企业引流获客与流量转化解决方案",
@@ -20,9 +22,12 @@ export const metadata: Metadata = {
     "企业增长",
     "私域运营",
   ],
-  description: "通智云是AI时代专为企业打造的一站式流量增长平台，提供智能搜索、智能推荐、SEO优化、数据分析等全栈产品，助力企业实现全域流量获取与私域流量转化，驱动业务持续增长。",
+  description:
+    "通智云是AI时代专为企业打造的一站式流量增长平台，提供智能搜索、智能推荐、SEO优化、数据分析等全栈产品，助力企业实现全域流量获取与私域流量转化，驱动业务持续增长。",
   icons: "/favicon.ico",
-  authors: [{ name: "深圳市思讯网络有限公司", url: "https://www.tengence.com" }],
+  authors: [
+    { name: "深圳市思讯网络有限公司", url: "https://www.tengence.com" },
+  ],
   creator: "通智云",
   publisher: "深圳市思讯网络有限公司",
   alternates: {
@@ -30,7 +35,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "通智云 - AI驱动的一站式流量增长平台",
-    description: "提供智能搜索、智能推荐、SEO优化、数据分析等全栈产品，助力企业实现全域流量获取与私域流量转化。",
+    description:
+      "提供智能搜索、智能推荐、SEO优化、数据分析等全栈产品，助力企业实现全域流量获取与私域流量转化。",
     url: "https://www.tengence.com",
     siteName: "通智云",
     locale: "zh_CN",
@@ -85,7 +91,9 @@ export default function RootLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
         />
       </head>
       <body className="min-h-screen flex flex-col">

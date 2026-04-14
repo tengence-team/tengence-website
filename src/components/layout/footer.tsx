@@ -39,7 +39,7 @@ export default function Footer() {
                 联系我们
               </Link>
               <Link
-                href="//console.tengence.com/#/manual?name=server"
+                href="/user-agreement"
                 className="text-base font-medium"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -47,7 +47,7 @@ export default function Footer() {
                 用户协议
               </Link>
               <Link
-                href="//console.tengence.com/#/manual?name=privacy"
+                href="/privacy-policy"
                 className="text-base font-medium"
                 target="_blank"
                 rel="noopener noreferrer"
