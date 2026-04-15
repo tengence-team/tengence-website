@@ -57,9 +57,12 @@ export const metadata: Metadata = {
     images: ["https://www.tengence.com/company-name.svg"],
   },
   verification: {
-    // 预留：百度、Google 等站长验证码
-    // baidu: "your-verification-code",
+    // 预留：Google 等站长验证码
     // google: "your-verification-code",
+  },
+  other: {
+    'baidu-site-verification': 'codeva-bXFHSr4v6v',
+    'ICP': '粤ICP备2024177480号',
   },
 };
 
@@ -68,6 +71,25 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // WebSite 结构化数据
+  const webSiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "通智云",
+    alternateName: "Tengence",
+    url: "https://www.tengence.com",
+    description: "AI时代专为企业打造的一站式流量增长平台",
+    publisher: {
+      "@type": "Organization",
+      name: "通智云",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.tengence.com/logo.svg",
+      },
+    },
+  };
+
+  // Organization 结构化数据
   const organizationJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -75,26 +97,33 @@ export default function RootLayout({
     alternateName: "深圳市思讯网络有限公司",
     url: "https://www.tengence.com",
     logo: "https://www.tengence.com/logo.svg",
-    foundingDate: "2013",
     description: "AI时代专为企业打造的一站式流量增长平台",
     contactPoint: {
       "@type": "ContactPoint",
       email: "bd@tengence.com",
       contactType: "sales",
-      areaServed: "CN",
     },
     sameAs: [],
+    // 社交媒体链接可后续添加，例如：
+    // sameAs: [
+    //   "https://weixin.qq.com/xxx",
+    //   "https://weibo.com/xxx",
+    // ],
   };
+
+  // 合并所有结构化数据
+  const structuredData = [webSiteJsonLd, organizationJsonLd];
 
   return (
     <html lang="zh-CN">
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationJsonLd),
-          }}
-        />
+        {structuredData.map((data, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+          />
+        ))}
       </head>
       <body className="min-h-screen flex flex-col">
         <Header />
