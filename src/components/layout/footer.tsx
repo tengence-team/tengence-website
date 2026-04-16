@@ -1,6 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import wechatIcon from "@/assets/icons/wechat.svg";
+import vxIcon from "@/assets/icons/vx.svg";
+import vxGroupIcon from "@/assets/icons/vx-group.svg";
+import dingTalkIcon from "@/assets/icons/ding-talk.svg";
+import feishuIcon from "@/assets/icons/feishu.svg";
 import icpImg from "@/assets/images/icp.png";
 
 export default function Footer() {
@@ -56,14 +59,18 @@ export default function Footer() {
               </Link>
             </nav>
           </div>
-          <div className="flex">
+          <div className="flex gap-5">
             <div className="bg-white rounded-lg p-2">
-              <Image
-                src={wechatIcon}
-                alt="微信公众号图标"
-                width={24}
-                height={24}
-              />
+              <Image src={vxIcon} alt="企业微信" width={24} height={24} />
+            </div>
+            <div className="bg-white rounded-lg p-2">
+              <Image src={vxGroupIcon} alt="企业微信群" width={24} height={24} />
+            </div>
+            <div className="bg-white rounded-lg p-2">
+              <Image src={feishuIcon} alt="飞书" width={24} height={24} />
+            </div>
+            <div className="bg-white rounded-lg p-2">
+              <Image src={dingTalkIcon} alt="钉钉" width={24} height={24} />
             </div>
           </div>
         </div>
