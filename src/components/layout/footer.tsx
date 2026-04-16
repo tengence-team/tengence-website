@@ -5,6 +5,20 @@ import vxGroupIcon from "@/assets/icons/vx-group.svg";
 import dingTalkIcon from "@/assets/icons/ding-talk.svg";
 import feishuIcon from "@/assets/icons/feishu.svg";
 import icpImg from "@/assets/images/icp.png";
+import { Popover } from "antd";
+
+import vxQrcode from "@/assets/images/vx.png";
+import feishuQrcode from "@/assets/images/feishu.png";
+import vxGroupQrcode from "@/assets/images/vx-group.png";
+
+const content = (img: typeof vxQrcode, title: string) => {
+  return (
+    <div className="flex flex-col items-center justify-center">
+      <Image src={img} alt="二维码" width={141} height={141} />
+      <p className="text-center text-sm mt-2">{title}</p>
+    </div>
+  );
+};
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -60,18 +74,46 @@ export default function Footer() {
             </nav>
           </div>
           <div className="flex gap-5">
-            <div className="bg-white rounded-lg p-2">
-              <Image src={vxIcon} alt="企业微信" width={24} height={24} />
-            </div>
-            <div className="bg-white rounded-lg p-2">
-              <Image src={vxGroupIcon} alt="企业微信群" width={24} height={24} />
-            </div>
-            <div className="bg-white rounded-lg p-2">
-              <Image src={feishuIcon} alt="飞书" width={24} height={24} />
-            </div>
-            <div className="bg-white rounded-lg p-2">
-              <Image src={dingTalkIcon} alt="钉钉" width={24} height={24} />
-            </div>
+            <Popover
+              placement="topRight"
+              content={content(vxQrcode, "企业微信")}
+            >
+              <div className="bg-white rounded-lg p-2 hover:opacity-60">
+                <Image src={vxIcon} alt="企业微信" width={24} height={24} />
+              </div>
+            </Popover>
+
+            <Popover
+              placement="topRight"
+              content={content(vxGroupQrcode, "企业微信群")}
+            >
+              <div className="bg-white rounded-lg p-2 hover:opacity-60">
+                <Image
+                  src={vxGroupIcon}
+                  alt="企业微信群"
+                  width={24}
+                  height={24}
+                />
+              </div>
+            </Popover>
+
+            <Popover
+              placement="topRight"
+              content={content(feishuQrcode, "飞书")}
+            >
+              <div className="bg-white rounded-lg p-2 hover:opacity-60">
+                <Image src={feishuIcon} alt="飞书" width={24} height={24} />
+              </div>
+            </Popover>
+
+            <Popover
+              placement="topRight"
+              content={content(feishuQrcode, "钉钉")}
+            >
+              <div className="bg-white rounded-lg p-2 hover:opacity-60">
+                <Image src={dingTalkIcon} alt="钉钉" width={24} height={24} />
+              </div>
+            </Popover>
           </div>
         </div>
         <div className="w-full h-px bg-white opacity-20 mt-10 mb-6"></div>

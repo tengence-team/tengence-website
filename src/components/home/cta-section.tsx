@@ -42,7 +42,7 @@ export function CTASection() {
               href="//console.tengence.com/#/login"
               className="text-base font-medium px-6 py-3.5 bg-white text-primary rounded-xl"
             >
-              登录
+              免费试用
             </Link>
             <Link
               href="/contact-us"

@@ -76,7 +76,7 @@ export default function Header() {
             href="//console.tengence.com/#/login"
             className="text-sm font-medium px-5 py-2 bg-primary text-white hover:bg-primary/90 transition-colors rounded-lg"
           >
-            登录
+            免费开始
           </Link>
         </div>
       </div>
