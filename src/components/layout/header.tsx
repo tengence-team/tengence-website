@@ -67,16 +67,16 @@ export default function Header() {
         {/* Auth Buttons - 右边 */}
         <div className="flex items-center space-x-6">
           <Link
-            href="//console.tengence.com/#/login"
+            href="//console.tengence.com/#/register"
             className="text-base text-[#242430] hover:text-primary transition-colors"
           >
-            登录
+            注册
           </Link>
           <Link
-            href="//console.tengence.com/#/register"
+            href="//console.tengence.com/#/login"
             className="text-sm font-medium px-5 py-2 bg-primary text-white hover:bg-primary/90 transition-colors rounded-lg"
           >
-            免费开始
+            登录
           </Link>
         </div>
       </div>

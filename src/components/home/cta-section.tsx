@@ -18,7 +18,10 @@ const sourceHanSerif = localFont({
 
 export function CTASection() {
   return (
-    <section className="bg-primary bg-no-repeat bg-contain bg-bottom-right py-15 px-25" style={{ backgroundImage: `url('${trialImg.src}')` }}>
+    <section
+      className="bg-primary bg-no-repeat bg-contain bg-bottom-right py-15 px-25"
+      style={{ backgroundImage: `url('${trialImg.src}')` }}
+    >
       <div className="max-w-360 mx-auto">
         <h2
           className={cn(
@@ -36,10 +39,10 @@ export function CTASection() {
         <div className="mt-10">
           <div className="flex items-center space-x-3">
             <Link
-              href="//console.tengence.com/#/register"
+              href="//console.tengence.com/#/login"
               className="text-base font-medium px-6 py-3.5 bg-white text-primary rounded-xl"
             >
-              免费试用
+              登录
             </Link>
             <Link
               href="/contact-us"
