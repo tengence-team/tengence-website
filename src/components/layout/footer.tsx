@@ -10,6 +10,7 @@ import { Popover } from "antd";
 import vxQrcode from "@/assets/images/vx.png";
 import feishuQrcode from "@/assets/images/feishu.png";
 import vxGroupQrcode from "@/assets/images/vx-group.png";
+import dingTalkQrcode from "@/assets/images/ding-talk.png";
 
 const content = (img: typeof vxQrcode, title: string) => {
   return (
@@ -108,7 +109,7 @@ export default function Footer() {
 
             <Popover
               placement="topRight"
-              content={content(feishuQrcode, "钉钉")}
+              content={content(dingTalkQrcode, "钉钉")}
             >
               <div className="bg-white rounded-lg p-2 hover:opacity-60">
                 <Image src={dingTalkIcon} alt="钉钉" width={24} height={24} />
