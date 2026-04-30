@@ -47,7 +47,7 @@ export default function Footer() {
             </div>
 
             <nav className="flex gap-6">
-              <Link href="/" className="text-base font-medium">
+              <Link href="/tengence-search" className="text-base font-medium">
                 通智搜索
               </Link>
               <Link href="/about-us" className="text-base font-medium">
