@@ -34,8 +34,9 @@ const SERVER_PASS = process.env.DEPLOY_PASS || "";
 const OUT_DIR = resolve(import.meta.dirname, "..", "out");
 const TMP_DIR = join(tmpdir(), `${process.env.SITE}-deploy`);
 
-const STATIC_REMOTE = "/var/www/static";
-const SITE_REMOTE = `/var/www/${process.env.SITE}`;
+const DEPLOY_SEPARATE_NEXT = process.env.DEPLOY_SEPARATE_NEXT !== "false";
+const STATIC_REMOTE = process.env.STATIC_REMOTE || "/var/www/static";
+const SITE_REMOTE = process.env.SITE_REMOTE || `/var/www/${process.env.SITE}`;
 // =================================
 
 function run(cmd) {
@@ -137,20 +138,28 @@ async function main() {
   rmSync(TMP_DIR, { recursive: true, force: true });
   mkdirSync(TMP_DIR, { recursive: true });
 
-  const staticZip = join(TMP_DIR, "_next-static.tar.gz");
   const siteZip = join(TMP_DIR, "site.tar.gz");
 
-  console.log("\n📦 正在压缩 _next 静态资源...");
-  run(`tar -czf "${staticZip}" -C "${OUT_DIR}" _next`);
+  if (DEPLOY_SEPARATE_NEXT) {
+    const staticZip = join(TMP_DIR, "_next-static.tar.gz");
+    console.log("\n📦 正在压缩 _next 静态资源...");
+    run(`tar -czf "${staticZip}" -C "${OUT_DIR}" _next`);
 
-  console.log("📦 正在压缩站点文件（排除 _next）...");
-  run(`tar -czf "${siteZip}" -C "${OUT_DIR}" --exclude='_next' .`);
+    console.log("📦 正在压缩站点文件（排除 _next）...");
+    run(`tar -czf "${siteZip}" -C "${OUT_DIR}" --exclude='_next' .`);
 
-  const staticSize = (statSync(staticZip).size / 1024 / 1024).toFixed(2);
-  const siteSize = (statSync(siteZip).size / 1024 / 1024).toFixed(2);
-  console.log(
-    `\n📊 _next 静态资源: ${staticSize} MB | 站点文件: ${siteSize} MB`
-  );
+    const staticSize = (statSync(staticZip).size / 1024 / 1024).toFixed(2);
+    const siteSize = (statSync(siteZip).size / 1024 / 1024).toFixed(2);
+    console.log(
+      `\n📊 _next 静态资源: ${staticSize} MB | 站点文件: ${siteSize} MB`
+    );
+  } else {
+    console.log("\n📦 正在压缩全部站点文件（包含 _next）...");
+    run(`tar -czf "${siteZip}" -C "${OUT_DIR}" .`);
+
+    const siteSize = (statSync(siteZip).size / 1024 / 1024).toFixed(2);
+    console.log(`\n📊 站点文件: ${siteSize} MB`);
+  }
 
   // 连接服务器
   console.log(`\n🔗 连接服务器 ${SERVER_USER}@${host}...`);
@@ -158,15 +167,18 @@ async function main() {
   console.log("✓ 已连接");
 
   try {
-    // 部署 _next 静态资源
-    console.log(`\n🚀 部署 _next 静态资源到 ${STATIC_REMOTE}...`);
-    console.log("  上传中...");
-    await uploadFile(conn, staticZip, "/tmp/_next-static.tar.gz");
-    console.log("  解压中...");
-    await execRemote(
-      conn,
-      `rm -rf ${STATIC_REMOTE}/_next && mkdir -p ${STATIC_REMOTE} && cd ${STATIC_REMOTE} && tar -xzf /tmp/_next-static.tar.gz && rm -f /tmp/_next-static.tar.gz`
-    );
+    if (DEPLOY_SEPARATE_NEXT) {
+      // 部署 _next 静态资源到独立位置
+      const staticZip = join(TMP_DIR, "_next-static.tar.gz");
+      console.log(`\n🚀 部署 _next 静态资源到 ${STATIC_REMOTE}...`);
+      console.log("  上传中...");
+      await uploadFile(conn, staticZip, "/tmp/_next-static.tar.gz");
+      console.log("  解压中...");
+      await execRemote(
+        conn,
+        `rm -rf ${STATIC_REMOTE}/_next && mkdir -p ${STATIC_REMOTE} && cd ${STATIC_REMOTE} && tar -xzf /tmp/_next-static.tar.gz && rm -f /tmp/_next-static.tar.gz`
+      );
+    }
 
     // 部署站点文件
     console.log(`\n🚀 部署站点文件到 ${SITE_REMOTE}...`);
