@@ -103,7 +103,7 @@ export const createColumns = (): TableProps<DataType>["columns"] => [
     colSpan: 2,
     onHeaderCell: () => ({
       className: cn(
-        "!text-[#9CA4B1] !text-[20px] font-semibold text-center",
+        "!text-[#31373D] !text-[20px] font-semibold text-center",
         sourceHanSerif.className
       ),
     }),
