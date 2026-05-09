@@ -3,7 +3,7 @@ import type { DataType } from "./types";
 export const comparisonData: DataType[] = [
   {
     key: "1",
-    title: "引导页面组件",
+    title: "搜索引导页面组件",
     tengence: true,
     algolia: true,
     row: 1,
@@ -11,7 +11,7 @@ export const comparisonData: DataType[] = [
   },
   {
     key: "2",
-    title: "结果页面组件",
+    title: "搜索结果页面组件",
     tengence: true,
     algolia: true,
     row: 1,
@@ -30,7 +30,7 @@ export const comparisonData: DataType[] = [
   {
     key: "4",
     title: "行为数据",
-    type: "自助采集",
+    type: "自动采集",
     tengence: true,
     algolia: true,
     row: 0,
@@ -143,6 +143,7 @@ export const comparisonData: DataType[] = [
     key: "17",
     title: "相关搜索",
     type: "自助训练模型",
+    tengence: true,
     ali: true,
     row: 0,
     categoryId: "searchGuidance",
@@ -178,6 +179,7 @@ export const comparisonData: DataType[] = [
     key: "21",
     title: "分词",
     type: "自助训练模型",
+    tengence: true,
     ali: true,
     row: 0,
     categoryId: "intent",
@@ -336,32 +338,6 @@ export const comparisonData: DataType[] = [
     categoryId: "intent",
   },
   {
-    key: "39",
-    title: "紧密度",
-    type: "内置模型",
-    tengence: true,
-    algolia: true,
-    ali: true,
-    row: 3,
-    categoryId: "intent",
-  },
-  {
-    key: "40",
-    title: "紧密度",
-    type: "自助训练模型",
-    tengence: true,
-    row: 0,
-    categoryId: "intent",
-  },
-  {
-    key: "41",
-    title: "紧密度",
-    type: "定制模型",
-    tengence: true,
-    row: 0,
-    categoryId: "intent",
-  },
-  {
     key: "42",
     title: "倒排召回",
     tengence: true,
@@ -423,7 +399,7 @@ export const comparisonData: DataType[] = [
   {
     key: "48",
     title: "粗排模型",
-    type: "AI精排模型",
+    type: "定制粗排模型",
     tengence: true,
     row: 0,
     categoryId: "sort",
@@ -462,14 +438,14 @@ export const comparisonData: DataType[] = [
   {
     key: "52",
     title: "精排模型",
-    type: "AI精排模型",
+    type: "定制精排模型",
     tengence: true,
     row: 0,
     categoryId: "sort",
   },
   {
     key: "53",
-    title: "固定位置",
+    title: "插入固定位置",
     tengence: true,
     algolia: true,
     unbxd: true,
@@ -478,7 +454,7 @@ export const comparisonData: DataType[] = [
   },
   {
     key: "54",
-    title: "屏蔽",
+    title: "按条件屏蔽",
     tengence: true,
     algolia: true,
     row: 1,
@@ -511,7 +487,7 @@ export const comparisonData: DataType[] = [
   },
   {
     key: "58",
-    title: "埋点上报",
+    title: "数据源同步",
     tengence: true,
     algolia: true,
     ali: true,
@@ -520,7 +496,7 @@ export const comparisonData: DataType[] = [
   },
   {
     key: "59",
-    title: "实时埋点",
+    title: "实时数据推送",
     tengence: true,
     row: 1,
     categoryId: "dataCollect",
