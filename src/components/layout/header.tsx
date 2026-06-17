@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { href: "/", label: "首页" },
   { href: "/tengence-search", label: "通智搜索" },
   { href: "/about-us", label: "关于我们" },
 ];
@@ -27,7 +26,9 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
-        isScrolled ? "bg-white shadow-sm" : "bg-linear-to-b from-white to-transparent"
+        isScrolled
+          ? "bg-white shadow-sm"
+          : "bg-linear-to-b from-white to-transparent"
       }`}
     >
       <div className="max-w-360 flex h-15 items-center justify-between px-4 mx-auto">
@@ -46,6 +47,23 @@ export default function Header() {
 
         {/* Navigation - 中间 */}
         <nav className="flex items-center space-x-7.5">
+          <Link
+            key="/"
+            href="/"
+            className={`text-base transition-colors ${
+              pathname === "/"
+                ? "text-primary font-medium"
+                : "text-[#242430] hover:text-primary"
+            }`}
+          >
+            首页
+          </Link>
+          <a
+            href="/blog/"
+            className={`text-base transition-colors text-[#242430] hover:text-primary`}
+          >
+            博客
+          </a>
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
