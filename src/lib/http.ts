@@ -31,7 +31,7 @@ function flatResponsePlugin() {
 
 const { request, http } = createHttp({
   timeout: 60000,
-  baseURL: process.env.NODE_ENV === 'development' ? '/api' : ''
+  baseURL: process.env.NODE_ENV === 'development' ? '/api' : '/api'
 });
 
 request.use(flatResponsePlugin());
