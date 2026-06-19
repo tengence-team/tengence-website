@@ -39,7 +39,7 @@ export function CTASection() {
         <div className="mt-10">
           <div className="flex items-center space-x-3">
             <Link
-              href="//console.tengence.com/#/login"
+              href="//console.tengence.com/login"
               className="text-base font-medium px-6 py-3.5 bg-white text-primary rounded-xl"
             >
               免费试用
