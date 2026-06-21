@@ -5,11 +5,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 
-const navLinks = [
-  { href: "/tengence-search", label: "通智搜索" },
-  { href: "/about-us", label: "关于我们" },
-];
-
 export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -58,28 +53,33 @@ export default function Header() {
           >
             首页
           </Link>
+
+          <Link
+            href="/tengence-search"
+            className={`text-base transition-colors ${
+              pathname === "/tengence-search"
+                ? "text-primary font-medium"
+                : "text-[#242430] hover:text-primary"
+            }`}
+          >
+            通智搜索
+          </Link>
           <a
             href="/blog/"
             className={`text-base transition-colors text-[#242430] hover:text-primary`}
           >
             博客
           </a>
-          {navLinks.map((link) => {
-            const isActive = pathname === link.href;
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-base transition-colors ${
-                  isActive
-                    ? "text-primary font-medium"
-                    : "text-[#242430] hover:text-primary"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
+          <Link
+            href="/about-us"
+            className={`text-base transition-colors ${
+              pathname === "/about-us"
+                ? "text-primary font-medium"
+                : "text-[#242430] hover:text-primary"
+            }`}
+          >
+            关于我们
+          </Link>
         </nav>
 
         {/* Auth Buttons - 右边 */}
