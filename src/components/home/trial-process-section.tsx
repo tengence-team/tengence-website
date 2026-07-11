@@ -26,7 +26,7 @@ const CONNECTOR_POSITIONS = [
 export function TrialProcessSection() {
   return (
     <section className="bg-(--gradient-white-fade) m-5">
-      <div className="max-w-360 mx-auto p-10 bg-[#f9f9fb80] rounded-[40px]">
+      <div className="max-w-360 mx-auto p-10 bg-[#F3F4F8] rounded-[40px] mt-10">
         <h2
           className={cn(
             "text-[44px] font-semibold text-black text-center",

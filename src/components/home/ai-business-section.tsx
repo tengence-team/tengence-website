@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import localFont from "next/font/local";
-import buildingImg from "@/assets/images/building.svg";
-import expertImg from "@/assets/images/expert.svg";
-import practiceImg from "@/assets/images/practice.svg";
-import increaseImg from "@/assets/images/increase.svg";
+import buildingImg from "@/assets/images/building.png";
+import expertImg from "@/assets/images/expert.png";
+import practiceImg from "@/assets/images/practice.png";
+import increaseImg from "@/assets/images/increase.png";
 import dotBgImg from "@/assets/images/dot-bg.png";
 
 const sourceHanSerif = localFont({
@@ -52,7 +52,7 @@ export function AIBusinessSection() {
     <section className="m-5">
       <div
         className={cn(
-          "max-w-360 mx-auto p-10 bg-[#f9f9fb80] rounded-[40px] bg-size-[100%]",
+          "max-w-360 mx-auto p-10 bg-[#F3F4F8] rounded-[40px] bg-size-[100%] mt-10",
           sourceHanSerif.className
         )}
         style={{ backgroundImage: `url('${dotBgImg.src}')` }}

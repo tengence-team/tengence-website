@@ -17,7 +17,7 @@ const sourceHanSerif = localFont({
 export function AdvantagesSection() {
   return (
     <section className="bg-(--gradient-white-fade)">
-      <div className="max-w-360 mx-auto p-10 bg-[#f9f9fb80] rounded-[40px]">
+      <div className="max-w-360 mx-auto p-10 bg-[#F3F4F8] rounded-[40px] mt-5">
         <SectionTitle
           prefix="我们的"
           highlight="优势"
