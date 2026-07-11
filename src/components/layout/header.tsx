@@ -83,18 +83,18 @@ export default function Header() {
         </nav>
 
         {/* Auth Buttons - 右边 */}
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-4">
           <Link
-            href="//console.tengence.com/register"
-            className="text-base text-[#242430] hover:text-primary transition-colors"
+            href="/contact-us"
+            className="text-sm font-medium px-5 py-2 border border-solid border-[#1D2939] text-[#1D2939] rounded-lg"
           >
-            注册
+            联系我们
           </Link>
           <Link
             href="//console.tengence.com/login"
             className="text-sm font-medium px-5 py-2 bg-primary text-white hover:bg-primary/90 transition-colors rounded-lg"
           >
-            免费开始
+            登陆/注册
           </Link>
         </div>
       </div>
