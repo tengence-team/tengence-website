@@ -28,7 +28,7 @@ export function HeroSection() {
             sourceHanSerif.className
           )}
         >
-          AI驱动的一站式流量增长平台
+          AI 驱动的一站式流量增长平台
         </h1>
         <p className="text-xl text-[#373850] opacity-90 text-center">
           我们以 AI

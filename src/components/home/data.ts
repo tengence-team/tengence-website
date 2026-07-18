@@ -33,25 +33,25 @@ export interface TrialStepData {
 
 export const featureCards: FeatureData[] = [
   {
-    highlight: "一分钟",
+    highlight: "一分钟 ",
     title: "创建应用",
     description: "从模板一键创建应用，免去繁琐的环境搭建与配置。",
     image: createAppImg,
   },
   {
-    highlight: "一小时",
+    highlight: "一小时 ",
     title: "接入数据",
     description: "支持多种数据源接入，可视化配置，无需写代码。",
     image: createDatasetImg,
   },
   {
-    highlight: "一天",
+    highlight: "一天 ",
     title: "接入产品",
     description: "快速集成产品能力，当天即可在业务系统上线试用。",
     image: useComponentImg,
   },
   {
-    highlight: "一周",
+    highlight: "一周 ",
     title: "评估效果",
     description: "提供详尽报表和 A/B 测试工具，一周内评估业务效果。",
     image: evaluationEffectImg,
@@ -87,26 +87,26 @@ export const trialSteps: TrialStepData[] = [
 
 export const advantageCards: AdvantageData[] = [
   {
-    highlight: "「快」",
-    title: "唯快不破",
+    highlight: "「快」 ",
+    title: "一天上线",
     items: [
       { text: "0 代码低门槛，1 天极速上线" },
-      { text: "弹性扩缩容，峰值流量平稳承接" },
-      { text: "灰度发布验证，业务优化无扰动" },
+      { text: "运营干预实时生效，业务效果立即可见" },
+      { text: "效果数据实时反馈，快速试错找到最优解" },
     ],
   },
   {
-    highlight: "「准」",
+    highlight: "「准」 ",
     title: "精准提效",
     image: efficiencyImg,
     items: [
-      { text: "行业专属模型，冷启效果起点高" },
+      { text: "行业专属模型，冷启动效果起点高" },
       { text: "洞察用户行为，千人千面精准触达" },
       { text: "零代码智能调优，及时适配业务变化" },
     ],
   },
   {
-    highlight: "「稳」",
+    highlight: "「稳」 ",
     title: "安心运营",
     image: stabilityImg,
     items: [
@@ -116,7 +116,7 @@ export const advantageCards: AdvantageData[] = [
     ],
   },
   {
-    highlight: "「省」",
+    highlight: "「省」 ",
     title: "降本增效",
     items: [
       { text: "0 成本入门，成熟方案开箱即用" },

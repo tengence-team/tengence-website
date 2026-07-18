@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import localFont from "next/font/local";
 
 export const metadata: Metadata = {
-  title: "关于我们 - 通智云 | AI驱动的一站式流量增长平台",
+  title: "关于我们 - 通智云 | AI 驱动的一站式流量增长平台",
   description:
     "通智云深耕企业智能化云基础设施领域，聚焦流量转化、智能营销、商业分析、智能体服务四大核心方向，提供可落地、可观测、可调优的全栈智能化解决方案。",
   keywords: [
