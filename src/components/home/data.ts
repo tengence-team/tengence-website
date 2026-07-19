@@ -35,7 +35,7 @@ export const featureCards: FeatureData[] = [
   {
     highlight: "一分钟 ",
     title: "创建应用",
-    description: "从模板一键创建应用，免去繁琐的环境搭建与配置。",
+    description: "从模板一键创建应用，免去繁琐的操作和配置。",
     image: createAppImg,
   },
   {
