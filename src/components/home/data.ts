@@ -41,7 +41,7 @@ export const featureCards: FeatureData[] = [
   {
     highlight: "一小时 ",
     title: "接入数据",
-    description: "支持多种数据源接入，可视化配置，无需写代码。",
+    description: "支持多种数据源接入，可视化配置，无需编写代码。",
     image: createDatasetImg,
   },
   {
