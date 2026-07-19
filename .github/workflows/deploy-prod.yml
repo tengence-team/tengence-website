@@ -1,0 +1,393 @@
+name: Deploy to Production
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: '分支或标签'
+        required: false
+        type: string
+        default: 'main'
+
+env:
+  REGISTRY: registry.cn-shenzhen.aliyuncs.com
+  NAMESPACE: tengence
+  ENVIRONMENT: prod
+  ENV_FILE: .env.prod
+  DEPLOY_PATH: /data/tengence-deploy/tengence-website
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy Website
+    runs-on: ubuntu-latest
+
+    steps:
+      # ============================================
+      # 步骤1: 显示部署信息
+      # ============================================
+      - name: Display Deployment Info
+        run: |
+          echo "🚀 前端部署信息"
+          echo "================================================"
+          echo "服务名称: tengence-website"
+          echo "源 SHA: ${{ github.sha }}"
+          echo "源 Ref: ${{ github.ref }}"
+          echo "触发者: ${{ github.actor }}"
+          echo "环境: ${{ env.ENVIRONMENT }}"
+          echo "================================================"
+
+      # ============================================
+      # 步骤2: 检出源代码
+      # ============================================
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref || github.sha }}
+
+      # ============================================
+      # 步骤3: 设置 Docker Buildx
+      # ============================================
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      # ============================================
+      # 步骤4: 登录阿里云镜像仓库
+      # ============================================
+      - name: Login to Aliyun Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.ALIYUN_REGISTRY_USERNAME }}
+          password: ${{ secrets.ALIYUN_REGISTRY_PASSWORD }}
+
+      # ============================================
+      # 步骤5: 生成镜像 TAG
+      # ============================================
+      - name: Generate Image Tag
+        id: tag
+        run: |
+          SOURCE_SHA="${{ github.sha }}"
+          SHORT_SHA=$(echo "${SOURCE_SHA}" | cut -c1-7)
+          IMAGE_TAG="${{ env.ENVIRONMENT }}-${SHORT_SHA}"
+          echo "IMAGE_TAG=${IMAGE_TAG}" >> $GITHUB_OUTPUT
+          echo "🏷️  镜像 TAG: ${IMAGE_TAG}"
+
+      # ============================================
+      # 步骤6: 提取源代码 Tag
+      # ============================================
+      - name: Extract Source Tag
+        id: source_tag
+        run: |
+          REF="${{ github.ref }}"
+          if [[ "$REF" == refs/tags/* ]]; then
+            TAG="${REF#refs/tags/}"
+            echo "tag=$TAG" >> $GITHUB_OUTPUT
+            echo "SOURCE_TAG=$TAG" >> $GITHUB_ENV
+            echo "🏷️  源代码 Tag: ${TAG}"
+          else
+            echo "tag=branch" >> $GITHUB_OUTPUT
+            echo "SOURCE_TAG=branch" >> $GITHUB_ENV
+            echo "🔀 非Tag触发，使用分支"
+          fi
+
+      # ============================================
+      # 步骤7: 构建并推送镜像 (特定版本)
+      # ============================================
+      - name: Build and Push Docker Image (Specific Version)
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.NAMESPACE }}/tengence-website:${{ steps.tag.outputs.IMAGE_TAG }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            PNPM_VERSION=10.28.2
+            NODE_ENV=production
+
+      # ============================================
+      # 步骤8: 构建并推送镜像 (Latest 标签)
+      # ============================================
+      - name: Build and Push Docker Image (Latest Tag)
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.NAMESPACE }}/tengence-website:${{ env.ENVIRONMENT }}-latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            PNPM_VERSION=10.28.2
+            NODE_ENV=production
+
+      # ============================================
+      # 步骤9: 部署到服务器
+      # ============================================
+      - name: Deploy to Production Server
+        env:
+          SSH_HOST: ${{ secrets.PROD_SERVER_HOST }}
+          SSH_USER: ${{ secrets.PROD_SERVER_USER }}
+          SSH_PORT: ${{ secrets.PROD_SERVER_PORT }}
+        run: |
+          # 设置 SSH 密钥
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PROD_SERVER_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT}"
+
+          # 通过 SSH 执行部署脚本
+          ssh ${SSH_OPTS} -i ~/.ssh/deploy_key ${SSH_USER}@${SSH_HOST} bash << 'ENDSSH'
+            echo "🚀 开始部署 tengence-website"
+            echo "================================================"
+
+            # ========== 变量定义区 ==========
+            DEPLOY_PATH="${{ env.DEPLOY_PATH }}"
+            ENV_FILE="${{ env.ENV_FILE }}"
+            ENVIRONMENT="${{ env.ENVIRONMENT }}"
+            IMAGE_TAG="${{ steps.tag.outputs.IMAGE_TAG }}"
+
+            echo "📌 部署路径: ${DEPLOY_PATH}"
+            echo "📌 环境文件: ${ENV_FILE}"
+            echo "📌 镜像 TAG: ${IMAGE_TAG}"
+
+            # ============================================
+            # 1. 检查部署目录
+            # ============================================
+            if [ ! -d "${DEPLOY_PATH}" ]; then
+              echo "❌ 错误: 部署目录 ${DEPLOY_PATH} 不存在"
+              exit 1
+            fi
+
+            cd ${DEPLOY_PATH}
+
+            # ============================================
+            # 2. 检查 .env 文件
+            # ============================================
+            echo ""
+            echo "📄 检查 .env 文件..."
+            if [ ! -f "${ENV_FILE}" ]; then
+              echo "❌ 错误: ${ENV_FILE} 文件不存在"
+              exit 1
+            fi
+            echo "✅ 环境配置文件存在: ${ENV_FILE}"
+
+            # 备份当前 .env 文件
+            if [ -f "${ENV_FILE}" ]; then
+              cp ${ENV_FILE} ${ENV_FILE}.backup.$(date +%Y%m%d_%H%M%S)
+              echo "✅ 已备份 .env 文件"
+            fi
+
+            # ============================================
+            # 3. 更新镜像 tag
+            # ============================================
+            echo ""
+            echo "🔄 更新镜像 tag..."
+            echo "更新 TENGENCE_WEBSITE_TAG=${IMAGE_TAG}"
+
+            # 更新 .env 文件中的镜像 tag
+            sed -i.bak "s/TENGENCE_WEBSITE_TAG=.*/TENGENCE_WEBSITE_TAG=${IMAGE_TAG}/" ${ENV_FILE}
+
+            # 显示更新后的配置
+            echo "✅ 更新后的配置："
+            grep "TENGENCE_WEBSITE_TAG" ${ENV_FILE}
+
+            # ============================================
+            # 4. 拉取最新镜像并重启服务
+            # ============================================
+            echo ""
+            echo "📥 拉取镜像: tengence-website"
+            docker compose --env-file ${ENV_FILE} pull tengence-website
+
+            echo ""
+            echo "🔄 重启服务: tengence-website"
+            docker compose --env-file ${ENV_FILE} up -d --no-deps tengence-website
+
+            # 清理未使用的镜像
+            echo ""
+            echo "🧹 清理旧镜像"
+            docker image prune -f
+
+            # 查看服务状态
+            echo ""
+            echo "📊 服务状态"
+            docker compose --env-file ${ENV_FILE} ps tengence-website
+
+            # 查看最近的日志
+            echo ""
+            echo "📋 最近日志"
+            docker compose --env-file ${ENV_FILE} logs --tail=20 tengence-website
+          ENDSSH
+
+      # ============================================
+      # 步骤10: 健康检查
+      # ============================================
+      - name: Health Check
+        env:
+          SSH_HOST: ${{ secrets.PROD_SERVER_HOST }}
+          SSH_USER: ${{ secrets.PROD_SERVER_USER }}
+          SSH_PORT: ${{ secrets.PROD_SERVER_PORT }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PROD_SERVER_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          SSH_OPTS="-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -p ${SSH_PORT}"
+
+          # 通过 SSH 执行健康检查
+          ssh ${SSH_OPTS} -i ~/.ssh/deploy_key ${SSH_USER}@${SSH_HOST} bash << 'ENDSSH'
+            echo "🏥 执行健康检查..."
+            echo "================================================"
+
+            DEPLOY_PATH="${{ env.DEPLOY_PATH }}"
+            ENV_FILE="${{ env.ENV_FILE }}"
+
+            cd ${DEPLOY_PATH}
+
+            HEALTH_PORT=8080
+            HEALTH_PATH="/index.html"
+
+            # 等待服务启动
+            echo "⏳ 等待服务启动（60秒）..."
+            sleep 60
+
+            # 健康检查（最多尝试15次，每次间隔10秒）
+            echo "🔍 开始健康检查..."
+            for i in {1..15}; do
+              echo "尝试 $i/15..."
+              if curl -f -s http://localhost:${HEALTH_PORT}${HEALTH_PATH} > /dev/null 2>&1; then
+                echo "✅ 服务健康检查通过"
+                exit 0
+              fi
+              sleep 10
+            done
+
+            echo "❌ 服务健康检查失败"
+            echo "📋 服务日志："
+            docker compose --env-file ${ENV_FILE} logs --tail=50 tengence-website
+            exit 1
+          ENDSSH
+
+      # ============================================
+      # 步骤11: 部署成功通知
+      # ============================================
+      - name: Deployment Success
+        if: success()
+        run: |
+          echo "✅ 前端部署成功！"
+          echo "================================================"
+          echo "服务: tengence-website"
+          echo "环境: ${{ env.ENVIRONMENT }}"
+          echo "镜像 TAG: ${{ steps.tag.outputs.IMAGE_TAG }}"
+          echo "镜像地址: ${{ env.REGISTRY }}/${{ env.NAMESPACE }}/tengence-website:${{ steps.tag.outputs.IMAGE_TAG }}"
+          echo "================================================"
+
+      # ============================================
+      # 步骤12: 发送成功通知到飞书
+      # ============================================
+      - name: Send Success Notification to Feishu
+        if: success()
+        run: |
+          curl -X POST ${{ secrets.FEISHU_WEBHOOK }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "msg_type": "interactive",
+              "card": {
+                "config": {
+                  "wide_screen_mode": true,
+                  "enable_forward": true
+                },
+                "elements": [
+                  {
+                    "tag": "div",
+                    "text": {
+                      "content": "✅ **[Production] 前端部署成功**",
+                      "tag": "lark_md"
+                    }
+                  },
+                  {
+                    "tag": "div",
+                    "text": {
+                      "content": "**服务**: tengence-website\n**环境**: Production\n**代码Tag**: ${{ env.SOURCE_TAG }}\n**镜像TAG**: ${{ steps.tag.outputs.IMAGE_TAG }}\n**提交SHA**: ${{ github.sha }}\n**触发者**: ${{ github.actor }}",
+                      "tag": "lark_md"
+                    }
+                  }
+                ],
+                "header": {
+                  "template": "blue",
+                  "title": {
+                    "content": "[Production] 部署成功",
+                    "tag": "plain_text"
+                  }
+                }
+              }
+            }'
+
+      # ============================================
+      # 步骤13: 部署失败通知
+      # ============================================
+      - name: Deployment Failed
+        if: failure()
+        run: |
+          echo "❌ 前端部署失败！"
+          echo "================================================"
+          echo "服务: tengence-website"
+          echo "环境: ${{ env.ENVIRONMENT }}"
+          echo "请检查上面的日志了解失败原因"
+          echo "================================================"
+
+      # ============================================
+      # 步骤14: 发送失败通知到飞书
+      # ============================================
+      - name: Send Failed Notification to Feishu
+        if: failure()
+        run: |
+          curl -X POST ${{ secrets.FEISHU_WEBHOOK }} \
+            -H 'Content-Type: application/json' \
+            -d '{
+              "msg_type": "interactive",
+              "card": {
+                "config": {
+                  "wide_screen_mode": true,
+                  "enable_forward": true
+                },
+                "elements": [
+                  {
+                    "tag": "div",
+                    "text": {
+                      "content": "❌ **[Production] 前端部署失败**",
+                      "tag": "lark_md"
+                    }
+                  },
+                  {
+                    "tag": "div",
+                    "text": {
+                      "content": "**服务**: tengence-website\n**环境**: Production\n**代码Tag**: ${{ env.SOURCE_TAG }}\n**提交SHA**: ${{ github.sha }}\n**触发者**: ${{ github.actor }}\n\n⚠️ **请立即检查日志了解失败原因**",
+                      "tag": "lark_md"
+                    }
+                  }
+                ],
+                "header": {
+                  "template": "red",
+                  "title": {
+                    "content": "[Production] 部署失败",
+                    "tag": "plain_text"
+                  }
+                },
+                "actions": [
+                  {
+                    "type": "button",
+                    "text": {
+                      "content": "查看工作流日志",
+                      "tag": "lark_md"
+                    },
+                    "url": "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                  }
+                ]
+              }
+            }'
