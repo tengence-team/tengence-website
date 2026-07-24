@@ -1,20 +1,8 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import localFont from "next/font/local";
+import { sourceHanSerif } from "@/fonts/source-han-serif";
 import trialImg from "@/assets/images/trial.png";
 
-const sourceHanSerif = localFont({
-  src: [
-    {
-      path: "../../fonts/SourceHanSerifCN-SemiBold.otf",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-source-han-serif",
-  display: "swap",
-  preload: true,
-});
 
 export function CTASection() {
   return (

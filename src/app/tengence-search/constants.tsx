@@ -1,23 +1,12 @@
 import type { TableProps } from "antd";
 import { ColumnType } from "antd/es/table";
 import { cn } from "@/lib/utils";
-import localFont from "next/font/local";
+import { sourceHanSerif } from "@/fonts/source-han-serif";
 import type { DataType, AdvantageCard, FeatureCategory } from "./types";
 import { CheckCell } from "./components/CheckCell";
 import { comparisonData } from "./comparison-data";
 
-export const sourceHanSerif = localFont({
-  src: [
-    {
-      path: "../../fonts/SourceHanSerifCN-SemiBold.otf",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-source-han-serif",
-  display: "swap",
-  preload: true,
-});
+export { sourceHanSerif };
 
 export const advantageCards: AdvantageCard[] = [
   {

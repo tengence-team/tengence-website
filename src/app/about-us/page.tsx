@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import localFont from "next/font/local";
+import { sourceHanSerif } from "@/fonts/source-han-serif";
 
 export const metadata: Metadata = {
   title: "关于我们 - 通智云 | AI 驱动的一站式流量增长平台",
@@ -40,19 +40,6 @@ import awardImg from "@/assets/images/award.svg";
 import faceSmileImg from "@/assets/images/face-smile.svg";
 import beakerImg from "@/assets/images/beaker.svg";
 import cooperateImg from "@/assets/images/cooperate.png";
-
-const sourceHanSerif = localFont({
-  src: [
-    {
-      path: "../../fonts/SourceHanSerifCN-SemiBold.otf",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-source-han-serif",
-  display: "swap",
-  preload: true,
-});
 
 export default function AboutUsPage() {
   return (

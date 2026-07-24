@@ -1,24 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import localFont from "next/font/local";
+import { sourceHanSerif } from "@/fonts/source-han-serif";
 import { Popover } from "antd";
 import { cn } from "@/lib/utils";
 import messageIcon from "@/assets/icons/message-dots-circle.svg";
 import vxQrcode from "@/assets/images/vx.png";
 
-const sourceHanSerif = localFont({
-  src: [
-    {
-      path: "../../fonts/SourceHanSerifCN-SemiBold.otf",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-source-han-serif",
-  display: "swap",
-  preload: true,
-});
 
 const content = (
   <div className="flex flex-col items-center justify-center">

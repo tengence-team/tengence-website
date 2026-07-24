@@ -1,24 +1,12 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import localFont from "next/font/local";
+import { sourceHanSerif } from "@/fonts/source-han-serif";
 import buildingImg from "@/assets/images/building.png";
 import expertImg from "@/assets/images/expert.png";
 import practiceImg from "@/assets/images/practice.png";
 import increaseImg from "@/assets/images/increase.png";
 import dotBgImg from "@/assets/images/dot-bg.png";
 
-const sourceHanSerif = localFont({
-  src: [
-    {
-      path: "../../fonts/SourceHanSerifCN-SemiBold.otf",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-source-han-serif",
-  display: "swap",
-  preload: true,
-});
 
 const aiBusinessItems = [
   {

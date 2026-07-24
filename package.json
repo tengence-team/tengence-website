@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "subset:font": "node scripts/subset-font.mjs",
+    "prebuild": "npm run subset:font",
     "build": "next build",
     "build:test": "next build",
     "build:staging": "cross-env next build",
@@ -41,6 +43,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
     "ssh2": "^1.17.0",
+    "subset-font": "^2.5.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

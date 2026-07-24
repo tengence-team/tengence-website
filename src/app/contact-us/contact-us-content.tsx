@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import localFont from "next/font/local";
+import { sourceHanSerif } from "@/fonts/source-han-serif";
 import Image from "next/image";
 import * as Api from "@/api";
 import checkCirclePrimaryIcon from "@/assets/icons/check-circle-primary.svg";
@@ -11,18 +11,6 @@ import { Button, Form, Input, Select, Space } from "antd";
 
 const { Option } = Select;
 
-const sourceHanSerif = localFont({
-  src: [
-    {
-      path: "../../fonts/SourceHanSerifCN-SemiBold.otf",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-source-han-serif",
-  display: "swap",
-  preload: true,
-});
 
 export default function ContactUsContent() {
   const [form] = Form.useForm();

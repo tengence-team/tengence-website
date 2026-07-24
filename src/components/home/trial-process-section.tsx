@@ -1,20 +1,8 @@
 import { cn } from "@/lib/utils";
 import { TrialStep, trialSteps } from ".";
-import localFont from "next/font/local";
+import { sourceHanSerif } from "@/fonts/source-han-serif";
 import circulationImg from "@/assets/images/circulation.svg";
 
-const sourceHanSerif = localFont({
-  src: [
-    {
-      path: "../../fonts/SourceHanSerifCN-SemiBold.otf",
-      weight: "600",
-      style: "normal",
-    },
-  ],
-  variable: "--font-source-han-serif",
-  display: "swap",
-  preload: true,
-});
 
 const CONNECTOR_POSITIONS = [
   "first",
