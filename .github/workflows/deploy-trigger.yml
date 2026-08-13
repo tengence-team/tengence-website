@@ -12,15 +12,6 @@ jobs:
     steps:
       - name: Trigger Production Deployment
         run: |
-          cat <<EOF | gh api --method POST repos/tengence-team/tengence-deployment/dispatches --input -
-          {
-            "event_type": "deploy-web-prod",
-            "client_payload": {
-              "repository": "tengence-team/tengence-website",
-              "ref": "${{ github.ref }}",
-              "sha": "${{ github.sha }}"
-            }
-          }
-          EOF
+          echo '{"event_type":"deploy-web-prod","client_payload":{"repository":"${{ github.repository }}","ref":"${{ github.ref }}","sha":"${{ github.sha }}"}}' | gh api --method POST repos/tengence-team/tengence-deployment/dispatches --input -
         env:
           GH_TOKEN: ${{ github.token }}
