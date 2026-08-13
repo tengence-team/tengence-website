@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Trigger Production Deployment
         run: |
-          echo '{"event_type":"deploy-web-prod","client_payload":{"repository":"${{ github.repository }}","ref":"${{ github.ref }}","sha":"${{ github.sha }}"}}' | gh api --method POST repos/tengence-team/tengence-deployment/dispatches --input -
-        env:
-          GH_TOKEN: ${{ github.token }}
+          curl -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ github.token }}" \
+            https://api.github.com/repos/tengence-team/tengence-deployment/dispatches \
+            -d '{"event_type":"deploy-web-prod","client_payload":{"repository":"${{ github.repository }}","ref":"${{ github.ref }}","sha":"${{ github.sha }}"}}'
