@@ -106,6 +106,7 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.NAMESPACE }}/tengence-website:${{ steps.tag.outputs.IMAGE_TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          provenance: false
           build-args: |
             PNPM_VERSION=10.28.2
             NODE_ENV=production
@@ -123,6 +124,7 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.NAMESPACE }}/tengence-website:${{ env.ENVIRONMENT }}-latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          provenance: false
           build-args: |
             PNPM_VERSION=10.28.2
             NODE_ENV=production
