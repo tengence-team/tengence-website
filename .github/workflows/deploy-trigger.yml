@@ -12,7 +12,6 @@ jobs:
     steps:
       - name: Trigger Production Deployment
         run: |
-          gh repo set-default tengence-team/tengence-deployment
           cat <<EOF | gh api --method POST repos/tengence-team/tengence-deployment/dispatches --input -
           {
             "event_type": "deploy-web-prod",
