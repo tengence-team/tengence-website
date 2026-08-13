@@ -16,11 +16,11 @@ export function HeroSection() {
             sourceHanSerif.className
           )}
         >
-          AI 驱动的一站式流量增长平台
+          公域引流获客源，私域转化促成交
         </h1>
         <p className="text-xl text-[#373850] opacity-90 text-center">
           我们以 AI
-          重塑全渠道流量获取与转化，用数据和智能技术洞察增长机会，为企业打造可持续的业务增长引擎
+          重塑全渠道流量获取与转化，为企业打造公域引流获客与私域流量转化的全链路业务增长引擎
         </p>
       </div>
     </section>

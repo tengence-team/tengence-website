@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "隐私政策 - 通智云 | AI 驱动的引流获客与流量转化一站式解决方案",
+};
+
 export default function UserAgreementPage() {
   return (
     <div className="flex items-center justify-center">

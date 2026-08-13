@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import ContactUsContent from "./contact-us-content";
 
 export const metadata: Metadata = {
-  title: "联系我们 - 通智云 | AI 驱动的一站式流量增长平台",
+  title: "联系我们 - 通智云 | AI 驱动的引流获客与流量转化一站式解决方案",
   description: "联系通智云团队，获取专家业务诊断、免费POC测试、定制方案和专属报价。我们的专业团队随时为您提供AI营销解决方案咨询服务。",
   keywords: ["通智云", "联系通智云", "商务合作", "AI咨询", "POC测试", "定制方案"],
   alternates: {

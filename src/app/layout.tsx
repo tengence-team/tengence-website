@@ -9,7 +9,7 @@ import "github-markdown-css/github-markdown-light.css";
 
 // 首页TDK
 export const metadata: Metadata = {
-  title: "通智云 - AI 驱动的一站式流量增长平台 | 企业引流获客与流量转化解决方案",
+  title: "通智云 | AI 驱动的引流获客与流量转化一站式解决方案",
   keywords: [
     "通智云",
     "Tengence",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     canonical: "https://www.tengence.com",
   },
   openGraph: {
-    title: "通智云 - AI 驱动的一站式流量增长平台",
+    title: "通智云 | AI 驱动的引流获客与流量转化一站式解决方案",
     description:
       "提供智能搜索、智能推荐、SEO优化、数据分析等全栈产品，助力企业实现全域流量获取与私域流量转化。",
     url: "https://www.tengence.com",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "通智云 - AI 驱动的一站式流量增长平台",
+    title: "通智云 | AI 驱动的引流获客与流量转化一站式解决方案",
     description: "提供智能搜索、智能推荐、SEO优化、数据分析等全栈产品",
     images: ["https://www.tengence.com/company-name.svg"],
   },

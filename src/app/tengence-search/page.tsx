@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import TengenceSearchContent from "./tengence-search-content";
 
 export const metadata: Metadata = {
-  title: "通智搜索 - 智能企业级搜索引擎 | AI驱动的搜索解决方案",
+  title: "通智搜索 | AI 驱动的企业级智能搜索引擎",
   description: "通智搜索是AI时代专为企业打造的智能搜索引擎，提供智能搜索、智能推荐、数据分析等全栈产品。支持电商、内容社区、企业知识管理等多种场景，助力企业实现流量转化与业务增长。",
   keywords: [
     "通智搜索",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     canonical: "https://www.tengence.com/tengence-search",
   },
   openGraph: {
-    title: "通智搜索 - 智能企业级搜索引擎",
+    title: "通智搜索 | AI 驱动的企业级智能搜索引擎",
     description: "AI驱动的企业级智能搜索平台，支持电商、内容社区、企业知识管理等多种场景，提供免费版、基础版、专业版、企业版和定制版等多种方案。",
     url: "https://www.tengence.com/tengence-search",
     siteName: "通智云",
