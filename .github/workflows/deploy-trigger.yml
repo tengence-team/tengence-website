@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*.*.*'
 
+permissions:
+  contents: read
+
 jobs:
   trigger-deployment:
     name: Trigger Deployment
@@ -12,8 +15,12 @@ jobs:
     steps:
       - name: Trigger Production Deployment
         run: |
-          curl -X POST \
-            -H "Accept: application/vnd.github+json" \
-            -H "Authorization: Bearer ${{ github.token }}" \
-            https://api.github.com/repos/tengence-team/tengence-deployment/dispatches \
-            -d '{"event_type":"deploy-web-prod","client_payload":{"repository":"${{ github.repository }}","ref":"${{ github.ref }}","sha":"${{ github.sha }}"}}'
+          gh api \
+            --method POST \
+            /repos/tengence-team/tengence-deployment/dispatches \
+            -f event_type=deploy-web-prod \
+            -f client_payload[repository]=${{ github.repository }} \
+            -f client_payload[ref]=${{ github.ref }} \
+            -f client_payload[sha]=${{ github.sha }}
+        env:
+          GH_TOKEN: ${{ secrets.DEPLOYMENT_REPO_TOKEN }}
