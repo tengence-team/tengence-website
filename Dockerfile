@@ -16,7 +16,8 @@ WORKDIR /app
   COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 
 # 安装依赖（包括workspace中所有包的依赖）
-RUN pnpm install --frozen-lockfile
+# 使用 BuildKit 缓存挂载，pnpm 缓存在多次构建间共享
+RUN --mount=type=cache,target=/root/.local/share/pnpm/store pnpm install --frozen-lockfile
 
 # 复制其他源代码
 COPY . .
