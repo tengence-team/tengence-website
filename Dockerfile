@@ -1,8 +1,14 @@
 # 构建阶段 - 使用 Node.js 22 Alpine 镜像
 FROM docker.m.daocloud.io/library/node:22-alpine AS builder
 
+# 配置国内 npm 镜像源（淘宝镜像）
+RUN npm config set registry https://registry.npmmirror.com
+
 # 全局安装 pnpm 包管理器
 RUN npm install -g pnpm@10.28.2
+
+# 配置 pnpm 使用国内镜像源
+RUN pnpm config set registry https://registry.npmmirror.com
 
 WORKDIR /app
 
