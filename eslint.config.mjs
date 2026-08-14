@@ -1,3 +1,5 @@
+// Tengence PC端官网 ESLint 配置
+// 更新时间：2025-08-14
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
