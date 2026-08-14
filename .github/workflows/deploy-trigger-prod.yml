@@ -1,4 +1,4 @@
-name: Deploy Trigger
+name: Deploy Trigger (Production)
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   trigger-deployment:
-    name: Trigger Deployment
+    name: Trigger Production Deployment
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Production Deployment

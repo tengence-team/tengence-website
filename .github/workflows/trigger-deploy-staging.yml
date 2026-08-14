@@ -1,0 +1,96 @@
+name: Trigger Deploy Website to Staging
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - '.gitignore'
+
+permissions:
+  contents: read
+
+jobs:
+  trigger-deploy:
+    name: Trigger Deployment
+    runs-on: ubuntu-latest
+    if: github.ref_type == 'branch'  # 只在分支推送时运行，tag 推送时跳过
+
+    steps:
+      # ============================================
+      # 步骤1: 获取提交信息
+      # ============================================
+      - name: Get Commit Info
+        id: commit
+        run: |
+          echo "SHA=${{ github.sha }}" >> $GITHUB_OUTPUT
+          echo "REF=${{ github.ref }}" >> $GITHUB_OUTPUT
+          echo "ACTOR=${{ github.actor }}" >> $GITHUB_OUTPUT
+          echo "TIMESTAMP=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_OUTPUT
+
+      # ============================================
+      # 步骤2: 触发部署工作流
+      # ============================================
+      - name: Trigger Deploy Workflow
+        uses: actions/github-script@v6
+        with:
+          github-token: ${{ secrets.DEPLOYMENT_REPO_TOKEN }}
+          script: |
+            const owner = 'tengence-team';
+            const repo = 'tengence-deployment';
+            const eventType = 'deploy-website-staging';
+
+            const clientPayload = {
+              service: 'website',
+              repository: '${{ github.repository }}',
+              sha: '${{ steps.commit.outputs.SHA }}',
+              ref: '${{ steps.commit.outputs.REF }}',
+              actor: '${{ steps.commit.outputs.ACTOR }}',
+              triggered_at: '${{ steps.commit.outputs.TIMESTAMP }}'
+            };
+
+            console.log('🚀 触发部署工作流');
+            console.log('================================================');
+            console.log('目标仓库:', `${owner}/${repo}`);
+            console.log('事件类型:', eventType);
+            console.log('服务名称:', clientPayload.service);
+            console.log('源仓库:', clientPayload.repository);
+            console.log('提交 SHA:', clientPayload.sha);
+            console.log('分支:', clientPayload.ref);
+            console.log('触发者:', clientPayload.actor);
+            console.log('触发时间:', clientPayload.triggered_at);
+            console.log('================================================');
+
+            try {
+              const response = await github.rest.repos.createDispatchEvent({
+                owner: owner,
+                repo: repo,
+                event_type: eventType,
+                client_payload: clientPayload
+              });
+
+              console.log('✅ 部署工作流已触发');
+              console.log('响应状态:', response.status);
+            } catch (error) {
+              console.error('❌ 触发部署工作流失败:', error.message);
+              throw error;
+            }
+
+      # ============================================
+      # 步骤3: 显示触发结果
+      # ============================================
+      - name: Display Trigger Result
+        run: |
+          echo "✅ 部署触发成功！"
+          echo "================================================"
+          echo "服务: PC端官网 (website)"
+          echo "提交 SHA: ${{ steps.commit.outputs.SHA }}"
+          echo "分支: ${{ steps.commit.outputs.REF }}"
+          echo "触发者: ${{ steps.commit.outputs.ACTOR }}"
+          echo "触发时间: ${{ steps.commit.outputs.TIMESTAMP }}"
+          echo "================================================"
+          echo "部署工作流已在 tengence-deployment 仓库中触发"
+          echo "请访问以下链接查看部署进度："
+          echo "https://github.com/tengence-team/tengence-deployment/actions"
